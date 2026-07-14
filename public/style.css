@@ -70,7 +70,7 @@ a { color: inherit; }
   top: 0;
   z-index: 100;
   padding: 20px clamp(20px, 5vw, 60px);
-  background: rgba(227, 214, 195, 0.85);
+  background: rgba(251, 248, 243, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(61, 43, 82, 0.08);
 }
@@ -190,6 +190,8 @@ a { color: inherit; }
   opacity: 0.5;
   z-index: 0;
   animation: drift-blob 18s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 .blob-1 { width: 420px; height: 420px; background: var(--lavender); top: -160px; right: -100px; }
 .blob-2 { width: 320px; height: 320px; background: var(--sage); bottom: -140px; left: -80px; opacity: 0.35; animation-delay: -6s; }
@@ -289,77 +291,42 @@ h1 em { font-style: italic; font-weight: 500; color: var(--violet-deep); }
 
 .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 
-/* ===== Phone mockup placeholder ===== */
+/* ===== Phone mockup ===== */
 .hero-visual { display: flex; justify-content: center; }
 
-.phone-placeholder {
+/* The float animation lives on this OUTER wrapper only -- it has no
+   border-radius/overflow-clip of its own, so the browser can composite
+   the transform as a simple GPU layer instead of recalculating a clip
+   mask every frame (that combo was what caused the jank). */
+.phone-mockup-float {
   width: 280px;
+  max-width: 100%;
   animation: float-phone 6s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: layout paint;
 }
 @keyframes float-phone {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { transform: translateY(0) translateZ(0); }
+  50% { transform: translateY(-10px) translateZ(0); }
 }
 
-.phone-notch {
-  width: 90px;
-  height: 22px;
-  background: var(--plum);
-  border-radius: 0 0 14px 14px;
-  margin: 0 auto;
-}
-
-.phone-screen {
-  background: var(--cream-text);
+/* The clip + border live on this INNER, non-animated wrapper. Crops away
+   any faint rectangular canvas edge left over from the image export, and
+   restores the plum bezel border the placeholder card used to have. */
+.phone-mockup-frame {
+  border-radius: 42px;
+  overflow: hidden;
   border: 6px solid var(--plum);
-  border-top: none;
-  border-radius: 0 0 34px 34px;
-  padding: 20px 18px 26px;
   box-shadow: 0 24px 60px rgba(61, 43, 82, 0.25);
 }
 
-.phone-greeting {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  margin: 0 0 14px;
-  color: var(--plum);
+.phone-mockup {
+  width: 100%;
+  height: auto;
+  display: block;
 }
-.phone-section-label {
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--sage-deep);
-  margin: 0 0 10px;
-}
-
-.phone-card {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--linen);
-  border-radius: 14px;
-  padding: 10px 12px;
-  margin-bottom: 10px;
-}
-.phone-emoji { font-size: 1.2rem; }
-.phone-card-title { margin: 0; font-size: 0.85rem; font-weight: 600; color: var(--plum); }
-.phone-card-meta { margin: 0; font-size: 0.72rem; color: var(--stone); }
-
-.phone-progress {
-  height: 8px;
-  border-radius: 999px;
-  background: var(--linen-deep);
-  overflow: hidden;
-  margin-bottom: 6px;
-}
-.phone-progress-fill {
-  height: 100%;
-  width: 82%;
-  background: var(--violet);
-  border-radius: 999px;
-}
-.phone-progress-label { margin: 0; font-size: 0.75rem; color: var(--stone); font-weight: 600; }
 
 /* ===== Section shared ===== */
 .section-label {
@@ -569,7 +536,7 @@ h2 {
   .hero-sub { margin-left: auto; margin-right: auto; }
   .hero-actions { justify-content: center; }
   .hero-visual { order: -1; }
-  .phone-placeholder { width: 220px; }
+  .phone-mockup-float { width: 220px; }
 }
 
 @media (max-width: 720px) {
