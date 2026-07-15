@@ -493,7 +493,20 @@ h2 {
 @media (max-width: 900px) {
   .journey-panel { flex-direction: column; }
   .journey-text { flex: none; text-align: center; }
-  .journey-visual { width: 100%; }
+  .journey-visual {
+    width: 100%;
+    display: block;
+    min-height: 0;
+  }
+  .journey-mockup-img,
+  .journey-video {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .journey-head { margin-bottom: 40px; }
+  .journey-panel { margin-bottom: 48px; gap: 24px; }
 }
 
 /* ===== Garden preview ===== */
