@@ -403,7 +403,7 @@ h2 {
 .feed-meta { margin: 0; font-size: 0.82rem; color: var(--stone); }
 
 /* ===== Journey (editorial three-panel section) ===== */
-.journey { padding: clamp(30px, 5vw, 50px) clamp(20px, 5vw, 60px) clamp(70px, 10vw, 130px); }
+.journey { padding: clamp(30px, 5vw, 50px) clamp(20px, 5vw, 60px) clamp(40px, 6vw, 70px); }
 .journey-inner { max-width: 1160px; margin: 0 auto; }
 
 .journey-head { max-width: 620px; margin: 0 auto 88px; text-align: center; }
@@ -485,40 +485,10 @@ h2 {
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2);
 }
 
-/* Collect -- floating garden butterflies + passport stamp row */
-.journey-visual--garden {
-  min-height: 320px;
-  background: linear-gradient(160deg, rgba(203, 160, 230, 0.24), rgba(159, 183, 170, 0.2));
-}
-.jv-garden-bfly {
-  position: absolute;
-  width: 34px;
-  animation: drift-float 11s ease-in-out infinite;
-}
-.jv-garden-bfly img { width: 100%; height: auto; display: block; }
-.jv-stamp-row {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  background: var(--cream-text);
-  padding: 10px 16px;
-  border-radius: 999px;
-  box-shadow: 0 12px 26px rgba(61, 43, 82, 0.14);
-}
-.jv-stamp {
-  width: 22px; height: 22px;
-  border-radius: 50%;
-  background: var(--sage);
-  color: var(--cream-text);
-  font-size: 0.7rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* Collect -- real exported mockup image, carries its own shadow/corners.
+   Sized ~5% larger than the Discover mockup so it reads as the visual hero. */
+.journey-visual--garden { min-height: 0; justify-content: flex-start; }
+.journey-visual--garden .journey-mockup-img { max-width: 651px; }
 
 @media (max-width: 900px) {
   .journey-panel { flex-direction: column; }
@@ -581,7 +551,7 @@ h2 {
 .passport-item.done .stamp { background: var(--sage); border-color: var(--sage); color: var(--cream-text); }
 
 /* ===== Values ===== */
-.values { padding: clamp(50px, 8vw, 80px) clamp(20px, 5vw, 60px); }
+.values { padding: clamp(20px, 4vw, 40px) clamp(20px, 5vw, 60px) clamp(50px, 8vw, 80px); }
 .values-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: center; }
 .value h4 { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: var(--violet-deep); margin: 0 0 8px; }
 .value p { font-size: 0.9rem; color: var(--stone); margin: 0; }
