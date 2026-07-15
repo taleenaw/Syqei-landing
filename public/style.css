@@ -346,24 +346,35 @@ h2 {
   color: var(--plum);
 }
 
-/* ===== Why ===== */
-.why { padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 60px); }
-.why-inner { max-width: 780px; margin: 0 auto; text-align: center; }
-.why-body { font-size: 1.1rem; color: var(--stone); max-width: 560px; margin: 0 auto 48px; }
+/* ===== Discover ===== */
+.discover { padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 60px) clamp(30px, 5vw, 50px); }
+.discover-inner { max-width: 680px; margin: 0 auto; text-align: center; }
 
-.compare-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; text-align: left; }
-.compare-item {
-  background: rgba(251, 248, 243, 0.5);
-  border: 1px solid rgba(61, 43, 82, 0.08);
-  border-radius: var(--radius);
-  padding: 24px 20px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+.discover h2 { margin: 0 0 28px; }
+
+.discover-lead {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--stone);
+  max-width: 560px;
+  margin: 0 auto 40px;
 }
-.compare-item:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(61, 43, 82, 0.1); }
-.compare-item--syqei { background: var(--violet); border-color: var(--violet); }
-.compare-item--syqei .compare-app, .compare-item--syqei .compare-note { color: var(--cream-text); }
-.compare-app { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; margin: 0 0 8px; color: var(--plum); }
-.compare-note { font-size: 0.9rem; color: var(--stone); margin: 0; }
+
+.discover-categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.discover-cat {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--violet-deep);
+  background: rgba(251, 248, 243, 0.7);
+  border: 1px solid rgba(61, 43, 82, 0.1);
+  padding: 9px 18px;
+  border-radius: 999px;
+}
 
 /* ===== This week in Perth (live feed) ===== */
 .live-feed {
@@ -391,17 +402,129 @@ h2 {
 .feed-title { font-weight: 600; margin: 0 0 6px; color: var(--plum); font-size: 0.98rem; }
 .feed-meta { margin: 0; font-size: 0.82rem; color: var(--stone); }
 
-/* ===== How it works ===== */
-.how { padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 60px); }
-.how-inner { max-width: 720px; margin: 0 auto; text-align: center; }
-.how-inner h2 { margin-bottom: 48px; }
+/* ===== Journey (editorial three-panel section) ===== */
+.journey { padding: clamp(30px, 5vw, 50px) clamp(20px, 5vw, 60px) clamp(70px, 10vw, 130px); }
+.journey-inner { max-width: 1160px; margin: 0 auto; }
 
-.steps { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.step { max-width: 340px; }
-.step-icon { font-size: 2rem; display: block; margin-bottom: 10px; }
-.step h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.2rem; margin: 0 0 6px; color: var(--plum); }
-.step p { font-size: 0.95rem; color: var(--stone); margin: 0; }
-.step-arrow { font-size: 1.3rem; color: var(--sage-deep); margin: 8px 0; }
+.journey-head { max-width: 620px; margin: 0 auto 88px; text-align: center; }
+.journey-head h2 { margin: 0; }
+
+.journey-panel {
+  display: flex;
+  align-items: center;
+  gap: clamp(32px, 6vw, 72px);
+  margin-bottom: clamp(64px, 9vw, 120px);
+}
+.journey-panel:last-child { margin-bottom: 0; }
+
+.journey-text { flex: 0 0 clamp(230px, 30%, 320px); }
+.journey-num {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--sage-deep);
+  margin-bottom: 12px;
+}
+.journey-text h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  line-height: 1.25;
+  margin: 0 0 14px;
+  color: var(--plum);
+}
+.journey-text p { font-size: 1rem; line-height: 1.75; color: var(--stone); margin: 0; }
+
+.journey-visual {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Discover -- real exported mockup image, carries its own shadow/corners */
+.journey-visual--feed { min-height: 0; justify-content: flex-start; }
+.journey-mockup-img {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Explore -- real video of the location, standing in for photography */
+.journey-visual--photo {
+  min-height: 340px;
+  background: var(--plum);
+}
+.journey-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.jv-pin {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  z-index: 2;
+  background: var(--cream-text);
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--plum);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2);
+}
+
+/* Collect -- floating garden butterflies + passport stamp row */
+.journey-visual--garden {
+  min-height: 320px;
+  background: linear-gradient(160deg, rgba(203, 160, 230, 0.24), rgba(159, 183, 170, 0.2));
+}
+.jv-garden-bfly {
+  position: absolute;
+  width: 34px;
+  animation: drift-float 11s ease-in-out infinite;
+}
+.jv-garden-bfly img { width: 100%; height: auto; display: block; }
+.jv-stamp-row {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  background: var(--cream-text);
+  padding: 10px 16px;
+  border-radius: 999px;
+  box-shadow: 0 12px 26px rgba(61, 43, 82, 0.14);
+}
+.jv-stamp {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--sage);
+  color: var(--cream-text);
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .journey-panel { flex-direction: column; }
+  .journey-text { flex: none; text-align: center; }
+  .journey-visual { width: 100%; }
+}
 
 /* ===== Garden preview ===== */
 .garden-preview { padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 60px); background: rgba(251, 248, 243, 0.4); }

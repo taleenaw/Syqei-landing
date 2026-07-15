@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Syqei — Never miss what's happening in nature around you</title>
+<title>Syqei: Never miss what's happening in nature around you</title>
 <link rel="icon" type="image/png" href="/images/favicon.png">
-<meta name="description" content="Visit real places. Unlock real butterflies. Build a living garden that remembers every adventure.">
+<meta name="description" content="Discover seasonal moments in nature. Explore real places. Unlock the species you discover into your own living garden.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
 
 <main>
 
-  <!-- HERO — split layout: copy left, product preview right -->
+  <!-- HERO: split layout, copy left, product preview right -->
   <section class="hero">
     <div class="hero-blob blob-1" aria-hidden="true"></div>
     <div class="hero-blob blob-2" aria-hidden="true"></div>
@@ -60,7 +60,7 @@
       <div class="hero-copy">
         <p class="eyebrow">A living nature passport</p>
         <h1>Never miss what's<br>happening in nature<br><em>around you.</em></h1>
-        <p class="hero-sub">Visit real places. Unlock real butterflies. Build a living garden that remembers every adventure.</p>
+        <p class="hero-sub">Discover seasonal moments in nature. Explore real places. Unlock the species you discover into your own living garden.</p>
 
         <div class="hero-actions">
           <a href="#waitlist" class="btn btn-primary">Get early access</a>
@@ -78,130 +78,77 @@
     </div>
   </section>
 
-  <!-- WHY -->
-  <section class="why">
-    <div class="why-inner">
-      <p class="section-label">01 &mdash; The problem</p>
-      <h2>You always hear about it after it's over.</h2>
-      <p class="why-body">"The wildflowers were incredible last week." "You should've seen the migration." Nature doesn't wait for your calendar &mdash; and by the time someone tells you, it's usually gone.</p>
-      <div class="compare-strip">
-        <div class="compare-item">
-          <p class="compare-app">AllTrails</p>
-          <p class="compare-note">Static. No sense of what's alive right now.</p>
-        </div>
-        <div class="compare-item">
-          <p class="compare-app">iNaturalist</p>
-          <p class="compare-note">Reactive. Tells you what you saw, not where to go.</p>
-        </div>
-        <div class="compare-item compare-item--syqei">
-          <p class="compare-app">Syqei</p>
-          <p class="compare-note">Tells you what's happening, and gives you a place to go.</p>
-        </div>
+  <!-- DISCOVER: single consolidated section replacing the old two-part problem/solution sections.
+       Leads with discovery as the value prop (not "the problem"), and deliberately uses a
+       different set of examples to the live feed below it, so nothing repeats site-wide. -->
+  <section class="discover">
+    <div class="discover-inner">
+      <h2>Stop scrolling.<br>Start discovering.</h2>
+      <p class="discover-lead">Wildflowers peaking. Butterflies passing through. Fungi popping up after rain. It's all happening near you, right now. Syqei brings it together, so discovering what's happening near you is as easy as opening an app.</p>
+
+      <div class="discover-categories">
+        <span class="discover-cat">Seasonal blooms</span>
+        <span class="discover-cat">Wildlife on the move</span>
+        <span class="discover-cat">Rare weather moments</span>
+        <span class="discover-cat">Nature's quiet rhythms</span>
       </div>
     </div>
   </section>
 
-  <!-- THIS WEEK IN PERTH -- live feed, "favourite idea" from feedback -->
-  <section class="live-feed">
-    <div class="live-feed-inner">
-      <p class="section-label">Happening now</p>
-      <h2>This week in Perth</h2>
+  <!-- JOURNEY: editorial three-panel section, replaces the old card grid.
+       Each panel is roughly 30% text / 70% visual, alternating sides.
+       Visuals are CSS/HTML mockups standing in for real product screenshots
+       and photography -- see placeholder-tag notes on where to swap. -->
+  <section class="journey" id="how">
+    <div class="journey-inner">
+      <div class="journey-head">
+        <p class="section-label">Explore what's happening around you</p>
+        <h2>Find it. Visit it. Collect it.</h2>
+      </div>
 
-      <div class="feed-grid">
-        <div class="feed-card">
-          <span class="feed-emoji">&#127800;</span>
-          <p class="feed-title">Everlastings beginning</p>
-          <p class="feed-meta">Kings Park &middot; best until Sunday &middot; 12 min away</p>
+      <div class="journey-panel">
+        <div class="journey-text">
+          <span class="journey-num">Discover</span>
+          <h3>See what's happening, right where you are.</h3>
+          <p>Seasonal moments, wildlife activity and places worth exploring, updated for exactly where you are.</p>
         </div>
-        <div class="feed-card">
-          <span class="feed-emoji"><img src="/images/butterfly-3c-violet-mono.png" alt="" class="inline-bfly"></span>
-          <p class="feed-title">Four butterfly species active</p>
-          <p class="feed-meta">Bold Park &middot; today</p>
-        </div>
-        <div class="feed-card">
-          <span class="feed-emoji">&#127812;</span>
-          <p class="feed-title">Great fungi conditions</p>
-          <p class="feed-meta">John Forrest NP &middot; this week</p>
-        </div>
-        <div class="feed-card">
-          <span class="feed-emoji">&#127749;</span>
-          <p class="feed-title">Best sunset forecast</p>
-          <p class="feed-meta">Cottesloe &middot; Friday, 7:18pm</p>
-        </div>
-        <div class="feed-card">
-          <span class="feed-emoji">&#128051;</span>
-          <p class="feed-title">Whale migration begins</p>
-          <p class="feed-meta">Rottnest crossing &middot; starting soon</p>
+        <div class="journey-visual journey-visual--feed">
+          <img src="/images/happening.png" alt="Syqei app showing seasonal moments near you" class="journey-mockup-img">
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="how" id="how">
-    <div class="how-inner">
-      <p class="section-label">02 &mdash; How it works</p>
-      <h2>Three steps. All of them real.</h2>
-
-      <div class="steps">
-        <div class="step">
-          <span class="step-icon">&#128205;</span>
-          <h3>Visit somewhere real</h3>
-          <p>Choose a place worth exploring.</p>
+      <div class="journey-panel">
+        <div class="journey-visual journey-visual--photo">
+          <video class="journey-video" autoplay muted loop playsinline aria-hidden="true">
+            <source src="/images/swan.mp4" type="video/mp4">
+          </video>
+          <span class="jv-pin">Herdsman Lake &middot; 8 min away</span>
         </div>
-        <div class="step-arrow" aria-hidden="true">&#8595;</div>
-        <div class="step">
-          <span class="step-icon"><img src="/images/butterfly-3a-lavender-violet.png" alt="" class="inline-bfly inline-bfly--lg"></span>
-          <h3>Unlock a real butterfly</h3>
-          <p>Species match the place and season.</p>
-        </div>
-        <div class="step-arrow" aria-hidden="true">&#8595;</div>
-        <div class="step">
-          <span class="step-icon">&#127807;</span>
-          <h3>Grow your Living Nature Passport</h3>
-          <p>Every visit becomes part of your story.</p>
+        <div class="journey-text">
+          <span class="journey-num">Explore</span>
+          <h3>Go somewhere that calls to you.</h3>
+          <p>Pick a place that interests you, and visit while it's happening.</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- SHOW THE GARDEN -->
-  <section class="garden-preview">
-    <div class="garden-inner">
-      <p class="section-label">Your garden</p>
-      <h2>A living record of every place you've explored.</h2>
-      <p class="garden-sub">Every butterfly you unlock joins a garden that's entirely yours &mdash; nothing resets, nothing disappears.</p>
-
-      <!--
-        GARDEN CONCEPT PLACEHOLDER -- a simple stylised stand-in until you have
-        a real in-app screenshot. Consider asking Claude Design for a proper
-        garden screen mockup to replace this the same way as the phone hero.
-      -->
-      <div class="garden-mock" role="img" aria-label="Concept preview of a growing garden of unlocked butterflies">
-        <span class="g-butterfly" data-src="/images/butterfly-3a-lavender-violet.png" style="left:12%; top:30%;"></span>
-        <span class="g-butterfly" data-src="/images/butterfly-3c-violet-mono.png" style="left:28%; top:60%;"></span>
-        <span class="g-butterfly" data-src="/images/butterfly-3b-sage.png" style="left:48%; top:20%;"></span>
-        <span class="g-butterfly" data-src="/images/butterfly-3d-lavender-sage.png" style="left:63%; top:55%;"></span>
-        <span class="g-butterfly" data-src="/images/butterfly-3a-lavender-violet.png" style="left:80%; top:35%;"></span>
-        <span class="g-butterfly" data-src="/images/butterfly-3b-sage.png" style="left:90%; top:70%;"></span>
-        <p class="placeholder-tag placeholder-tag--center">&#8618; concept preview &mdash; swap for a real garden screenshot</p>
+      <div class="journey-panel">
+        <div class="journey-text">
+          <span class="journey-num">Collect</span>
+          <h3>Watch your garden grow.</h3>
+          <p>Every visit unlocks a real butterfly, matched to the place and season, and adds it to your garden.</p>
+        </div>
+        <div class="journey-visual journey-visual--garden">
+          <span class="jv-garden-bfly" style="left:14%; top:24%;"><img src="/images/butterfly-3a-lavender-violet.png" alt=""></span>
+          <span class="jv-garden-bfly" style="left:36%; top:56%; animation-delay:-3s;"><img src="/images/butterfly-3b-sage.png" alt=""></span>
+          <span class="jv-garden-bfly" style="left:60%; top:20%; animation-delay:-6s;"><img src="/images/butterfly-3d-lavender-sage.png" alt=""></span>
+          <span class="jv-garden-bfly" style="left:76%; top:52%; animation-delay:-2s;"><img src="/images/butterfly-3c-violet-mono.png" alt=""></span>
+          <div class="jv-stamp-row">
+            <span class="jv-stamp">&#10003;</span>
+            <span class="jv-stamp">&#10003;</span>
+            <span class="jv-stamp">&#10003;</span>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- SHOW THE PASSPORT -->
-  <section class="passport">
-    <div class="passport-inner">
-      <p class="section-label">Your passport</p>
-      <h2>Every real place, stamped.</h2>
-
-      <ul class="passport-list">
-        <li class="passport-item done"><span class="stamp">&#10003;</span> Kings Park</li>
-        <li class="passport-item done"><span class="stamp">&#10003;</span> Bold Park</li>
-        <li class="passport-item done"><span class="stamp">&#10003;</span> Penguin Island</li>
-        <li class="passport-item"><span class="stamp">&#9675;</span> Lesmurdie Falls</li>
-        <li class="passport-item"><span class="stamp">&#9675;</span> Rottnest Island</li>
-      </ul>
     </div>
   </section>
 
@@ -217,7 +164,7 @@
   <!-- TRUST -->
   <section class="trust">
     <div class="trust-inner">
-      <p class="trust-line">Starting in <strong>&#128205; Perth, &#127807; Western Australia</strong></p>
+      <p class="trust-line">Starting in <strong>Perth, Western Australia</strong></p>
       <p class="trust-label">Building with</p>
       <div class="trust-tags">
         <span class="trust-tag">Nature lovers</span>
@@ -242,7 +189,7 @@
         <input type="email" id="email" name="email" placeholder="you@example.com" required>
         <button type="submit" class="btn btn-primary">Get early access</button>
       </form>
-      <p class="form-success" id="form-success" hidden>You're on the list &mdash; thank you! <img src="/images/butterfly-3a-lavender-violet.png" alt="" class="inline-bfly"></p>
+      <p class="form-success" id="form-success" hidden>You're on the list, thank you! <img src="/images/butterfly-3a-lavender-violet.png" alt="" class="inline-bfly"></p>
     </div>
   </section>
 
