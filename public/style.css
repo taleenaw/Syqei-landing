@@ -496,7 +496,6 @@ h2 {
   .journey-visual {
     width: 100%;
     display: block;
-    min-height: 0;
   }
   .journey-mockup-img,
   .journey-video {
