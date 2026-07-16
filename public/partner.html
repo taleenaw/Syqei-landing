@@ -55,32 +55,58 @@
   }
   .benefit-card p { font-size: 0.92rem; color: var(--stone); margin: 0; }
 
-  .offerings {
-    background: rgba(251, 248, 243, 0.4);
-    padding: clamp(50px, 8vw, 80px) clamp(20px, 5vw, 60px);
+  .partnership {
+    padding: clamp(70px, 10vw, 120px) clamp(20px, 5vw, 60px);
   }
-  .offerings-inner { max-width: 1000px; margin: 0 auto; }
-  .offerings h2 {
+  .partnership-inner { max-width: 1160px; margin: 0 auto; }
+  .partnership-head { margin-bottom: clamp(50px, 8vw, 80px); }
+  .partnership-head p.eyebrow { justify-content: flex-start; margin-bottom: 14px; }
+  .partnership-head h2 {
     font-family: var(--font-display);
     font-weight: 500;
-    font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
     color: var(--plum);
-    text-align: center;
-    margin: 0 0 44px;
+    margin: 0;
+    max-width: 760px;
   }
-  .offer-grid {
+
+  .pl-item {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 22px;
+    grid-template-columns: 90px 1fr;
+    gap: clamp(20px, 4vw, 48px);
+    align-items: baseline;
+    padding: clamp(32px, 5vw, 48px) 0;
+    border-top: 1px solid rgba(61, 43, 82, 0.14);
   }
-  .offer-card h4 {
+  .pl-item:last-child { border-bottom: 1px solid rgba(61, 43, 82, 0.14); }
+
+  .pl-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: var(--sage-deep);
+  }
+
+  .pl-body { display: grid; grid-template-columns: minmax(220px, 0.9fr) minmax(280px, 1.6fr); gap: clamp(24px, 4vw, 56px); }
+  .pl-body h3 {
     font-family: var(--font-display);
     font-weight: 500;
-    font-size: 1.05rem;
+    font-size: clamp(1.3rem, 2.2vw, 1.6rem);
     color: var(--plum);
-    margin: 0 0 8px;
+    margin: 0;
   }
-  .offer-card p { font-size: 0.9rem; color: var(--stone); margin: 0; }
+  .pl-body p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--stone);
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .pl-item { grid-template-columns: 1fr; gap: 10px; }
+    .pl-body { grid-template-columns: 1fr; gap: 10px; }
+  }
 
   .partner-cta {
     background: var(--violet);
@@ -126,54 +152,70 @@
 
   <section class="partner-hero">
     <p class="eyebrow">For parks, gardens & nature reserves</p>
-    <h1>Bring Syqei's community to your gates.</h1>
-    <p>Syqei turns real visits to real places into a lasting personal memory — a scientifically accurate
-    butterfly, tied to the day someone actually showed up. We're looking for a handful of WA venues to
-    pilot this with first.</p>
-    <a href="mailto:partners@syqei.com?subject=Partnering%20with%20Syqei" class="btn btn-primary">Start the conversation</a>
+    <h1>Partner with us. Inspire more people to explore nature.</h1>
+    <p>We're looking for a small number of parks, gardens, wildlife attractions and nature organisations
+    across Western Australia to help shape the future of Syqei.</p>
+    <a href="mailto:partners@syqei.com?subject=Partnering%20with%20Syqei" class="btn btn-primary">Become a launch partner</a>
   </section>
 
   <section class="benefits">
     <div class="benefit-card">
       <h3>Drive real visitation</h3>
-      <p>Syqei tells people what's worth seeing at your site right now — wildflowers peaking, a species
-      active this week — and gives them a reason to come this weekend, not "someday."</p>
+      <p>Help more people discover what's happening at your site right now, from blooming wildflowers
+      and active wildlife to seasonal events, giving them a reason to visit this weekend, not "someday."</p>
     </div>
     <div class="benefit-card">
-      <h3>Understand your visitors</h3>
-      <p>Verified visit data gives you a clearer picture of who's coming, when, and what draws them back
-      — insight most venues don't currently have easy access to.</p>
+      <h3>Learn what resonates</h3>
+      <p>As Syqei grows, we'll work with launch partners to explore how anonymous visitation insights
+      can help better understand seasonal engagement.</p>
     </div>
     <div class="benefit-card">
-      <h3>Encourage good visitor behaviour</h3>
-      <p>Unlock bonus rewards for staying on trail, completing a short conservation prompt, or reporting
-      an invasive species — turning visitor engagement into visitor management.</p>
+      <h3>Encourage conservation</h3>
+      <p>Reward visitors for positive actions like staying on marked trails, learning about local
+      wildlife, or contributing to citizen science, making every visit more meaningful.</p>
     </div>
   </section>
 
-  <section class="offerings">
-    <div class="offerings-inner">
-      <h2>Ways to Partner</h2>
-      <div class="offer-grid">
-        <div class="offer-card">
-          <h4>Verified Visit Program</h4>
-          <p>A simple QR or geofence check-in at your site unlocks a species matched to your location and
-          the current season — no app development required on your end.</p>
+  <section class="partnership">
+    <div class="partnership-inner">
+      <div class="partnership-head">
+        <p class="eyebrow">How it could work</p>
+        <h2>What partnership could look like</h2>
+      </div>
+
+      <div class="pl-item">
+        <span class="pl-num">01</span>
+        <div class="pl-body">
+          <h3>Verified Visits</h3>
+          <p>Real-world check-ins that encourage exploration and reward visitors with memorable
+          discoveries.</p>
         </div>
-        <div class="offer-card">
-          <h4>Sponsored Species Set</h4>
-          <p>Feature species unique to your venue, with your site name attached to every unlock — a
-          co-branded moment for every visitor who discovers it there.</p>
+      </div>
+
+      <div class="pl-item">
+        <span class="pl-num">02</span>
+        <div class="pl-body">
+          <h3>Seasonal Highlights</h3>
+          <p>Showcase the unique moments happening at your location, from blooming wildflowers to
+          migrating wildlife, while they're actually happening.</p>
         </div>
-        <div class="offer-card">
-          <h4>Seasonal Journey</h4>
-          <p>A limited-time event tied to something real happening at your site — wildflower season, a
-          migration window — to drive a spike in visits during your peak period.</p>
+      </div>
+
+      <div class="pl-item">
+        <span class="pl-num">03</span>
+        <div class="pl-body">
+          <h3>Interactive Nature Stories</h3>
+          <p>Bring your site's biodiversity to life through bite-sized educational content linked to the
+          species visitors discover.</p>
         </div>
-        <div class="offer-card">
-          <h4>Conservation Storytelling</h4>
-          <p>Bite-sized Field Guide facts about your site's species and conservation status, woven into
-          the moment someone unlocks them — education that doesn't feel like homework.</p>
+      </div>
+
+      <div class="pl-item">
+        <span class="pl-num">04</span>
+        <div class="pl-body">
+          <h3>Launch Partner</h3>
+          <p>Work alongside us to shape Australia's first Living Nature Passport and inspire more people
+          to connect with nature.</p>
         </div>
       </div>
     </div>

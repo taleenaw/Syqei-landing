@@ -565,8 +565,8 @@ h2 {
 /* ===== Values ===== */
 .values { padding: clamp(20px, 4vw, 40px) clamp(20px, 5vw, 60px) clamp(50px, 8vw, 80px); }
 .values-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: center; }
-.value h4 { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: var(--violet-deep); margin: 0 0 8px; }
-.value p { font-size: 0.9rem; color: var(--stone); margin: 0; }
+.value h4 { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; color: var(--violet-deep); margin: 0 0 10px; }
+.value p { font-size: 1.05rem; color: var(--stone); margin: 0; }
 
 /* ===== Trust ===== */
 .trust { padding: clamp(40px, 6vw, 60px) clamp(20px, 5vw, 60px); text-align: center; }
