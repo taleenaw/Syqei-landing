@@ -417,6 +417,11 @@ h2 {
 }
 .journey-panel:last-child { margin-bottom: 0; }
 
+@media (min-width: 901px) {
+  .journey-panel--reverse .journey-text { order: 2; }
+  .journey-panel--reverse .journey-visual { order: 1; }
+}
+
 .journey-text { flex: 0 0 clamp(230px, 30%, 320px); }
 .journey-num {
   display: block;
