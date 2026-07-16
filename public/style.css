@@ -143,6 +143,51 @@ a { color: inherit; }
   .nav-links > a:not(.nav-cta) { display: none; }
 }
 
+/* ===== Mobile menu (hamburger, no JS required) ===== */
+.mobile-menu { display: none; }
+@media (max-width: 640px) {
+  .mobile-menu {
+    display: block;
+    position: relative;
+    margin-left: 10px;
+  }
+  .mobile-menu-toggle {
+    list-style: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--plum);
+    padding: 8px 10px;
+    user-select: none;
+  }
+  .mobile-menu-toggle::-webkit-details-marker { display: none; }
+  .mobile-menu-toggle::marker { content: ""; }
+  .mobile-menu-panel {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    background: var(--cream-text);
+    border-radius: 14px;
+    box-shadow: 0 14px 32px rgba(61, 43, 82, 0.18);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    min-width: 190px;
+    z-index: 50;
+  }
+  .mobile-menu-panel a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--plum);
+    padding: 12px 14px;
+    border-radius: 10px;
+    transition: background 0.15s ease;
+  }
+  .mobile-menu-panel a:hover,
+  .mobile-menu-panel a:active { background: rgba(138, 93, 201, 0.1); }
+}
+
 /* ===== Buttons (microanimations) ===== */
 .btn {
   display: inline-flex;
