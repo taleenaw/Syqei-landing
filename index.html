@@ -8,11 +8,11 @@
 <meta name="description" content="Discover seasonal moments in nature. Explore real places. Unlock the species you discover into your own living garden.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://syqei.com/">
-<meta property="og:title" content="Syqei: A Living Nature Passport">
+<meta property="og:title" content="Syqei: Never miss what's happening in nature around you">
 <meta property="og:description" content="Discover seasonal moments in nature. Explore real places. Unlock the species you discover into your own living garden.">
 <meta property="og:image" content="https://syqei.com/images/happening.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Syqei: A Living Nature Passport">
+<meta name="twitter:title" content="Syqei: Never miss what's happening in nature around you">
 <meta name="twitter:description" content="Discover seasonal moments in nature. Explore real places. Unlock the species you discover into your own living garden.">
 <meta name="twitter:image" content="https://syqei.com/images/happening.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +37,7 @@
 <header class="nav">
   <div class="nav-inner">
     <span class="wordmark-group">
-      <img src="/images/syqei-logo.png" alt="" class="logo-icon">
+      <img src="/images/syqei-logo.png" alt="" class="logo-icon" width="42" height="42">
       <span class="wordmark">syqei</span>
     </span>
     <nav class="nav-links" aria-label="Primary">
@@ -46,8 +46,8 @@
       <a href="#waitlist" class="nav-cta">Get early access</a>
     </nav>
     <details class="mobile-menu">
-      <summary class="mobile-menu-toggle" aria-label="Open menu">&#9776;</summary>
-      <div class="mobile-menu-panel">
+      <summary class="mobile-menu-toggle" role="button" aria-label="Open navigation menu" aria-controls="mobile-navigation">&#9776;</summary>
+      <div class="mobile-menu-panel" id="mobile-navigation">
         <a href="/about.html">About</a>
         <a href="/partner.html">Partner with us</a>
       </div>
@@ -84,20 +84,21 @@
 
     <div class="hero-inner">
       <div class="hero-copy">
-        <p class="eyebrow">A living nature passport</p>
+        <p class="eyebrow">The easiest way to discover what's happening in nature</p>
         <h1>Never miss what's<br>happening in nature<br><em>around you.</em></h1>
-        <p class="hero-sub">Discover seasonal moments in nature. Explore real places. Unlock the species you discover into your own living garden.</p>
+        <p class="hero-sub">See what's happening in nature near you right now. Visit real places and unlock a butterfly matched to each place and season.</p>
 
         <div class="hero-actions">
           <a href="#waitlist" class="btn btn-primary">Get early access</a>
           <a href="#how" class="btn btn-ghost">See how it works</a>
         </div>
+        <p class="hero-location">Launching first in Perth, Western Australia.</p>
       </div>
 
       <div class="hero-visual">
         <div class="phone-mockup-float">
           <div class="phone-mockup-frame">
-            <img src="/images/home_export.png" alt="Syqei app showing nearby nature events" class="phone-mockup">
+            <img src="/images/home_export.png" alt="Syqei app showing nearby nature events" class="phone-mockup" fetchpriority="high" width="320" height="640">
           </div>
         </div>
       </div>
@@ -128,18 +129,18 @@
       <div class="journey-panel">
         <div class="journey-text">
           <span class="journey-num">Discover</span>
-          <h3>See what's happening, right where you are.</h3>
+          <h3>See what's happening nearby today.</h3>
           <p>Seasonal moments, wildlife activity and places worth exploring, updated for exactly where you are.</p>
         </div>
         <div class="journey-visual journey-visual--feed">
-          <img src="/images/happening.png" alt="Syqei app showing seasonal moments near you" class="journey-mockup-img">
+          <img src="/images/happening.png" alt="Syqei app showing seasonal moments near you" class="journey-mockup-img" loading="lazy">
         </div>
       </div>
 
       <div class="journey-panel journey-panel--reverse">
         <div class="journey-text">
-          <span class="journey-num">Explore</span>
-          <h3>Go somewhere that calls to you.</h3>
+          <span class="journey-num">Experience</span>
+          <h3>Visit while nature is at its best.</h3>
           <p>Pick a place that interests you, and visit while it's happening.</p>
         </div>
         <div class="journey-visual journey-visual--photo">
@@ -153,11 +154,11 @@
       <div class="journey-panel">
         <div class="journey-text">
           <span class="journey-num">Collect</span>
-          <h3>A collection only you could create.</h3>
-          <p>Every place you explore unlocks a butterfly matched to that location and season, growing a Living Nature Passport that's uniquely yours.</p>
+          <h3>Turn every adventure into part of your living garden.</h3>
+          <p>Every visit unlocks a scientifically accurate butterfly matched to that place and season, creating a collection no one else can have.</p>
         </div>
         <div class="journey-visual journey-visual--garden">
-          <img src="/images/passport.png" alt="Syqei garden and passport screen showing unlocked butterflies and places visited" class="journey-mockup-img">
+          <img src="/images/passport.png" alt="Syqei garden and passport screen showing unlocked butterflies and places visited" class="journey-mockup-img" loading="lazy">
         </div>
       </div>
     </div>
@@ -166,9 +167,9 @@
   <!-- VALUES STRIP -->
   <section class="values">
     <div class="values-inner">
-      <div class="value"><h4>Made for curiosity</h4><p>Discover moments you might have otherwise missed.</p></div>
-      <div class="value"><h4>Designed to last</h4><p>Your collection grows over years, not streaks.</p></div>
-      <div class="value"><h4>Inspired by nature</h4><p>Built around real places, real species and the changing seasons.</p></div>
+      <div class="value"><h3>Made for curiosity</h3><p>Discover moments you might have otherwise missed.</p></div>
+      <div class="value"><h3>Inspired by nature</h3><p>Built around real places, real species and the changing seasons.</p></div>
+      <div class="value"><h3>Better together</h3><p>Invite a friend and discover it side by side.</p></div>
     </div>
   </section>
 
@@ -196,9 +197,25 @@
         <input type="hidden" name="form-name" value="waitlist">
         <p class="hidden-field"><label>Don't fill this out: <input name="bot-field"></label></p>
 
-        <label class="visually-hidden" for="email">Email address</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required>
-        <button type="submit" class="btn btn-primary">Get early access</button>
+        <div class="waitlist-field waitlist-field--full">
+          <label for="discover">What would you most like Syqei to help you discover? <span class="optional-tag">(optional)</span></label>
+          <select id="discover" name="discover">
+            <option value="">Choose one...</option>
+            <option value="Wildflowers and seasonal blooms">Wildflowers and seasonal blooms</option>
+            <option value="Whales and marine life">Whales and marine life</option>
+            <option value="Birds">Birds</option>
+            <option value="Butterflies and insects">Butterflies and insects</option>
+            <option value="Fungi, frogs and after-rain life">Fungi, frogs and after-rain life</option>
+            <option value="Places to explore near me">Places to explore near me</option>
+            <option value="A bit of everything">A bit of everything</option>
+          </select>
+        </div>
+
+        <div class="waitlist-field waitlist-row">
+          <label class="visually-hidden" for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          <button type="submit" class="btn btn-primary">Get early access</button>
+        </div>
       </form>
       <p class="form-success" id="form-success" hidden>You're on the list, thank you! <img src="/images/butterfly-3a-lavender-violet.png" alt="" class="inline-bfly"></p>
     </div>
@@ -209,7 +226,7 @@
 <footer class="footer">
   <div class="footer-inner">
     <span class="wordmark-group">
-      <img src="/images/syqei-logo.png" alt="" class="logo-icon logo-icon--small">
+      <img src="/images/syqei-logo.png" alt="" class="logo-icon logo-icon--small" width="32" height="32">
       <span class="wordmark wordmark--small">syqei</span>
     </span>
     <nav class="footer-links" aria-label="Footer">

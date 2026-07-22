@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — Meet the Founder | Syqei</title>
+<title>Meet the Founder | Syqei</title>
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <meta name="description" content="Syqei is built by Taleena Watts, a Computer Science and Cybersecurity student at UWA, through the VentureUp incubator.">
 <meta property="og:type" content="website">
@@ -82,6 +82,43 @@
     color: var(--violet-deep);
     margin: 28px 0;
   }
+  .closing-quote {
+    margin: clamp(72px, 12vw, 120px) 0 clamp(28px, 5vw, 44px);
+    padding: 0;
+    border: none;
+    text-align: center;
+  }
+  .closing-quote p {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.5rem, 3.6vw, 2.15rem) !important;
+    line-height: 1.4 !important;
+    color: var(--plum) !important;
+    max-width: 22ch;
+    margin: 0 auto !important;
+  }
+  .closing-quote p + p { margin-top: 0.35em !important; }
+
+  .closing-sign {
+    text-align: center;
+    margin-bottom: clamp(56px, 10vw, 96px);
+  }
+  .closing-name {
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em;
+    color: var(--violet-deep) !important;
+    margin: 0 0 2px !important;
+  }
+  .closing-role {
+    font-size: 0.82rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--stone) !important;
+    margin: 0 !important;
+  }
+
   .about-links {
     display: flex;
     gap: 14px;
@@ -99,7 +136,7 @@
   <div class="nav-inner">
     <a href="/" style="text-decoration:none;">
       <span class="wordmark-group">
-        <img src="/images/syqei-logo.png" alt="" class="logo-icon">
+        <img src="/images/syqei-logo.png" alt="" class="logo-icon" width="42" height="42">
         <span class="wordmark">syqei</span>
       </span>
     </a>
@@ -109,8 +146,8 @@
       <a href="/#waitlist" class="nav-cta">Get early access</a>
     </nav>
     <details class="mobile-menu">
-      <summary class="mobile-menu-toggle" aria-label="Open menu">&#9776;</summary>
-      <div class="mobile-menu-panel">
+      <summary class="mobile-menu-toggle" role="button" aria-label="Open navigation menu" aria-controls="mobile-navigation">&#9776;</summary>
+      <div class="mobile-menu-panel" id="mobile-navigation">
         <a href="/about.html">About</a>
         <a href="/partner.html">Partner with us</a>
       </div>
@@ -138,21 +175,24 @@
     with nature instead of distracting us from it?</p>
 
     <h2>Making It Happen</h2>
-    <p>Syqei is built around something simple: every real place you visit, a park, a reserve, a stretch
-    of coastline, unlocks a real, scientifically accurate butterfly into your own personal garden.
-    Butterflies were chosen from the very start as a symbol of transformation, resilience, and
-    biodiversity.</p>
+    <p>Syqei helps people discover what's happening in nature nearby, right when it matters most. From
+    blooming wildflowers to migrating whales, every real-world visit becomes part of your own living
+    garden through scientifically accurate butterflies connected to that place and season.</p>
 
     <h2>Why "Syqei"</h2>
-    <p>Syqei is pronounced <em>psy-key</em>, a play on Psyche. In Greek mythology, Psyche was a mortal
-    woman whose story became a symbol of the soul itself; her name, <em>ψυχή</em>, means both "soul" and
-    "butterfly." The Ancient Greeks believed the butterfly carried the soul, a symbol of transformation,
-    wisdom, and the parts of ourselves that only emerge once we've actually lived through something.</p>
+    <p>Syqei is pronounced <em>psy-key</em>, inspired by Psyche, whose name means both "soul" and
+    "butterfly" in Ancient Greek. Butterflies have long symbolised transformation, making them the
+    perfect way to remember the places and moments that change us.</p>
 
-    <p>We don't believe technology should replace nature. We believe it should help people reconnect
-    with it.</p>
+    <blockquote class="closing-quote">
+      <p>Technology has become very good at capturing our attention.</p>
+      <p>I hope Syqei helps direct some of it back to the natural world.</p>
+    </blockquote>
 
-    <p class="signature">&mdash; Taleena</p>
+    <div class="closing-sign">
+      <p class="closing-name">&mdash; Taleena Watts</p>
+      <p class="closing-role">Founder, Syqei</p>
+    </div>
 
     <div class="about-links">
       <a href="mailto:hello@syqei.com" class="btn btn-ghost">Say hello</a>
@@ -164,7 +204,7 @@
 <footer class="footer">
   <div class="footer-inner">
     <span class="wordmark-group">
-      <img src="/images/syqei-logo.png" alt="" class="logo-icon logo-icon--small">
+      <img src="/images/syqei-logo.png" alt="" class="logo-icon logo-icon--small" width="32" height="32">
       <span class="wordmark wordmark--small">syqei</span>
     </span>
     <nav class="footer-links" aria-label="Footer">
