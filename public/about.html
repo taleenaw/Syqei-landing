@@ -58,6 +58,35 @@
     margin: 0 auto 32px;
     display: block;
   }
+  /* Large editorial hero portrait -- wide crop, square edges, no shadow */
+  .about-hero-photo {
+    width: 100%;
+    height: clamp(360px, 56vh, 620px);
+    object-fit: cover;
+    object-position: center 42%;
+    display: block;
+    margin: 8px 0 44px;
+  }
+  /* Floated supporting photo beside story text -- editorial, square edges */
+  .about-float-photo {
+    float: left;
+    width: min(320px, 42%);
+    height: auto;
+    margin: 6px 32px 20px 0;
+    display: block;
+  }
+  .about-float-photo--right {
+    float: right;
+    margin: 6px 0 20px 32px;
+  }
+  @media (max-width: 620px) {
+    .about-float-photo,
+    .about-float-photo--right {
+      float: none;
+      width: 100%;
+      margin: 12px 0 24px;
+    }
+  }
   .about-wrap h2 {
     font-family: var(--font-display);
     font-weight: 500;
@@ -99,25 +128,27 @@
     margin: 0 auto !important;
   }
   .closing-quote p + p { margin-top: 0.35em !important; }
-
-  .closing-sign {
-    text-align: center;
-    margin-bottom: clamp(56px, 10vw, 96px);
-  }
-  .closing-name {
-    font-size: 0.95rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.02em;
-    color: var(--violet-deep) !important;
-    margin: 0 0 2px !important;
-  }
-  .closing-role {
-    font-size: 0.82rem !important;
-    text-transform: uppercase;
+  .closing-attrib {
+    display: block;
+    margin-top: clamp(18px, 3vw, 26px);
+    font-family: var(--font-body);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.8rem;
     letter-spacing: 0.14em;
-    color: var(--stone) !important;
-    margin: 0 !important;
+    text-transform: uppercase;
+    color: var(--sage-deep);
   }
+  .closing-label {
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--sage-deep);
+    margin: clamp(72px, 12vw, 120px) 0 0;
+  }
+  .closing-label + .closing-quote { margin-top: clamp(20px, 3vw, 28px); }
 
   .about-links {
     display: flex;
@@ -142,14 +173,15 @@
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="/about.html">About</a>
-      <a href="/partner.html">Partner with us</a>
-      <a href="/#waitlist" class="nav-cta">Get early access</a>
+      <a href="/partner.html">For Organisations</a>
+      <a href="/#newsletter" class="nav-cta">Join the newsletter</a>
     </nav>
     <details class="mobile-menu">
       <summary class="mobile-menu-toggle" role="button" aria-label="Open navigation menu" aria-controls="mobile-navigation">&#9776;</summary>
       <div class="mobile-menu-panel" id="mobile-navigation">
         <a href="/about.html">About</a>
-        <a href="/partner.html">Partner with us</a>
+        <a href="/partner.html">For Organisations</a>
+        <a href="/#newsletter">Join the newsletter</a>
       </div>
     </details>
   </div>
@@ -160,43 +192,57 @@
     <p class="about-eyebrow">Meet the founder</p>
     <h1>Hi, I'm Taleena.</h1>
 
-    <img src="/images/profile.png" alt="Taleena Watts, founder of Syqei" class="founder-photo">
+    <img src="/images/founder-coast-sunset.jpg" alt="Taleena looking out over the Western Australian coastline at sunset" class="about-hero-photo" loading="lazy">
 
-    <p style="text-align:center; font-style:italic; color:var(--stone);">
-      20 year old Thai-Australian Computer Science &amp; Cybersecurity student
-    </p>
+    <h2>How it started</h2>
+    <img src="/images/stem-mentoring.jpg" alt="Taleena mentoring a student while wearing a UWA Girls in Engineering polo" class="about-float-photo" loading="lazy">
+    <p>On paper, I may not be who you would expect to build a nature brand.</p>
+    <p>I study Computer Science and Cybersecurity, and I genuinely love creating technology. But the
+    more time I spent behind a screen, the more I noticed how much I missed being outside.</p>
+    <p>Growing up in regional Western Australia, I was surrounded by extraordinary nature without really
+    knowing how to experience it. Wildflowers would bloom along roads I had travelled countless times.
+    Whales would pass the coast for weeks. Fungi would appear after rain and disappear before I knew to
+    look.</p>
+    <p>Meanwhile, the technology around me was becoming better and better at keeping my attention. Every
+    app gave me another reason to keep looking down. Very few gave me a reason to look up.</p>
+    <p>That led me to a simple question:</p>
+    <p class="pull-quote">What if technology could help us reconnect with nature instead of distracting
+    us from it?</p>
 
-    <h2>How It Started</h2>
-    <p>Growing up in regional Western Australia, I was surrounded by incredible nature, but I rarely knew
-    what was happening around me. Wildflowers would bloom, whales would migrate and butterflies would
-    emerge, yet I'd usually find out after the moment had passed. Like a lot of people my age, I also
-    spent far more time on my phone than I did exploring the world just outside my door.</p>
-    <p class="pull-quote">That sparked a simple question: what if technology could help us reconnect
-    with nature instead of distracting us from it?</p>
+    <h2>What we're building</h2>
+    <p>Syqei is a Western Australian nature brand designed to help people notice, understand and
+    experience more of the living world.</p>
+    <p>Through seasonal storytelling, scientist conversations, real-world experiences and a free
+    discovery tool, we're making it easier to find out what is happening in nature while there is
+    still time to experience it.</p>
+    <p>Our goal is not to replace nature with technology. It is to create technology that points back
+    outside.</p>
 
-    <h2>Making It Happen</h2>
-    <p>Syqei helps people discover what's happening in nature nearby, right when it matters most. From
-    blooming wildflowers to migrating whales, every real-world visit becomes part of your own living
-    garden through scientifically accurate butterflies connected to that place and season.</p>
+    <h2>Why "Syqei"?</h2>
+    <p>Syqei is pronounced <em>psy-key</em>.</p>
+    <p>The name is inspired by Psyche, an Ancient Greek word associated with both the soul and the
+    butterfly. Butterflies have long represented curiosity, change and transformation.</p>
+    <p>For Syqei, they are a reminder that even a small encounter with the natural world can change how
+    we see a place, and our relationship with it.</p>
 
-    <h2>Why "Syqei"</h2>
-    <p>Syqei is pronounced <em>psy-key</em>, inspired by Psyche, whose name means both "soul" and
-    "butterfly" in Ancient Greek. Butterflies have long symbolised transformation, making them the
-    perfect way to remember the places and moments that change us.</p>
+    <h2>Making it happen</h2>
+    <img src="/images/founder-ase-pair.jpg" alt="Taleena with a fellow volunteer at the Australian School of Entrepreneurship" class="about-float-photo about-float-photo--right" loading="lazy">
+    <p>Alongside my studies, a lot of my energy goes into getting more young women into STEM. I've
+    mentored high school and primary school students across metro and regional WA, and interstate, and
+    spoken on panels for events like International Women's Day, sharing what a path into tech and science
+    can actually look like.</p>
+    <p>It's the same thread that runs through Syqei: helping people see a place for themselves in
+    something they might have assumed wasn't for them, whether that's a career in science or simply
+    noticing the nature already around them.</p>
 
     <blockquote class="closing-quote">
-      <p>Technology has become very good at capturing our attention.</p>
-      <p>I hope Syqei helps direct some of it back to the natural world.</p>
+      <p>It seems to me that the natural world is the greatest source of excitement, the greatest source of visual beauty, the greatest source of intellectual interest.</p>
+      <cite class="closing-attrib">&mdash; Sir David Attenborough</cite>
     </blockquote>
-
-    <div class="closing-sign">
-      <p class="closing-name">&mdash; Taleena Watts</p>
-      <p class="closing-role">Founder, Syqei</p>
-    </div>
 
     <div class="about-links">
       <a href="mailto:hello@syqei.com" class="btn btn-ghost">Say hello</a>
-      <a href="https://instagram.com/syqei.app" target="_blank" rel="noopener" class="btn btn-ghost">Follow along</a>
+      <a href="https://instagram.com/syqei.studio" target="_blank" rel="noopener" class="btn btn-ghost">Follow along</a>
     </div>
   </div>
 </main>
@@ -210,8 +256,8 @@
     <nav class="footer-links" aria-label="Footer">
       <a href="/">Home</a>
       <a href="/about.html">About</a>
-      <a href="/partner.html">Partner with us</a>
-      <a href="https://instagram.com/syqei.app" target="_blank" rel="noopener">Instagram</a>
+      <a href="/partner.html">For Organisations</a>
+      <a href="https://instagram.com/syqei.studio" target="_blank" rel="noopener">Instagram</a>
       <a href="mailto:hello@syqei.com">Email</a>
       <a href="/privacy.html">Privacy</a>
     </nav>

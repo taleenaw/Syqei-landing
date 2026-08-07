@@ -3,22 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Syqei: Never miss what's happening in nature around you</title>
+<title>Syqei: See Western Australia differently</title>
 <link rel="icon" type="image/png" href="/images/favicon.png">
-<meta name="description" content="Discover seasonal moments in nature. Explore real places. Unlock the species you discover into your own living garden.">
+<meta name="description" content="A Western Australian nature brand. Discover what's blooming, migrating and emerging right now, explore beautiful places, meet the scientists studying them, and join nature experiences.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://syqei.com/">
-<meta property="og:title" content="Syqei: Never miss what's happening in nature around you">
-<meta property="og:description" content="Discover seasonal moments in nature. Explore real places. Unlock the species you discover into your own living garden.">
+<meta property="og:title" content="Syqei: See Western Australia differently">
+<meta property="og:description" content="Nature stories, seasonal discoveries and experiences from Western Australia. Join the nature newsletter.">
 <meta property="og:image" content="https://syqei.com/images/happening.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Syqei: Never miss what's happening in nature around you">
-<meta name="twitter:description" content="Discover seasonal moments in nature. Explore real places. Unlock the species you discover into your own living garden.">
+<meta name="twitter:title" content="Syqei: See Western Australia differently">
+<meta name="twitter:description" content="Nature stories, seasonal discoveries and experiences from Western Australia. Join the nature newsletter.">
 <meta name="twitter:image" content="https://syqei.com/images/happening.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
+
+<!-- Hero scrim tuned slightly heavier for the brighter whale/ocean footage,
+     so the cream headline stays legible. Scoped to the top hero only;
+     the darker science-band film keeps the shared style. If you later swap
+     in a darker, moodier hero clip, you can delete this block. -->
+<style>
+  .film-hero-scrim {
+    background:
+      linear-gradient(180deg, rgba(24,16,32,0.42) 0%, rgba(24,16,32,0.12) 28%, rgba(24,16,32,0.38) 62%, rgba(24,16,32,0.86) 100%),
+      radial-gradient(120% 90% at 20% 90%, rgba(61,43,82,0.62) 0%, rgba(61,43,82,0) 55%);
+  }
+
+  /* Flush hero: instead of pulling the hero up under the nav with a fixed
+     negative margin (which left a sliver of page background showing when the
+     guessed height didn't match), let the nav overlay the hero. The hero
+     starts at the very top edge, video flush, nothing bleeding through.
+     The nav still turns solid + sticky on scroll (script.js handles that). */
+  .has-cinematic-hero .film-hero { margin-top: 0; }
+  .has-cinematic-hero #site-nav.nav--over-hero {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+  }
+</style>
 
 <!-- Google Analytics (GA4) -- replace G-PPELPT779N with your real Measurement ID
      from https://analytics.google.com once you've created a property for syqei.com -->
@@ -30,26 +53,29 @@
   gtag('config', 'G-PPELPT779N');
 </script>
 </head>
-<body>
+<body class="has-cinematic-hero">
 
 <div class="grain"></div>
 
-<header class="nav">
+<!-- Nav starts transparent over the film, turns solid once you scroll past the hero.
+     .nav--over-hero is removed by script.js on scroll. -->
+<header class="nav nav--over-hero" id="site-nav">
   <div class="nav-inner">
-    <span class="wordmark-group">
+    <a href="/" class="wordmark-group" style="text-decoration:none;">
       <img src="/images/syqei-logo.png" alt="" class="logo-icon" width="42" height="42">
       <span class="wordmark">syqei</span>
-    </span>
+    </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="/about.html">About</a>
-      <a href="/partner.html">Partner with us</a>
-      <a href="#waitlist" class="nav-cta">Get early access</a>
+      <a href="/partner.html">For Organisations</a>
+      <a href="#newsletter" class="nav-cta">Join the newsletter</a>
     </nav>
     <details class="mobile-menu">
       <summary class="mobile-menu-toggle" role="button" aria-label="Open navigation menu" aria-controls="mobile-navigation">&#9776;</summary>
       <div class="mobile-menu-panel" id="mobile-navigation">
         <a href="/about.html">About</a>
-        <a href="/partner.html">Partner with us</a>
+        <a href="/partner.html">For Organisations</a>
+        <a href="#newsletter">Join the newsletter</a>
       </div>
     </details>
   </div>
@@ -57,144 +83,103 @@
 
 <main>
 
-  <!-- HERO: split layout, copy left, product preview right -->
-  <section class="hero">
-    <div class="hero-blob blob-1" aria-hidden="true"></div>
-    <div class="hero-blob blob-2" aria-hidden="true"></div>
-
-    <!-- Drifting butterflies -- max 3, subtle, per feedback. Uses the real PNG artwork, split into a left/right half that scale toward the body to fake a flap -- no redrawing, full fidelity to the original icons. -->
-    <div class="drift drift-1" aria-hidden="true" style="--flap-delay:0s; --flap-dur:2.4s;">
-      <div class="butterfly-real" style="width:96px; height:87px;">
-        <img class="bfly-half bfly-left" src="/images/butterfly-3a-lavender-violet.png" alt="">
-        <img class="bfly-half bfly-right" src="/images/butterfly-3a-lavender-violet.png" alt="">
-      </div>
-    </div>
-    <div class="drift drift-2" aria-hidden="true" style="--flap-delay:-0.9s; --flap-dur:2.1s;">
-      <div class="butterfly-real" style="width:32px; height:29px;">
-        <img class="bfly-half bfly-left" src="/images/butterfly-3d-lavender-sage.png" alt="">
-        <img class="bfly-half bfly-right" src="/images/butterfly-3d-lavender-sage.png" alt="">
-      </div>
-    </div>
-    <div class="drift drift-3" aria-hidden="true" style="--flap-delay:-1.6s; --flap-dur:2.6s;">
-      <div class="butterfly-real" style="width:70px; height:63px;">
-        <img class="bfly-half bfly-left" src="/images/butterfly-3b-sage.png" alt="">
-        <img class="bfly-half bfly-right" src="/images/butterfly-3b-sage.png" alt="">
-      </div>
+  <!-- ============================================================
+       CINEMATIC HERO -- full-viewport film, light UI anchored low.
+       Video is muted/looping/autoplaying; poster shows first paint
+       and if video is blocked. A darkening scrim keeps text legible.
+       ============================================================ -->
+  <section class="film-hero" aria-label="Introduction">
+    <div class="film-hero-media">
+      <video
+        class="film-hero-video"
+        autoplay muted loop playsinline
+        poster="/images/happening.png"
+        aria-hidden="true">
+        <source src="/images/whales.mp4" type="video/mp4">
+      </video>
+      <div class="film-hero-scrim" aria-hidden="true"></div>
     </div>
 
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <p class="eyebrow">The easiest way to discover what's happening in nature</p>
-        <h1>Never miss what's<br>happening in nature<br><em>around you.</em></h1>
-        <p class="hero-sub">See what's happening in nature near you right now. Visit real places and unlock a butterfly matched to each place and season.</p>
+    <div class="film-hero-content">
+      <p class="film-eyebrow">A Western Australian nature brand</p>
+      <h1 class="film-title">See Western Australia<br><em>differently.</em></h1>
+      <p class="film-sub">Discover what's blooming, migrating and emerging right now. Explore beautiful places, meet the people studying them, and notice more.</p>
+      <div class="film-actions">
+        <a href="#newsletter" class="btn btn-primary">Join the nature newsletter</a>
+        <a href="#explore" class="btn btn-on-film">Explore Syqei</a>
+      </div>
+    </div>
 
-        <div class="hero-actions">
-          <a href="#waitlist" class="btn btn-primary">Get early access</a>
-          <a href="#how" class="btn btn-ghost">See how it works</a>
+    <a href="#explore" class="film-scroll-cue" aria-label="Scroll to explore">
+      <span class="film-scroll-dot"></span>
+    </a>
+  </section>
+
+  <!-- DISCOVER + WHAT SYQEI IS -- one sage section: title, then the three items -->
+  <section class="discover-section" id="explore">
+    <div class="discover-section-inner">
+      <h2 class="discover-section-title">Stop scrolling. Start discovering.</h2>
+      <p class="section-label">What Syqei is</p>
+      <div class="offer-grid">
+        <div class="offer">
+          <span class="offer-label">Discover</span>
+          <p>Seasonal stories about what's blooming, migrating and emerging across Western Australia, with real places to go and see it.</p>
         </div>
-        <p class="hero-location">Launching first in Perth, Western Australia.</p>
-      </div>
-
-      <div class="hero-visual">
-        <div class="phone-mockup-float">
-          <div class="phone-mockup-frame">
-            <img src="/images/home_export.png" alt="Syqei app showing nearby nature events" class="phone-mockup" fetchpriority="high" width="320" height="640">
-          </div>
+        <div class="offer">
+          <span class="offer-label">Experience</span>
+          <p>Wildflower walks, butterfly expeditions and scientist-led outings, built to help you see nature up close.</p>
+        </div>
+        <div class="offer">
+          <span class="offer-label">Understand</span>
+          <p>Interviews with the scientists and photographers who study these places, made for anyone to enjoy.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DISCOVER: single consolidated section replacing the old two-part problem/solution sections.
-       Leads with discovery as the value prop (not "the problem"), and deliberately uses a
-       different set of examples to the live feed below it, so nothing repeats site-wide. -->
-  <section class="discover">
-    <div class="discover-inner">
-      <h2>Stop scrolling.<br>Start discovering.</h2>
-      <p class="discover-lead">Every week, extraordinary things happen just around the corner. From blooming wildflowers to migrating whales, Syqei helps you discover what's happening nearby.</p>
+  <!-- FOUNDER split -- Taleena in the field, photo one half, story the other -->
+  <section class="founder-split">
+    <div class="founder-split-media">
+      <img src="/images/founder-outback-armsopen.jpg" alt="Taleena standing among red-dirt scrub with her arms open under a wide Western Australian sky" loading="lazy">
+    </div>
+    <div class="founder-split-content">
+      <p class="section-label">The founder</p>
+      <h2>Hi, I'm Taleena.</h2>
+      <p>I'm a Computer Science student at UWA who kept noticing how much extraordinary nature was passing me by, right here in Western Australia. Syqei is my way of helping people notice it too, and get outside while it's still happening.</p>
+      <a href="/about.html" class="btn btn-ghost">Read my story</a>
     </div>
   </section>
 
-  <!-- JOURNEY: editorial three-panel section, replaces the old card grid.
-       Each panel is roughly 30% text / 70% visual, alternating sides.
-       Visuals are CSS/HTML mockups standing in for real product screenshots
-       and photography -- see placeholder-tag notes on where to swap. -->
-  <section class="journey" id="how">
-    <div class="journey-inner">
-      <div class="journey-head">
-        <p class="section-label">Explore what's happening around you</p>
-        <h2>Find it. Visit it. Collect it.</h2>
-      </div>
-
-      <div class="journey-panel">
-        <div class="journey-text">
-          <span class="journey-num">Discover</span>
-          <h3>See what's happening nearby today.</h3>
-          <p>Seasonal moments, wildlife activity and places worth exploring, updated for exactly where you are.</p>
-        </div>
-        <div class="journey-visual journey-visual--feed">
-          <img src="/images/happening.png" alt="Syqei app showing seasonal moments near you" class="journey-mockup-img" loading="lazy">
-        </div>
-      </div>
-
-      <div class="journey-panel journey-panel--reverse">
-        <div class="journey-text">
-          <span class="journey-num">Experience</span>
-          <h3>Visit while nature is at its best.</h3>
-          <p>Pick a place that interests you, and visit while it's happening.</p>
-        </div>
-        <div class="journey-visual journey-visual--photo">
-          <video class="journey-video" autoplay muted loop playsinline aria-hidden="true">
-            <source src="/images/swan.mp4" type="video/mp4">
-          </video>
-          <span class="jv-pin">Herdsman Lake &middot; 8 min away</span>
-        </div>
-      </div>
-
-      <div class="journey-panel">
-        <div class="journey-text">
-          <span class="journey-num">Collect</span>
-          <h3>Turn every adventure into part of your living garden.</h3>
-          <p>Every visit unlocks a scientifically accurate butterfly matched to that place and season, creating a collection no one else can have.</p>
-        </div>
-        <div class="journey-visual journey-visual--garden">
-          <img src="/images/passport.png" alt="Syqei garden and passport screen showing unlocked butterflies and places visited" class="journey-mockup-img" loading="lazy">
-        </div>
+  <!-- SCIENCE / PEOPLE -- full-bleed dark band, second cinematic moment -->
+  <section class="science-film">
+    <div class="science-film-media" aria-hidden="true">
+      <video class="science-film-video" autoplay muted loop playsinline poster="/images/happening.png">
+        <source src="/images/swan.mp4" type="video/mp4">
+      </video>
+      <div class="science-film-scrim"></div>
+    </div>
+    <div class="science-film-content">
+      <p class="section-label section-label--light">The people behind Syqei</p>
+      <h2 class="on-dark">Nature, explained by the people who know it best.</h2>
+      <p class="science-film-lead">Syqei works with scientists, researchers, photographers and local organisations to turn specialist knowledge into experiences anyone can enjoy. We're building close to Western Australia's research community, so the wonder always sits on real expertise, never guesswork.</p>
+      <div class="science-tags">
+        <span class="science-tag">UWA scientists &amp; researchers</span>
+        <span class="science-tag">Nature photographers</span>
+        <span class="science-tag">Conservation organisations</span>
+        <span class="science-tag">Local parks &amp; reserves</span>
       </div>
     </div>
   </section>
 
-  <!-- VALUES STRIP -->
-  <section class="values">
-    <div class="values-inner">
-      <div class="value"><h3>Made for curiosity</h3><p>Discover moments you might have otherwise missed.</p></div>
-      <div class="value"><h3>Inspired by nature</h3><p>Built around real places, real species and the changing seasons.</p></div>
-      <div class="value"><h3>Better together</h3><p>Invite a friend and discover it side by side.</p></div>
-    </div>
-  </section>
-
-  <!-- TRUST -->
-  <section class="trust">
-    <div class="trust-inner">
-      <p class="trust-line">Starting in <strong>Perth, Western Australia</strong></p>
-      <p class="trust-label">Building with</p>
-      <div class="trust-tags">
-        <span class="trust-tag">Nature lovers</span>
-        <span class="trust-tag">Conservation experts</span>
-        <span class="trust-tag">Local parks</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- WAITLIST -->
-  <section class="waitlist" id="waitlist">
+  <!-- NEWSLETTER -- primary conversion -->
+  <section class="waitlist" id="newsletter">
     <div class="waitlist-inner">
-      <p class="section-label">Get in early</p>
-      <h2>Become an early explorer.</h2>
-      <p class="waitlist-sub">Join the waitlist for early access, and one lucky sign-up wins a $50 gift card.</p>
+      <p class="section-label">Join us</p>
+      <h2>Notice what's happening before you miss it.</h2>
+      <p class="waitlist-sub">A seasonal email about what's blooming, migrating and emerging across Western Australia, with places to visit, stories from scientists and upcoming Syqei experiences.</p>
 
-      <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="waitlist-form" id="waitlist-form">
-        <input type="hidden" name="form-name" value="waitlist">
+      <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="waitlist-form" id="waitlist-form">
+        <input type="hidden" name="form-name" value="newsletter">
         <p class="hidden-field"><label>Don't fill this out: <input name="bot-field"></label></p>
 
         <div class="waitlist-field waitlist-field--full">
@@ -207,6 +192,7 @@
             <option value="Butterflies and insects">Butterflies and insects</option>
             <option value="Fungi, frogs and after-rain life">Fungi, frogs and after-rain life</option>
             <option value="Places to explore near me">Places to explore near me</option>
+            <option value="Nature experiences and events">Nature experiences and events</option>
             <option value="A bit of everything">A bit of everything</option>
           </select>
         </div>
@@ -214,14 +200,27 @@
         <div class="waitlist-field waitlist-row">
           <label class="visually-hidden" for="email">Email address</label>
           <input type="email" id="email" name="email" placeholder="you@example.com" required>
-          <button type="submit" class="btn btn-primary">Get early access</button>
+          <button type="submit" class="btn btn-primary">Join the newsletter</button>
         </div>
+
+        <label class="waitlist-check">
+          <input type="checkbox" name="early-access" value="yes" checked>
+          <span>Also send me early access to Syqei Discover, our free nature-discovery app, when it launches.</span>
+        </label>
       </form>
-      <p class="form-success" id="form-success" hidden>You're on the list, thank you! <img src="/images/butterfly-3a-lavender-violet.png" alt="" class="inline-bfly"></p>
+      <p class="form-success" id="form-success" hidden>You're in, thank you! Keep an eye on your inbox. <img src="/images/butterfly-3a-lavender-violet.png" alt="" class="inline-bfly"></p>
+      <p class="waitlist-fineprint">Seasonal, not spammy. Unsubscribe any time.</p>
     </div>
   </section>
 
 </main>
+
+<!-- CLOSING banner -- Pilbara landscape sign-off before the footer -->
+<section class="closing-band">
+  <img src="/images/wa-pilbara-wide.jpg" alt="Taleena and a friend sitting on a rock looking out over the Pilbara coastline in Western Australia" loading="lazy">
+  <div class="closing-band-overlay"></div>
+  <p class="closing-band-text">See you outside.</p>
+</section>
 
 <footer class="footer">
   <div class="footer-inner">
@@ -231,8 +230,8 @@
     </span>
     <nav class="footer-links" aria-label="Footer">
       <a href="/about.html">About</a>
-      <a href="/partner.html">Partner with us</a>
-      <a href="https://instagram.com/syqei.app" target="_blank" rel="noopener">Instagram</a>
+      <a href="/partner.html">For Organisations</a>
+      <a href="https://instagram.com/syqei.studio" target="_blank" rel="noopener">Instagram</a>
       <a href="mailto:hello@syqei.com">Email</a>
       <a href="/privacy.html">Privacy</a>
     </nav>
