@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stories from Syqei | Syqei</title>
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<meta name="description" content="Stories from Syqei. Tech, nature, careers, projects and the people doing interesting things between them. Our first stories are coming soon. Join the newsletter to hear when the first post drops.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://syqei.com/blog.html">
+<meta property="og:title" content="Stories from Syqei">
+<meta property="og:description" content="Tech, nature, careers, projects and the people doing interesting things between them. Coming soon.">
+<meta property="og:image" content="https://syqei.com/images/happening.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Stories from Syqei">
+<meta name="twitter:description" content="Tech, nature, careers, projects and the people between them. Coming soon.">
+<meta name="twitter:image" content="https://syqei.com/images/happening.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+
+<!-- Google Analytics (GA4) -- replace G-PPELPT779N with your real Measurement ID
+     from https://analytics.google.com once you've created a property for syqei.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PPELPT779N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PPELPT779N');
+</script>
+<style>
+  /* ---- Editorial hero ---- */
+  .blog-hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(90px, 14vw, 170px) clamp(20px, 5vw, 60px) clamp(24px, 4vw, 44px);
+    text-align: center;
+  }
+  .blog-hero .section-label { color: var(--green); }
+  .blog-hero h1 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(2.6rem, 8vw, 5rem);
+    line-height: 1.02;
+    color: var(--brown);
+    margin: 16px 0 22px;
+  }
+  .blog-hero-sub {
+    color: var(--brown-soft);
+    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+    line-height: 1.6;
+    max-width: 46ch;
+    margin: 0 auto;
+  }
+
+  /* ---- Coming soon ---- */
+  .blog-coming {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: clamp(24px, 4vw, 44px) clamp(20px, 5vw, 60px) clamp(64px, 10vw, 110px);
+    text-align: center;
+  }
+  .blog-coming-badge {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--orange);
+    background: var(--cream);
+    border: 1px solid rgba(201, 111, 69, 0.28);
+    border-radius: 8px;
+    padding: 7px 16px;
+    margin-bottom: 24px;
+  }
+  .blog-coming h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--brown);
+    margin: 0 0 16px;
+  }
+  .blog-coming p {
+    color: var(--brown-soft);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0 auto;
+    max-width: 54ch;
+  }
+
+  /* ---- Newsletter (green) ---- */
+  .blog-newsletter {
+    background: var(--green);
+    color: var(--cream-text);
+    padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 60px);
+    text-align: center;
+  }
+  .blog-newsletter-inner { max-width: 560px; margin: 0 auto; }
+  .blog-newsletter h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    line-height: 1.25;
+    color: var(--cream-text);
+    margin: 0 0 22px;
+  }
+  .blog-newsletter-row { display: flex; gap: 10px; max-width: 460px; margin: 0 auto; flex-wrap: wrap; }
+  .blog-newsletter-row input[type="email"] {
+    flex: 1; min-width: 200px; padding: 14px 18px; border-radius: 10px;
+    border: 1.5px solid rgba(251, 248, 243, 0.3); background: var(--bg); color: var(--brown);
+    font-family: var(--font-body); font-size: 0.95rem;
+  }
+  .blog-newsletter-row input:focus-visible { outline: 3px solid var(--orange-soft); outline-offset: 2px; }
+  .blog-newsletter-row .btn { flex-shrink: 0; }
+  .blog-newsletter .form-success { color: var(--cream-text); font-weight: 600; margin-top: 18px; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" style="text-decoration:none;">
+      <span class="wordmark-group">
+        <img src="/images/syqei-logo.png" alt="" class="logo-icon" width="42" height="42">
+        <span class="wordmark">syqei</span>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/partner.html">Partner</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/advertise.html">Advertise</a>
+      <a href="/#join" class="nav-cta">Register interest</a>
+    </nav>
+    <details class="mobile-menu">
+      <summary class="mobile-menu-toggle" role="button" aria-label="Open navigation menu" aria-controls="mobile-navigation">&#9776;</summary>
+      <div class="mobile-menu-panel" id="mobile-navigation">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/partner.html">Partner</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/advertise.html">Advertise</a>
+        <a href="/#join">Register interest</a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<main>
+
+  <!-- EDITORIAL HERO -->
+  <section class="blog-hero">
+    <p class="section-label">Blog</p>
+    <h1>Stories from Syqei</h1>
+    <p class="blog-hero-sub">Tech, nature, careers, projects and the people doing interesting things between them.</p>
+    <span class="blog-coming-badge" style="margin-top: 30px;">Coming soon</span>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="blog-newsletter">
+    <div class="blog-newsletter-inner">
+      <h2>Join the monthly newsletter to hear when the first post drops.</h2>
+      <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="blog-newsletter-form" id="waitlist-form">
+        <input type="hidden" name="form-name" value="newsletter">
+        <p class="hidden-field"><label>Don't fill this out <input name="bot-field"></label></p>
+        <div class="blog-newsletter-row">
+          <label class="visually-hidden" for="blog-email">Email address</label>
+          <input type="email" id="blog-email" name="email" placeholder="you@example.com" required>
+          <button type="submit" class="btn btn-primary">Join the newsletter</button>
+        </div>
+      </form>
+      <p class="form-success" id="form-success" hidden>You're on the list, thank you.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="wordmark-group">
+      <img src="/images/syqei-logo.png" alt="" class="logo-icon logo-icon--small" width="32" height="32">
+      <span class="wordmark wordmark--small">syqei</span>
+    </span>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/about.html">About</a>
+      <a href="/partner.html">Partner</a>
+      <a href="/advertise.html">Advertise</a>
+      <a href="/blog.html">Blog</a>
+      <a href="https://instagram.com/syqei.studio" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:hello@syqei.com">Email</a>
+      <a href="/privacy.html">Privacy</a>
+    </nav>
+  </div>
+  <p class="acknowledgement">
+    We acknowledge the Whadjuk Noongar people, the Traditional Owners of the land on which
+    Syqei is built and operated, and the many Traditional Custodians of Country across Western
+    Australia. We pay our respects to Elders past, present, and emerging, and recognise their
+    continuing connection to land, waters, and culture.
+  </p>
+</footer>
+
+<script src="/script.js"></script>
+</body>
+</html>

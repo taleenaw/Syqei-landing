@@ -121,7 +121,7 @@ if (!prefersReduced && 'IntersectionObserver' in window) {
   wrap.className = 'cursor-bfly';
   wrap.setAttribute('aria-hidden', 'true');
   wrap.innerHTML = `
-    <div class="butterfly-real" style="width:26px; height:23px; --flap-dur:0.5s;">
+    <div class="butterfly-real" style="width:40px; height:35px; --flap-dur:0.5s;">
       <img class="bfly-half bfly-left" src="/images/butterfly-3d-lavender-sage.png" alt="">
       <img class="bfly-half bfly-right" src="/images/butterfly-3d-lavender-sage.png" alt="">
     </div>`;
@@ -154,9 +154,9 @@ if (!prefersReduced && 'IntersectionObserver' in window) {
     const targetAngle = Math.max(-22, Math.min(22, dx * 3));
     angle += (targetAngle - angle) * 0.1;
 
-    // offset up-left so the butterfly trails beside the tip, not under it
+    // offset down-right so the larger butterfly trails beside the tip, not under it
     wrap.style.transform =
-      `translate(${px + 14}px, ${py + 14}px) rotate(${angle}deg)`;
+      `translate(${px + 20}px, ${py + 20}px) rotate(${angle}deg)`;
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
