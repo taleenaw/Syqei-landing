@@ -110,6 +110,17 @@
   .coming .section-label { color: var(--green); }
   .coming h1 { font-family: var(--font-display); font-weight: 500; font-size: clamp(2rem,5vw,3rem); line-height: 1.08; color: var(--brown); margin: 12px 0 20px; }
   .coming-lead { color: var(--brown-soft); font-size: clamp(1.05rem,1.6vw,1.2rem); line-height: 1.7; margin: 0 0 32px; }
+  /* ---- Project 001 numbered hero ---- */
+  .p001 .coming-lead { margin-bottom: 20px; }
+  .p001 h1 .p001-x { color: var(--orange); font-style: normal; font-weight: 300; }
+  .p001-status {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.03em;
+    color: var(--green);
+    margin: 0 0 30px;
+  }
 </style>
 </head>
 <body>
@@ -128,7 +139,6 @@
       <a href="/projects.html" aria-current="page">Projects</a>
       <a href="/partner.html">Partner</a>
       <a href="/blog.html">Blog</a>
-      <a href="/advertise.html">Advertise</a>
       <a href="/#join" class="nav-cta">Register interest</a>
     </nav>
     <details class="mobile-menu">
@@ -139,7 +149,6 @@
         <a href="/projects.html">Projects</a>
         <a href="/partner.html">Partner</a>
         <a href="/blog.html">Blog</a>
-        <a href="/advertise.html">Advertise</a>
         <a href="/#join">Register interest</a>
       </div>
     </details>
@@ -148,11 +157,20 @@
 
 <main>
 
-  <!-- COMING SOON -->
-  <section class="coming">
-    <p class="section-label">Projects</p>
-    <h1>Projects are coming soon.</h1>
-    <p class="coming-lead">Syqei Studio projects turn real problems affecting the natural world into technology young people can build. We are shaping the first ones now. Register your interest and we will let you know when they open.</p>
+  <!-- FIRST PROJECT -- Project 001 (numbered identity).
+       BEFORE THIS GOES LIVE, confirm two things:
+       1. "Computer Vision" -- confirm the real technology angle for the butterfly project and swap if it is something else.
+       2. Logistics -- once real dates, location and number of places exist, switch the status line to the
+          specific version commented below. Specific ("Opens September - Perth - 20 places") feels far more
+          real than "opening soon". -->
+  <section class="coming p001">
+    <p class="section-label">Project 001</p>
+    <h1>Butterflies <span class="p001-x">&times;</span> Computer Vision</h1>
+    <p class="coming-lead">Our first project takes something real from the field, butterflies and the data behind them, and turns it into something young people can build with technology. Real data, real guidance, and something to show at the end.</p>
+    <p class="p001-status">Opening soon in Western Australia. Places will be limited.</p>
+    <!-- Specific version to use once dates and places are confirmed:
+    <p class="p001-status">Opens September &middot; Perth &middot; 20 places</p>
+    -->
     <a href="/#join" class="btn btn-primary">Register your interest</a>
   </section>
 
