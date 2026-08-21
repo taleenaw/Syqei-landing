@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meet the Founder | Syqei</title>
 <link rel="icon" type="image/png" href="/images/favicon.png">
-<meta name="description" content="Syqei gives young people a different way into tech through real projects and expert guidance, starting with technology for the living world. Founded by Taleena Watts, a Computer Science and Cybersecurity student at UWA.">
+<meta name="description" content="Syqei Studio is a youth technology studio working at the intersection of creative technology, ecology and education. Founded by Taleena Watts, a Computer Science and Cybersecurity student at UWA.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://syqei.com/about.html">
 <meta property="og:title" content="About Syqei, meet the founder">
-<meta property="og:description" content="Syqei gives young people a different way into tech through real projects and expert guidance. Founded by Taleena Watts, a Computer Science and Cybersecurity student at UWA.">
+<meta property="og:description" content="Syqei Studio gives young people a different way into tech through applied projects shaped by ecology and the living world. Founded by Taleena Watts at UWA.">
 <meta property="og:image" content="https://syqei.com/images/happening.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="About Syqei, meet the founder">
-<meta name="twitter:description" content="Syqei gives young people a different way into tech through real projects and expert guidance. Founded by Taleena Watts at UWA.">
+<meta name="twitter:description" content="Syqei Studio gives young people a different way into tech through applied projects shaped by ecology and the living world. Founded by Taleena Watts at UWA.">
 <meta name="twitter:image" content="https://syqei.com/images/happening.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -160,6 +160,64 @@
     flex-wrap: wrap;
   }
 </style>
+
+<style id="syqei-polish">
+/* Founder page editorial polish */
+.about-wrap { position: relative; }
+.about-wrap::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(201,111,69,0.055), transparent 68%);
+  pointer-events: none;
+  z-index: -1;
+}
+.about-hero-photo {
+  box-shadow: 22px 22px 0 rgba(201,111,69,0.105);
+  margin-bottom: 60px;
+}
+.about-wrap h2 {
+  position: relative;
+  color: var(--green);
+  margin-top: 48px;
+  padding-top: 15px;
+}
+.about-wrap h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 2px;
+  background: rgba(201,111,69,0.78);
+}
+.pull-quote {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--violet-deep);
+  font-weight: 600;
+}
+.about-float-photo {
+  box-shadow: 12px 12px 0 rgba(201,111,69,0.09);
+}
+.about-float-photo--right {
+  box-shadow: -12px 12px 0 rgba(63,90,70,0.085);
+}
+.closing-quote {
+  padding: 34px 18px;
+  border-top: 1px solid rgba(201, 111, 69, 0.13);
+  border-bottom: 1px solid rgba(201, 111, 69, 0.13);
+}
+.about-links .btn { min-width: 128px; }
+@media (max-width: 620px) {
+  .about-hero-photo { box-shadow: 12px 12px 0 rgba(201,111,69,0.09); }
+}
+</style>
 </head>
 <body>
 
@@ -175,7 +233,7 @@
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="/">Home</a>
-      <a href="/about.html">About</a>
+      <a href="/about.html" aria-current="page">About</a>
       <a href="/projects.html">Projects</a>
       <a href="/partner.html">Partner</a>
       <a href="/blog.html">Blog</a>
@@ -216,10 +274,8 @@
     pulling us away from it?</p>
 
     <h2>What we're building</h2>
-    <p>Syqei is what I wish had existed when I was in high school. Young people can join Syqei Studio, take on a real technology project with real data and a real problem from the field, and
-    build something real and publish it. They walk away with work they can show, people they actually
-    know, and a genuine next step.</p>
-    <p>You do not have to love the environment to belong, but it turns out the world needs a lot more people who can help tackle environmental problems.</p>
+    <p>Syqei is what I wish had existed when I was in high school. It is a youth technology studio working at the intersection of creative technology, ecology and education. Young people take on applied projects shaped from ecological questions, environmental data and real-world field problems, then build something they can test, refine and show. They walk away with work they can point to and a genuine next step.</p>
+    <p>You do not have to arrive as an environmentalist to belong. Ecology is the context. The technology, problem-solving and creative practice are the way in.</p>
 
     <h2>Why Syqei</h2>
     <p>Syqei is pronounced <em>psy-key</em>.</p>
@@ -236,9 +292,7 @@
     students across metro and regional WA, and interstate, and spoken on panels for events like
     International Women's Day about what a path into tech and science can actually look like.</p>
     <img src="/images/about-ase-workshop.jpg" alt="Young people at an Australian School of Entrepreneurship workshop" class="about-float-photo about-float-photo--right" loading="lazy">
-    <p>It is the same thread that runs through Syqei. Helping people see themselves in something they
-    assumed was not for them, and then handing them the team, the project and the proof to make it
-    real.</p>
+    <p>It is the same thread that runs through Syqei. Helping young people see themselves as technologists, then giving them a real-world brief and the proof that they can build something meaningful.</p>
 
     <blockquote class="closing-quote">
       <p>It seems to me that the natural world is the greatest source of excitement, the greatest source of visual beauty, the greatest source of intellectual interest.</p>

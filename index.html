@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Syqei | Real tech projects for young people</title>
 <link rel="icon" type="image/png" href="/images/favicon.png">
-<meta name="description" content="Syqei Studio creates technology projects for young people inspired by real problems in wildlife, conservation and the environment. Explore AI, data, design, coding and more through the natural world.">
+<meta name="description" content="Syqei Studio turns real ecological questions, conservation challenges and environmental data into creative technology projects for young people. Explore AI, data, design, coding and digital mapping.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://syqei.com/">
 <meta property="og:title" content="Syqei | Real tech projects for young people">
-<meta property="og:description" content="Syqei Studio creates technology projects for young people inspired by real problems in the natural world. Explore AI, data, design, coding and more.">
+<meta property="og:description" content="Syqei Studio turns ecological questions and environmental data into creative technology projects for young people. Explore AI, data, design, coding and digital mapping.">
 <meta property="og:image" content="https://syqei.com/images/happening.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Syqei | Real tech projects for young people">
-<meta name="twitter:description" content="Technology projects for young people inspired by real problems in the natural world. Explore AI, data, design, coding and more.">
+<meta name="twitter:description" content="Creative technology projects for young people built from ecological questions and environmental data. Explore AI, data, design, coding and digital mapping.">
 <meta name="twitter:image" content="https://syqei.com/images/happening.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,69 +98,46 @@
   .founder-social:hover { color: var(--orange); }
   .founder-social span { color: var(--orange); margin-left: 4px; }
 
-  /* Eugenia-style secondary link under the waitlist form */
-  .waitlist-secondary {
-    display: block;
-    text-align: center;
-    margin-top: 22px;
-    font-size: 0.95rem;
+  /* Quiet tertiary link under the hero buttons (skill translator) */
+  .film-skills {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 0.92rem;
     font-weight: 500;
-    color: rgba(251, 248, 243, 0.85);
+    color: rgba(251, 248, 243, 0.82);
     text-decoration: none;
     transition: color 0.2s ease;
   }
-  .waitlist-secondary:hover { color: var(--cream-text); }
-  .waitlist-secondary span { color: var(--orange-soft); margin-left: 4px; }
+  .film-skills:hover { color: var(--cream-text); }
+  .film-skills span { color: var(--orange-soft); margin-left: 4px; }
+  .film-skills:focus-visible { outline: 3px solid var(--orange-soft); outline-offset: 3px; border-radius: 4px; }
 
-  /* Single prominent CTA button in the green join section */
-  .join-cta {
-    padding: 17px 44px;
-    font-size: 1rem;
-    margin-top: 6px;
-  }
 
-  /* Footer newsletter -- Stay in the loop */
-  .footer-newsletter {
-    max-width: 560px;
-    margin: 0 auto 30px;
-    padding: 4px 0 34px;
-    text-align: center;
-    border-bottom: 1px solid rgba(74, 56, 47, 0.12);
-  }
-  .footer-newsletter-title {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: clamp(1.4rem, 3vw, 1.9rem);
-    color: var(--brown);
-    margin: 0 0 8px;
-  }
-  .footer-newsletter-sub {
-    color: var(--brown-soft);
-    font-size: 0.98rem;
-    margin: 0 0 20px;
-  }
-  .newsletter-form { margin: 0; }
-  .newsletter-row {
-    display: flex;
-    gap: 10px;
-    max-width: 440px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-  }
-  .newsletter-row input[type="email"] {
+  /* In-place signup form inside the green join section */
+  .join-form { margin: 10px auto 0; max-width: 460px; }
+  .join-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .join-row input[type="email"] {
     flex: 1;
     min-width: 200px;
-    padding: 13px 18px;
+    padding: 14px 18px;
     border-radius: 10px;
-    border: 1.5px solid rgba(74, 56, 47, 0.2);
+    border: 1.5px solid rgba(251, 248, 243, 0.3);
     background: var(--bg);
     color: var(--brown);
     font-family: var(--font-body);
     font-size: 0.95rem;
   }
-  .newsletter-row input[type="email"]:focus-visible { outline: 3px solid var(--orange-soft); outline-offset: 2px; }
-  .newsletter-row .btn { flex-shrink: 0; }
-  .footer-newsletter .form-success { color: var(--green); font-weight: 600; margin-top: 16px; }
+  .join-row input[type="email"]:focus-visible { outline: 3px solid var(--orange-soft); outline-offset: 2px; }
+  .join-row .btn { flex-shrink: 0; }
+  .join-note { color: rgba(251, 248, 243, 0.8); font-size: 0.82rem; margin: 14px auto 0; max-width: 460px; }
+
+  /* Keep the homepage signup band compact so the closing image arrives sooner. */
+  .waitlist {
+    padding-top: clamp(48px, 6.5vw, 72px);
+    padding-bottom: clamp(48px, 6.5vw, 72px);
+  }
+  .waitlist-sub { margin-bottom: 28px; }
+  .waitlist .form-success { color: var(--cream-text); font-weight: 600; margin-top: 16px; }
 
   /* ===== What you actually get -- editorial, image-led ===== */
   .get { padding: clamp(64px,10vw,120px) clamp(20px,5vw,60px); background: var(--bg); }
@@ -174,8 +151,58 @@
   .get-num { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.1rem,1.6vw,1.35rem); color: var(--orange); }
   .get-item h3 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.6rem,3.4vw,2.4rem); line-height: 1.1; color: var(--brown); margin: 0; }
   .get-item > p { color: var(--brown-soft); font-size: clamp(1.05rem,1.5vw,1.2rem); line-height: 1.6; max-width: 52ch; margin: 0 0 24px; }
-  .get-photo { width: 100%; aspect-ratio: 16/9; border-radius: var(--radius); overflow: hidden; background: rgba(74,56,47,0.05); border: 1.5px dashed rgba(74,56,47,0.16); }
+  .get-photo { position: relative; z-index: 1; width: 100%; aspect-ratio: 16/9; overflow: hidden; }
   .get-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Three steps side by side, image-first so photos align in a row */
+  .get-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(28px, 4vw, 52px); align-items: start; }
+  .get-grid .get-item { margin: 0; display: flex; flex-direction: column; }
+  .get-grid .get-item-head { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin: 26px 0 8px; }
+  .get-grid .get-num { font-size: 1rem; }
+  .get-grid .get-item h3 { font-size: clamp(1.15rem, 1.7vw, 1.45rem); }
+  .get-grid .get-item > p { font-size: 1rem; margin: 0; }
+
+  /* Flat terracotta block behind each photo -- one colour, varied opacity, sharp corners */
+  .get-photo-wrap { position: relative; }
+  .get-photo-shape {
+    position: absolute;
+    right: clamp(-26px, -1.8vw, -16px); bottom: clamp(-26px, -1.8vw, -16px);
+    width: 100%; height: 100%;
+    background: var(--orange);
+    opacity: var(--shape-o, 0.22);
+    z-index: 0;
+  }
+  .get-item:nth-child(2) .get-photo-shape {
+    right: auto; bottom: auto;
+    left: clamp(-26px, -1.8vw, -16px); top: clamp(-26px, -1.8vw, -16px);
+  }
+
+  /* Organic, hand-drawn arrow between steps */
+  .get-arrow {
+    position: absolute;
+    right: clamp(-46px, -3.2vw, -30px);
+    top: 42%;
+    transform: translateY(-50%);
+    width: clamp(58px, 5vw, 84px);
+    z-index: 3;
+    pointer-events: none;
+  }
+  .get-arrow--to-third {
+    right: clamp(-96px, -6vw, -68px);
+  }
+  .get-arrow svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+  @media (max-width: 760px) {
+    .get-grid { grid-template-columns: 1fr; gap: clamp(48px, 12vw, 72px); }
+    .get-arrow,
+    .get-arrow--to-third {
+      right: 50%;
+      top: auto;
+      bottom: clamp(-40px, -9vw, -30px);
+      transform: translateX(50%) rotate(78deg);
+      width: clamp(58px, 10vw, 82px);
+    }
+  }
 
   .film-sub--note { font-size: 0.98rem; opacity: 0.9; margin-top: 12px; }
 
@@ -251,11 +278,12 @@
     <div class="film-hero-content">
       <p class="film-eyebrow">Real projects. Real people. Real possibilities.</p>
       <h1 class="film-title">See where technology could <em>take you.</em></h1>
-      <p class="film-sub">Syqei Studio is a creative technology studio where we turn real problems in wildlife, conservation and the environment into technology projects you can explore, using AI, data, design, coding and more. No previous coding experience needed.</p>
+      <p class="film-sub">Syqei Studio is a creative technology studio where young people explore how technology can tackle some of the biggest threats to the natural world. Through digital projects, they use creative and emerging technologies to explore, experiment and discover. No coding experience needed.</p>
       <div class="film-actions">
         <a href="#join" class="btn btn-primary">Be first to join a project</a>
-        <a href="/partner.html" class="btn btn-on-film">Bring Syqei to your young people <span aria-hidden="true">&rarr;</span></a>
+        <a href="/partner.html" class="btn btn-on-film">For schools and youth organisations</a>
       </div>
+      
     </div>
 
     <a href="#what" class="film-scroll-cue" aria-label="Scroll to explore">
@@ -266,22 +294,39 @@
   <!-- WHAT YOU GET -- editorial, image-led -->
   <section class="get" id="what">
     <div class="get-inner">
-      <div class="get-item">
+      <div class="get-grid">
+      <div class="get-item" style="--shape-o: 0.30;">
+        <div class="get-photo-wrap">
+          <span class="get-photo-shape" aria-hidden="true"></span>
+          <div class="get-photo"><img src="/images/get-portfolio.jpg" alt="A young person working on a real environmental problem on a laptop" loading="lazy"></div>
+          <span class="get-arrow" aria-hidden="true">
+            <svg viewBox="0 0 80 44" fill="none"><path d="M5 26 C 22 10, 34 34, 52 20 C 60 14, 66 18, 72 20" stroke="var(--orange)" stroke-width="3.4" stroke-linecap="round"/><path d="M63 12 L73 20 L61 27" stroke="var(--orange)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
         <div class="get-item-head"><span class="get-num">[01]</span><h3>Start with something happening in the real world</h3></div>
-        <p>Every Syqei project begins with a problem, question or challenge from wildlife, conservation or the environment.</p>
-        <div class="get-photo"><img src="/images/get-portfolio.jpg" alt="A young person working on a real environmental problem on a laptop" loading="lazy"></div>
+        <p>Every Syqei project begins with a real ecological question, conservation challenge or environmental dataset.</p>
       </div>
 
-      <div class="get-item">
+      <div class="get-item" style="--shape-o: 0.16;">
+        <div class="get-photo-wrap">
+          <span class="get-photo-shape" aria-hidden="true"></span>
+          <div class="get-photo"><img src="/images/get-tools.jpg" alt="Code and design tools open across a screen" loading="lazy"></div>
+          <span class="get-arrow get-arrow--to-third" aria-hidden="true">
+            <svg viewBox="0 0 80 44" fill="none"><path d="M5 26 C 22 10, 34 34, 52 20 C 60 14, 66 18, 72 20" stroke="var(--orange)" stroke-width="3.4" stroke-linecap="round"/><path d="M63 12 L73 20 L61 27" stroke="var(--orange)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
         <div class="get-item-head"><span class="get-num">[02]</span><h3>See what technology can do with it</h3></div>
-        <p>Explore ideas using AI, data, design, coding, mapping and other digital tools.</p>
-        <div class="get-photo"><img src="/images/get-tools.jpg" alt="Code and design tools open across a screen" loading="lazy"></div>
+        <p>Explore it through AI, data visualisation, digital mapping, interaction design, coding and other creative technologies.</p>
       </div>
 
-      <div class="get-item">
+      <div class="get-item" style="--shape-o: 0.24;">
+        <div class="get-photo-wrap">
+          <span class="get-photo-shape" aria-hidden="true"></span>
+          <div class="get-photo"><img src="/images/get-people.jpg" alt="Young people talking and collaborating at a table during a project session" loading="lazy"></div>
+        </div>
         <div class="get-item-head"><span class="get-num">[03]</span><h3>Decide where you take it</h3></div>
-        <p>Test an idea, make something and see where your interests take you.</p>
-        <div class="get-photo"><img src="/images/get-people.jpg" alt="Young people talking and collaborating at a table during a project session" loading="lazy"></div>
+        <p>Turn what you discover into an applied technology project you can test, refine and make your own.</p>
+      </div>
       </div>
 
     </div>
@@ -292,7 +337,7 @@
     <div class="ways-inner">
       <div class="ways-block">
         <h2>There is more than one way into tech.</h2>
-        <p>Maybe you are into coding, design, games, AI, data or just making things. Syqei Studio gives young people with different interests a way to explore technology through problems happening beyond the classroom.</p>
+        <p>Maybe you are into coding, design, games, AI, data or creative computing. Syqei Studio gives young people with different interests a way into technology through real-world problems beyond the classroom.</p>
       </div>
     </div>
   </section>
@@ -305,21 +350,31 @@
     <div class="founder-split-content">
       <p class="founder-quote">I always knew I loved technology, but I wanted to do more with it than follow tutorials and tick off another course.</p>
       <p class="founder-intro">Hi! I'm Taleena. I study Computer Science and Cybersecurity, and I've always been the kind of person who gets excited by what technology can make possible.</p>
-      <p class="founder-story">The parts of tech that stay with you aren't usually the tutorials. They're the moments where you get to try ideas, work with other people and see where those skills could lead. For a lot of young people, it can be hard to find opportunities that connect technology to something bigger than another assignment or project on a screen. Growing up in Western Australia, surrounded by incredible wildlife and landscapes, made me wonder why tech and nature are so often treated as separate worlds. Syqei came from wanting to bring them together by giving young people the chance to use technology to tackle problems affecting the natural world.</p>
+      <p class="founder-story">The parts of tech that stay with you aren't usually the tutorials. They're the moments where you get to try ideas, work with other people and see where those skills could lead. For a lot of young people, it can be hard to find opportunities that connect technology to something bigger than another assignment or project on a screen. Growing up in Western Australia, surrounded by incredible wildlife and landscapes, made me wonder why technology and ecology are so often treated as separate worlds. Syqei came from wanting to bring them together by giving young people the chance to explore applied technology through problems affecting the natural world.</p>
       <p class="founder-closing">There has to be a better way to start.</p>
       <a href="/about.html" class="btn founder-cta">Read the full story</a>
       <a href="https://instagram.com/syqei.studio" class="founder-social" target="_blank" rel="noopener">Follow on Instagram <span aria-hidden="true">&rarr;</span></a>
     </div>
   </section>
 
-  <!-- JOIN -- primary conversion, Eugenia-style CTA (register interest for the first project) -->
+  <!-- JOIN -- primary conversion, form in place so CTAs land directly on it -->
   <section class="waitlist" id="join">
     <div class="waitlist-inner">
-      <h2>See what comes next.</h2>
-      <p class="waitlist-sub">New projects, stories and opportunities are on the way.</p>
+      <h2>Projects are where it starts.</h2>
+      <p class="waitlist-sub">Join the list and we'll email you when the next project opens.</p>
 
-      <a href="mailto:hello@syqei.com?subject=Joining%20the%20first%20Syqei%20project" class="btn btn-primary join-cta">Be first to hear about projects</a>
-      <a href="/partner.html" class="waitlist-secondary">Bring Syqei to your young people <span aria-hidden="true">&rarr;</span></a>
+      <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="join-form" id="waitlist-form">
+        <input type="hidden" name="form-name" value="newsletter">
+        <p class="hidden-field"><label>Don't fill this out <input name="bot-field"></label></p>
+        <div class="join-row">
+          <label class="visually-hidden" for="join-email">Email address</label>
+          <input type="email" id="join-email" name="email" placeholder="you@example.com" required>
+          <button type="submit" class="btn btn-primary">Send me updates</button>
+        </div>
+        <p class="join-note">Under 15? Ask a parent or carer to sign up with you.</p>
+      </form>
+      <p class="form-success" id="form-success" hidden>You're on the list, thank you.</p>
+
     </div>
   </section>
 
@@ -329,24 +384,10 @@
 <section class="closing-band">
   <img src="/images/wa-outback-armsopen.jpg" alt="Taleena standing among red-dirt scrub with arms open under a wide Western Australian sky" loading="lazy">
   <div class="closing-band-overlay"></div>
-  <p class="closing-band-text">Start somewhere unexpected.</p>
+  <p class="closing-band-text">Build boldly.</p>
 </section>
 
 <footer class="footer">
-  <div class="footer-newsletter">
-    <h2 class="footer-newsletter-title">Stay in the loop.</h2>
-    <p class="footer-newsletter-sub">New projects, opportunities and updates from Syqei Studio.</p>
-    <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="newsletter-form" id="waitlist-form">
-      <input type="hidden" name="form-name" value="newsletter">
-      <p class="hidden-field"><label>Don't fill this out <input name="bot-field"></label></p>
-      <div class="newsletter-row">
-        <label class="visually-hidden" for="newsletter-email">Email address</label>
-        <input type="email" id="newsletter-email" name="email" placeholder="you@example.com" required>
-        <button type="submit" class="btn btn-primary">Send me updates</button>
-      </div>
-    </form>
-    <p class="form-success" id="form-success" hidden>You're on the list, thank you.</p>
-  </div>
   <div class="footer-inner">
     <span class="wordmark-group">
       <img src="/images/syqei-logo.png" alt="" class="logo-icon logo-icon--small" width="32" height="32">

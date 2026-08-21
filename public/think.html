@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You might already think like a technologist | Syqei</title>
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<meta name="description" content="A quick tap-through showing how everyday habits connect to computational thinking, design iteration, data analysis and other ways technologists work. You do not need to code first.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://syqei.com/think.html">
+<meta property="og:title" content="You might already think like a technologist">
+<meta property="og:description" content="The things you already do may already be part of computational thinking. A quick tap-through from Syqei.">
+<meta property="og:image" content="https://syqei.com/images/happening.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="You might already think like a technologist">
+<meta name="twitter:description" content="The things you already do may already be part of computational thinking.">
+<meta name="twitter:image" content="https://syqei.com/images/happening.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+
+<!-- Google Analytics (GA4) -- replace G-PPELPT779N with your real Measurement ID
+     from https://analytics.google.com once you've created a property for syqei.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PPELPT779N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PPELPT779N');
+</script>
+<style>
+  .think-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: clamp(70px, 12vw, 130px) clamp(20px, 5vw, 60px) clamp(64px, 10vw, 110px);
+    text-align: center;
+  }
+  .think-eyebrow {
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--green);
+    margin: 0 0 16px;
+  }
+  .think-wrap h1 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+    color: var(--brown);
+    margin: 0 auto clamp(36px, 6vw, 56px);
+    max-width: 18ch;
+  }
+
+  /* ---- The stage ---- */
+  .think-stage { max-width: 560px; margin: 0 auto; }
+
+  .think-card {
+    background: var(--cream);
+    border: 1px solid rgba(74, 56, 47, 0.14);
+    border-radius: var(--radius, 18px);
+    padding: clamp(32px, 6vw, 56px) clamp(24px, 5vw, 44px);
+    min-height: clamp(240px, 42vh, 320px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.4s ease, background 0.4s ease;
+  }
+  .think-card.is-revealed { border-color: rgba(201, 111, 69, 0.4); }
+
+  .think-counter {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.76rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brown-soft);
+    margin: 0 0 20px;
+  }
+  .think-before {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    line-height: 1.32;
+    color: var(--brown);
+    margin: 0;
+    transition: color 0.4s ease, opacity 0.4s ease;
+  }
+  .think-card.is-revealed .think-before { color: var(--brown-soft); opacity: 0.72; }
+
+  .think-after {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.15rem, 3vw, 1.5rem);
+    line-height: 1.3;
+    margin: 18px 0 0;
+  }
+  .think-after .after-lead { color: var(--brown-soft); }
+  .think-after .after-skill { color: var(--orange); }
+  .think-after[hidden] { display: none; }
+  .reveal-in { animation: reveal-in 0.5s ease both; }
+  @keyframes reveal-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---- Controls ---- */
+  .think-controls { margin-top: 28px; }
+  .think-dots { display: flex; gap: 9px; justify-content: center; margin: 0 0 22px; }
+  .think-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(74, 56, 47, 0.16);
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .think-dot.is-done { background: var(--orange); }
+  .think-dot.is-current { background: var(--orange); transform: scale(1.35); }
+
+  .think-next {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.98rem;
+    color: var(--cream-text);
+    background: var(--orange);
+    border: none;
+    border-radius: 999px;
+    padding: 14px 34px;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.2s ease;
+  }
+  .think-next:hover { filter: brightness(0.94); }
+  .think-next:active { transform: translateY(1px); }
+  .think-next:focus-visible { outline: 3px solid var(--orange-soft); outline-offset: 3px; }
+
+  .think-hint { color: var(--brown-soft); font-size: 0.85rem; margin: 16px 0 0; min-height: 1.2em; }
+
+  /* ---- Final ---- */
+  .think-final[hidden] { display: none; }
+  .think-final { animation: reveal-in 0.5s ease both; }
+  .think-final-lead {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 4vw, 2.1rem);
+    line-height: 1.28;
+    color: var(--brown);
+    margin: 0 auto 16px;
+    max-width: 20ch;
+  }
+  .think-final-sub {
+    color: var(--brown-soft);
+    font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+    line-height: 1.65;
+    margin: 0 auto 32px;
+    max-width: 34ch;
+  }
+  .think-cta { padding: 16px 40px; font-size: 1rem; }
+  .think-restart {
+    display: block;
+    margin: 26px auto 0;
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--brown-soft);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+  .think-restart:hover { color: var(--brown); }
+  .think-restart:focus-visible { outline: 3px solid var(--orange-soft); outline-offset: 3px; border-radius: 4px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .think-card, .think-before, .think-dot, .think-next { transition: none; }
+    .reveal-in, .think-final { animation: none; }
+  }
+</style>
+
+<style id="syqei-polish">
+/* Interactive page polish */
+.think-wrap {
+  position: relative;
+}
+.think-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(520px 300px at 0% 12%, rgba(201,111,69,0.055), transparent 72%),
+    radial-gradient(520px 300px at 100% 44%, rgba(63,90,70,0.05), transparent 72%);
+}
+.think-card {
+  border-radius: 6px;
+  border-color: rgba(74,56,47,0.11);
+  background:
+    linear-gradient(145deg, rgba(255,253,252,0.88), rgba(244,235,221,0.78));
+  box-shadow: 0 20px 48px rgba(74,56,47,0.065), inset 0 2px 0 rgba(201,111,69,0.32);
+}
+.think-card.is-revealed {
+  background:
+    linear-gradient(145deg, rgba(255,253,252,0.9), rgba(238,241,235,0.9));
+  border-color: rgba(63,90,70,0.22);
+}
+.think-next {
+  border-radius: 7px;
+  background: var(--orange);
+  box-shadow: 0 9px 24px rgba(201,111,69,0.15);
+}
+.think-dot { background: rgba(74,56,47,0.13); }
+.think-final {
+  padding: 28px 0;
+}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" style="text-decoration:none;">
+      <span class="wordmark-group">
+        <img src="/images/syqei-logo.png" alt="" class="logo-icon" width="42" height="42">
+        <span class="wordmark">syqei</span>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/partner.html">Partner</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/#join" class="nav-cta">Register interest</a>
+    </nav>
+    <details class="mobile-menu">
+      <summary class="mobile-menu-toggle" role="button" aria-label="Open navigation menu" aria-controls="mobile-navigation">&#9776;</summary>
+      <div class="mobile-menu-panel" id="mobile-navigation">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/partner.html">Partner</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/#join">Register interest</a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<main>
+  <section class="think-wrap">
+    <p class="think-eyebrow">Tap through</p>
+    <h1>You might already think like a technologist</h1>
+
+    <div class="think-stage">
+      <div class="think-steps" id="steps">
+        <div class="think-card" id="card" role="group" aria-label="Everyday habit and the skill it becomes" aria-live="polite">
+          <p class="think-counter" id="counter">01 &mdash; 04</p>
+          <p class="think-before" id="before"></p>
+          <p class="think-after" id="after" hidden></p>
+        </div>
+
+        <div class="think-controls">
+          <div class="think-dots" id="dots" aria-hidden="true"></div>
+          <button class="think-next" id="next" type="button">Reveal</button>
+          <p class="think-hint" id="hint">Tap the card, or use the button.</p>
+        </div>
+      </div>
+
+      <div class="think-final" id="final" hidden>
+        <p class="think-final-lead">Technology needs more than people who already know how to code.</p>
+        <p class="think-final-sub">Those instincts are already part of how technologists think.</p>
+        <a href="/projects.html" class="btn btn-primary think-cta">See what you could build</a>
+        <button class="think-restart" id="restart" type="button">Start again</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="wordmark-group">
+      <img src="/images/syqei-logo.png" alt="" class="logo-icon logo-icon--small" width="32" height="32">
+      <span class="wordmark wordmark--small">syqei</span>
+    </span>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/about.html">About</a>
+      <a href="/partner.html">Partner</a>
+      <a href="/advertise.html">Advertise</a>
+      <a href="/blog.html">Blog</a>
+      <a href="https://instagram.com/syqei.studio" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:hello@syqei.com">Email</a>
+      <a href="/privacy.html">Privacy</a>
+    </nav>
+  </div>
+  <p class="acknowledgement">
+    We acknowledge the Whadjuk Noongar people, the Traditional Owners of the land on which
+    Syqei is built and operated, and the many Traditional Custodians of Country across Western
+    Australia. We pay our respects to Elders past, present, and emerging, and recognise their
+    continuing connection to land, waters, and culture.
+  </p>
+</footer>
+
+<script src="/script.js"></script>
+<script>
+  // ===== Think like a technologist -- tap-through skill translator =====
+  (function () {
+    var items = [
+      { before: "You notice patterns in game or sports statistics", lead: "That is", skill: "the beginning of data analysis" },
+      { before: "You keep changing a design until it feels right",  lead: "That is", skill: "design iteration" },
+      { before: "You can explain a complicated idea to a friend",   lead: "That is", skill: "technical communication" },
+      { before: "You keep testing things until you find what broke", lead: "That is", skill: "debugging" }
+    ];
+
+    var card    = document.getElementById('card');
+    var counter = document.getElementById('counter');
+    var before  = document.getElementById('before');
+    var after   = document.getElementById('after');
+    var dots     = document.getElementById('dots');
+    var next    = document.getElementById('next');
+    var hint    = document.getElementById('hint');
+    var steps   = document.getElementById('steps');
+    var final   = document.getElementById('final');
+    var restart = document.getElementById('restart');
+
+    var i = 0;
+    var revealed = false;
+
+    // build progress dots
+    for (var d = 0; d < items.length; d++) {
+      var dot = document.createElement('span');
+      dot.className = 'think-dot';
+      dots.appendChild(dot);
+    }
+
+    function paintDots() {
+      var nodes = dots.children;
+      for (var k = 0; k < nodes.length; k++) {
+        nodes[k].className = 'think-dot'
+          + (k < i ? ' is-done' : '')
+          + (k === i ? ' is-current' : '');
+      }
+    }
+
+    function render() {
+      var it = items[i];
+      counter.innerHTML = ('0' + (i + 1)) + ' &mdash; 04';
+      before.textContent = it.before;
+      after.innerHTML = '<span class="after-lead">' + it.lead + '</span> '
+                      + '<span class="after-skill">' + it.skill + '</span>';
+      after.hidden = !revealed;
+      card.classList.toggle('is-revealed', revealed);
+      if (revealed) {
+        after.classList.remove('reveal-in');
+        void after.offsetWidth; // restart the animation
+        after.classList.add('reveal-in');
+      }
+      next.textContent = revealed
+        ? (i === items.length - 1 ? 'Continue' : 'Next')
+        : 'Reveal';
+      hint.textContent = revealed ? '' : 'Tap the card, or use the button.';
+      paintDots();
+    }
+
+    function advance() {
+      if (!revealed) { revealed = true; render(); return; }
+      if (i < items.length - 1) { i++; revealed = false; render(); return; }
+      steps.hidden = true;
+      final.hidden = false;
+      restart.focus();
+    }
+
+    next.addEventListener('click', advance);
+    card.addEventListener('click', advance);
+    restart.addEventListener('click', function () {
+      i = 0; revealed = false;
+      steps.hidden = false; final.hidden = true;
+      render();
+      next.focus();
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>

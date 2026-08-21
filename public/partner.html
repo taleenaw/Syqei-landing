@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Partner with Syqei</title>
 <link rel="icon" type="image/png" href="/images/favicon.png">
-<meta name="description" content="Partner with Syqei, a youth technology studio for 14 to 18 year olds run through schools and youth organisations. Bring it to your young people, sponsor access, or share a real environmental problem young people can build from.">
+<meta name="description" content="Partner with Syqei, an emerging EdTech venture creating applied technology projects for 14 to 18 year olds through schools and youth organisations. Support a cohort, fund access or share ecological research and environmental data.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://syqei.com/partner.html">
 <meta property="og:title" content="Partner with Syqei">
-<meta property="og:description" content="A youth technology studio delivered through schools. Bring it to your young people, sponsor access, or share a real problem young people can build from.">
+<meta property="og:description" content="An emerging EdTech venture delivering applied technology projects through schools. Bring a cohort, fund access or share ecological research and environmental data.">
 <meta property="og:image" content="https://syqei.com/images/happening.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Partner with Syqei">
-<meta name="twitter:description" content="A youth technology studio for 14 to 18 year olds. Bring it to your young people, sponsor access, or share a real problem to build from.">
+<meta name="twitter:description" content="An emerging EdTech venture for 14 to 18 year olds. Bring a cohort, fund access or share ecological research and environmental data.">
 <meta name="twitter:image" content="https://syqei.com/images/happening.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +40,7 @@
     align-items: flex-end;
     overflow: hidden;
   }
-  .org-hero-media { position: absolute; inset: 0; }
+  .org-hero-media { position: absolute; inset: 0; background: #241C16; }
   .org-hero-media img,
   .org-hero-media video {
     width: 100%; height: 100%;
@@ -143,77 +143,118 @@
   .org-who-list { list-style: none; padding: 0; margin: 0 0 26px; }
   .org-who-list li {
     padding: 12px 0;
-    border-top: 1px solid rgba(74,56,47,0.12);
+    border-top: 1px solid rgba(201, 111, 69, 0.16);
     font-size: 1.05rem; color: var(--plum);
   }
-  .org-who-list li:last-child { border-bottom: 1px solid rgba(74,56,47,0.12); }
+  .org-who-list li:last-child { border-bottom: 1px solid rgba(201, 111, 69, 0.16); }
   .org-who-note { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--violet-deep); margin: 0; }
   @media (max-width: 860px) {
     .org-who { grid-template-columns: 1fr; }
     .org-who-media { min-height: 60vh; order: -1; }
   }
 
-  /* Why partner -- three elegant cards */
-  .org-why { padding: clamp(64px, 9vw, 112px) clamp(20px, 5vw, 60px); }
+  /* Why partner -- warm editorial cards with homepage-style geometry */
+  .org-why {
+    padding: clamp(70px, 10vw, 118px) clamp(20px, 5vw, 60px) clamp(78px, 10vw, 120px);
+    background: var(--cream);
+    border-top: 1px solid rgba(201, 111, 69, 0.09);
+    overflow: hidden;
+  }
+  .org-why .section-label { color: var(--orange); }
   .org-why-inner { max-width: 1120px; margin: 0 auto; }
-  .org-why-head { text-align: center; margin-bottom: clamp(40px, 6vw, 64px); }
-  .org-why-head h2 { margin: 0; }
+  .org-why-head {
+    max-width: 760px;
+    margin: 0 auto clamp(52px, 7vw, 78px);
+    text-align: center;
+  }
+  .org-why-head h2 {
+    margin: 0;
+    color: var(--green);
+  }
+  .org-why-head::after {
+    content: "";
+    display: block;
+    width: 54px;
+    height: 3px;
+    margin: 24px auto 0;
+    background: var(--orange);
+    border-radius: 999px;
+  }
   .org-why-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: clamp(20px, 3vw, 32px);
+    gap: clamp(28px, 4vw, 44px);
+  }
+  .org-card-wrap {
+    position: relative;
+    isolation: isolate;
+  }
+  .org-card-wrap::before {
+    content: "";
+    position: absolute;
+    width: 94%;
+    height: 92%;
+    background: var(--orange);
+    opacity: 0.18;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .org-card-wrap:nth-child(1)::before {
+    right: -20px;
+    bottom: -22px;
+  }
+  .org-card-wrap:nth-child(2)::before {
+    left: -20px;
+    top: -22px;
+    opacity: 0.11;
+  }
+  .org-card-wrap:nth-child(3)::before {
+    right: -22px;
+    bottom: -18px;
+    width: 88%;
+    opacity: 0.15;
   }
   .org-card {
-    background: var(--cream-text);
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    background: #FFFDFC;
     padding: clamp(32px, 3.5vw, 44px);
-    display: flex; flex-direction: column; gap: 14px;
-    border-radius: var(--radius);
-    border: 1px solid rgba(74,56,47,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border-radius: 0;
+    border: 1px solid rgba(201, 111, 69, 0.14);
+    box-shadow: 0 18px 42px rgba(74,56,47,0.07);
+  }
+  .org-card-num {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 2px;
   }
   .org-card h3 {
     font-family: var(--font-display);
     font-weight: 500;
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
-    color: var(--plum);
+    font-size: clamp(1.3rem, 2vw, 1.55rem);
+    color: var(--brown);
     margin: 0;
-    line-height: 1.25;
+    line-height: 1.22;
   }
-  .org-card p { color: var(--stone); line-height: 1.7; margin: 0; font-size: 1rem; }
-  @media (max-width: 780px) {
-    .org-why-grid { grid-template-columns: 1fr; }
-  }
-
-  /* Principles -- three guiding lines on sage */
-  .org-principles {
-    background: var(--sage);
-    padding: clamp(64px, 9vw, 112px) clamp(24px, 5vw, 60px);
-  }
-  .org-principles-inner { max-width: 1120px; margin: 0 auto; text-align: center; }
-  .org-principles .section-label { color: var(--cream-text); opacity: 0.7; margin-bottom: clamp(32px, 5vw, 48px); }
-  .org-principles-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(28px, 4vw, 48px);
-    text-align: left;
-  }
-  .org-principle-line {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: clamp(1.25rem, 2vw, 1.55rem);
-    line-height: 1.3;
-    color: var(--cream-text);
-    margin: 0 0 12px;
-  }
-  .org-principle-note {
+  .org-card p {
+    color: var(--brown-soft);
+    line-height: 1.7;
+    margin: 0;
     font-size: 1rem;
-    line-height: 1.65;
-    color: var(--cream-text);
-    opacity: 0.82;
-    margin: 0;
   }
   @media (max-width: 780px) {
-    .org-principles-grid { grid-template-columns: 1fr; gap: 32px; }
-    .org-principles-inner { text-align: left; }
+    .org-why-grid { grid-template-columns: 1fr; gap: 42px; }
+    .org-card-wrap::before { width: 96%; height: 94%; }
+    .org-card-wrap:nth-child(1)::before,
+    .org-card-wrap:nth-child(3)::before { right: -12px; bottom: -16px; }
+    .org-card-wrap:nth-child(2)::before { left: -12px; top: -16px; }
   }
 
   /* Statement -- ambitious one-liner on linen */
@@ -244,7 +285,7 @@
   .org-closing-media { position: absolute; inset: 0; }
   .org-closing-media img {
     width: 100%; height: 100%;
-    object-fit: cover; object-position: center 62%;
+    object-fit: cover; object-position: center 52%;
     display: block;
   }
   .org-closing-scrim {
@@ -290,13 +331,13 @@
   @media (max-width:640px){ .org-numbers-grid{ grid-template-columns:1fr; } }
 
   /* Ways to partner -- priced tiers */
-  .org-tiers { padding: clamp(56px,9vw,104px) clamp(20px,5vw,60px); background: var(--linen); }
+  .org-tiers { padding: clamp(56px,9vw,104px) clamp(20px,5vw,60px) clamp(40px,6vw,72px); background: var(--linen); }
   .org-tiers-inner { max-width: 1160px; margin: 0 auto; }
   .org-tiers-head { max-width: 720px; margin: 0 0 clamp(36px,5vw,52px); }
   .org-tiers-head h2 { margin: 10px 0 14px; }
   .org-tiers-head p { color: var(--brown-soft); font-size: 1.05rem; line-height: 1.7; margin: 0; max-width: 54ch; }
   .org-tiers-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: clamp(16px,2vw,22px); }
-  .org-tier { background: var(--cream-text); border: 1px solid rgba(74,56,47,0.12); border-radius: var(--radius); padding: clamp(26px,2.6vw,32px); display: flex; flex-direction: column; }
+  .org-tier { background: var(--cream-text); border: 1px solid rgba(201, 111, 69, 0.16); border-radius: var(--radius); padding: clamp(26px,2.6vw,32px); display: flex; flex-direction: column; }
   .org-tier h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.35rem; color: var(--brown); margin: 0 0 12px; line-height: 1.2; }
   .org-tier p { color: var(--brown-soft); font-size: 0.97rem; line-height: 1.6; margin: 0 0 20px; flex: 1; }
   .org-tier-price { font-weight: 600; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange); margin: 0; }
@@ -316,9 +357,74 @@
   .org-logos-head h2 { margin: 10px 0 12px; }
   .org-logos-head p { color: var(--brown-soft); font-size: 1.02rem; line-height: 1.7; margin: 0; }
   .org-logos-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: clamp(12px,1.6vw,18px); }
-  .org-logo-tile { aspect-ratio: 3/2; border: 1.5px dashed rgba(74,56,47,0.22); border-radius: 10px; background: rgba(74,56,47,0.02); }
+  .org-logo-tile { aspect-ratio: 3/2; border: 1.5px dashed rgba(201, 111, 69, 0.24); border-radius: 10px; background: rgba(74,56,47,0.02); }
   @media (max-width:900px){ .org-logos-grid{ grid-template-columns: repeat(3,1fr); } }
   @media (max-width:520px){ .org-logos-grid{ grid-template-columns: repeat(2,1fr); } }
+
+  /* Enquiry (green) */
+  .org-enquiry { background: var(--green); color: var(--cream-text); padding: clamp(60px,10vw,110px) clamp(20px,5vw,60px); }
+  .org-enquiry-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+  .org-enquiry .section-label { color: var(--cream-text); opacity: 0.7; }
+  .org-enquiry h2 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.7rem,3.6vw,2.5rem); color: var(--cream-text); margin: 10px 0 12px; }
+  .org-enquiry-lead { color: rgba(251,248,243,0.92); font-size: 1.1rem; line-height: 1.6; margin: 0 auto 10px; max-width: 46ch; }
+  .org-enquiry-note { color: rgba(251,248,243,0.72); font-size: 0.92rem; line-height: 1.6; margin: 0 auto 34px; max-width: 52ch; }
+  .org-enquiry-note a { color: var(--cream-text); text-decoration: underline; }
+  .enquiry-form { text-align: left; display: grid; gap: 16px; }
+  .field-label { display: block; font-size: 0.9rem; font-weight: 500; color: var(--cream-text); margin-bottom: 6px; }
+  .enquiry-form input[type="text"],
+  .enquiry-form input[type="email"],
+  .enquiry-form textarea {
+    width: 100%; padding: 13px 16px; border-radius: 10px;
+    border: 1.5px solid rgba(251,248,243,0.3); background: var(--bg); color: var(--brown);
+    font-family: var(--font-body); font-size: 0.95rem;
+  }
+  .enquiry-form textarea { min-height: 110px; resize: vertical; }
+  .enquiry-form input:focus-visible,
+  .enquiry-form textarea:focus-visible { outline: 3px solid var(--orange-soft); outline-offset: 2px; }
+  .enquiry-fieldset { border: none; padding: 0; margin: 0; }
+  .enquiry-fieldset legend { font-size: 0.9rem; font-weight: 500; color: var(--cream-text); margin-bottom: 10px; padding: 0; }
+  .enquiry-checks { display: flex; flex-wrap: wrap; gap: 10px; }
+  .enquiry-check {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(251,248,243,0.08); border: 1px solid rgba(251,248,243,0.22);
+    border-radius: 8px; padding: 9px 14px; font-size: 0.92rem; color: var(--cream-text); cursor: pointer;
+  }
+  .enquiry-check input { accent-color: var(--orange); }
+  .enquiry-submit { justify-self: start; margin-top: 6px; padding: 15px 40px; }
+  .enquiry-submit[disabled] { opacity: 0.7; cursor: default; }
+
+  /* Form fade-out on send */
+  .enquiry-form.is-sending { opacity: 0; transform: translateY(-8px); transition: opacity 0.3s ease, transform 0.3s ease; pointer-events: none; }
+
+  /* Animated confirmation panel */
+  .enquiry-success { display: none; text-align: center; padding: clamp(24px, 5vw, 48px) 0; }
+  .enquiry-success.is-visible { display: block; }
+  .enquiry-success-badge { width: 66px; height: 66px; margin: 0 auto 22px; }
+  .enquiry-success-badge svg { width: 100%; height: 100%; display: block; }
+  .es-ring { fill: none; stroke: var(--orange); stroke-width: 2; }
+  .es-check { fill: none; stroke: var(--cream-text); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 40; stroke-dashoffset: 40; }
+  .enquiry-success h3 {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: clamp(1.6rem, 3.2vw, 2.2rem); color: var(--cream-text); margin: 0 0 8px;
+  }
+  .enquiry-success p { color: rgba(251, 248, 243, 0.9); font-size: 1.08rem; line-height: 1.6; margin: 0; }
+
+  @keyframes es-pop { 0% { transform: scale(0.5); opacity: 0; } 60% { transform: scale(1.1); } 100% { transform: scale(1); opacity: 1; } }
+  @keyframes es-draw { to { stroke-dashoffset: 0; } }
+  @keyframes es-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  .enquiry-success.is-visible .enquiry-success-badge { animation: es-pop 0.5s cubic-bezier(0.2, 0.7, 0.3, 1) both; }
+  .enquiry-success.is-visible .es-check { animation: es-draw 0.4s ease 0.35s forwards; }
+  .enquiry-success.is-visible h3 { animation: es-rise 0.5s ease 0.15s both; }
+  .enquiry-success.is-visible p { animation: es-rise 0.5s ease 0.28s both; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .enquiry-form.is-sending { transition: none; }
+    .enquiry-success.is-visible .enquiry-success-badge,
+    .enquiry-success.is-visible h3,
+    .enquiry-success.is-visible p { animation: none; }
+    .es-check { stroke-dashoffset: 0; }
+  }
 </style>
 </head>
 <body>
@@ -362,18 +468,17 @@
     <div class="org-hero-media" aria-hidden="true">
       <video
         class="org-hero-video"
-        autoplay muted loop playsinline
-        poster="/images/partner-hero-forest.jpg">
+        autoplay muted loop playsinline>
         <source src="/images/kangaroo.mp4" type="video/mp4">
       </video>
     </div>
     <div class="org-hero-scrim" aria-hidden="true"></div>
     <div class="org-hero-content">
       <p class="org-eyebrow">Partner with Syqei</p>
-      <h1>Back young people building real technology.</h1>
-      <p class="org-hero-sub">Syqei is a creative technology studio for 14 to 18 year olds, delivered through schools and youth organisations. You can help shape a generation who tackles modern problems affecting the natural world around us.</p>
+      <h1>Empower young technologists.</h1>
+      <p class="org-hero-sub">Syqei Studio is an emerging EdTech company working at the intersection of creative technology, ecology and education. Delivered through schools and youth organisations, our applied projects help develop the next generation of creative technologists.</p>
       <div class="org-hero-cta">
-        <a href="mailto:partners@syqei.com?subject=Bringing%20a%20project%20to%20Syqei" class="btn btn-primary">Talk to us</a>
+        <a href="#enquiry" class="btn btn-primary">Talk to us</a>
         <a href="#ways" class="btn btn-on-film">See the ways to partner</a>
       </div>
     </div>
@@ -381,7 +486,7 @@
 
   <!-- 2. INTRO prose -->
   <section class="org-intro">
-    <p class="org-intro-lead">The hardest experience for a young person to get is real experience. You can be the reason they get it, by bringing Syqei Studio to your young people, funding access, or sharing a real problem for them to build from.</p>
+    <p class="org-intro-lead">The hardest experience for a young person to get is real-world experience. Syqei combines project-based learning, applied technology and research translation so young people can work from problems that exist beyond the classroom.</p>
   </section>
 
   <!-- 3. WHO WE WORK WITH -- photo + list -->
@@ -392,7 +497,7 @@
     <div class="org-who-content">
       <p class="section-label">Who we work with</p>
       <h2>People who can bring young people, a problem, or the means to reach them.</h2>
-      <p>Every project starts with a real problem and someone who cares how it turns out. We work with organisations who can host a cohort, fund access, or bring a problem and the data behind it.</p>
+      <p>Every project starts with a real-world brief. We work with organisations that can host a cohort, fund access or contribute ecological research, field data and environmental context.</p>
       <ul class="org-who-list">
         <li>Schools and youth organisations with a cohort and a timetable</li>
         <li>Sponsors funding access, scholarships and places</li>
@@ -410,28 +515,28 @@
       <div class="org-tiers-head">
         <p class="section-label">Ways to partner</p>
         <h2>A way to partner for every kind of organisation.</h2>
-        <p>Bring young people, share a real problem, or fund access. There is a way in whether you have a cohort, a brief or a budget.</p>
+        <p>Bring a cohort, contribute a real-world brief or fund access. Partnerships can support technology enrichment, research translation or widening participation.</p>
       </div>
       <div class="org-tiers-grid">
         <div class="org-tier">
           <h3>Schools and youth orgs</h3>
-          <p>Bring a Syqei project to your young people. We provide the concept, the environmental context, the project materials, the technology experience and the facilitation. You provide the cohort.</p>
+          <p>Bring a Syqei project to your young people. We provide the project brief, learning design, ecological context, applied technology experience and facilitation. You provide the cohort.</p>
           <p class="org-tier-price">By enquiry</p>
         </div>
         <div class="org-tier">
           <h3>Researchers and environmental orgs</h3>
-          <p>Turn your work into a project young people can explore. Share a problem, a piece of research or part of your work, and we turn it into an accessible technology experience. No ongoing mentoring, no deliverable expected.</p>
+          <p>We translate ecological research, field data and conservation challenges into accessible technology briefs for young technologists. The commitment stays light: no ongoing mentoring and no deliverable expected from your team.</p>
           <p class="org-tier-price">Project partner</p>
         </div>
         <div class="org-tier">
           <h3>Sponsors</h3>
-          <p>Fund access for young people who would not otherwise get it. Back scholarship places, a girls in tech or regional cohort, or a project presented with your brand.</p>
+          <p>Fund digital inclusion and widening participation for young people who would not otherwise get access. Back scholarship places, a girls in tech or regional cohort, or a project presented with your brand.</p>
           <p class="org-tier-price">By enquiry</p>
         </div>
         <div class="org-tier org-tier--highlight">
           <h3>Universities</h3>
-          <p>A source of scientists, datasets, venues and pathways into what comes next. University students can join as paid Syqei Fellows who help run sessions.</p>
-          <a href="mailto:partners@syqei.com?subject=University%20partnership%20with%20Syqei" class="org-tier-link">Talk to us &rarr;</a>
+          <p>Connect ecological research, datasets, venues and pathways into what comes next. University students can join as paid Syqei Fellows and help deliver project-based learning experiences.</p>
+          <a href="#enquiry" class="org-tier-link">Talk to us &rarr;</a>
         </div>
       </div>
       <p class="org-tiers-note">We are signing founding partners for the first projects and work out the details together while the model is young, so early partners get the best of it.</p>
@@ -446,39 +551,86 @@
         <h2>Real experience for young people, real impact for you.</h2>
       </div>
       <div class="org-why-grid">
-        <div class="org-card">
-          <h3>Reach the young people you care about</h3>
-          <p>Get in front of a generation early, through something they actually want to be part of. Youth opportunity, girls in tech, regional reach and digital skills, not a recruitment pipeline.</p>
+        <div class="org-card-wrap">
+          <div class="org-card">
+            <span class="org-card-num">[01]</span>
+            <h3>Reach the young people you care about</h3>
+            <p>Support technology pathways young people actually want to be part of. The focus is youth opportunity, digital inclusion, girls in tech and regional reach rather than a recruitment pipeline.</p>
+          </div>
         </div>
-        <div class="org-card">
-          <h3>Your work, turned into inspiration</h3>
-          <p>Share a real problem and real data, and we turn it into something young people build from. You are giving access and context, not outsourcing a deliverable.</p>
+        <div class="org-card-wrap">
+          <div class="org-card">
+            <span class="org-card-num">[02]</span>
+            <h3>Your work, turned into inspiration</h3>
+            <p>Share ecological research or environmental data and Syqei handles the research translation and learning design. You provide access and context rather than outsourcing a deliverable.</p>
+          </div>
         </div>
-        <div class="org-card">
-          <h3>Impact you can stand behind</h3>
-          <p>Young people getting real experience through technology for the living world. Widening participation, regional reach and outcomes that are easy to report on.</p>
+        <div class="org-card-wrap">
+          <div class="org-card">
+            <span class="org-card-num">[03]</span>
+            <h3>Impact you can stand behind</h3>
+            <p>Young people gaining applied technology experience through problems in the living world. Widening participation, regional reach and clear project-based outcomes.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. PRINCIPLES -- what guides Syqei, on sage -->
-  <section class="org-principles">
-    <div class="org-principles-inner">
-      <p class="section-label">What guides us</p>
-      <div class="org-principles-grid">
-        <div class="org-principle">
-          <p class="org-principle-line">Real problems, not exercises.</p>
-          <p class="org-principle-note">Every project is a genuine problem with real data. That is the whole point, for the young people building and for the partners who make it possible.</p>
+  <!-- 5b. ENQUIRY -- structured form -->
+  <section class="org-enquiry" id="enquiry">
+    <div class="org-enquiry-inner">
+      <p class="section-label">Start a conversation</p>
+      <h2>Bring Syqei to your students.</h2>
+      <p class="org-enquiry-lead">Tell us a little about your organisation and what you have in mind, and we will get back to you.</p>
+      <p class="org-enquiry-note">Whether you can bring a cohort, share a problem or fund access, this is the place to start. You can also email <a href="mailto:partners@syqei.com">partners@syqei.com</a>.</p>
+
+      <form name="partner-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="enquiry-form" id="enquiry-form">
+        <input type="hidden" name="form-name" value="partner-enquiry">
+        <p class="hidden-field"><label>Don't fill this out <input name="bot-field"></label></p>
+
+        <div>
+          <label class="field-label" for="p-name">Name</label>
+          <input type="text" id="p-name" name="name" required>
         </div>
-        <div class="org-principle">
-          <p class="org-principle-line">Never charge someone just to belong.</p>
-          <p class="org-principle-note">The community, the opportunities and the discovery stay free for young people. Organisations fund the parts that are genuinely scarce, like structured projects, facilitation and real access.</p>
+        <div>
+          <label class="field-label" for="p-org">School or organisation</label>
+          <input type="text" id="p-org" name="organisation" required>
         </div>
-        <div class="org-principle">
-          <p class="org-principle-line">Safeguarding comes first.</p>
-          <p class="org-principle-note">These are young people, some under 18. Child safety, consent and duty of care are built in from day one, never added on afterwards.</p>
+        <div>
+          <label class="field-label" for="p-role">Your role (optional)</label>
+          <input type="text" id="p-role" name="role" placeholder="Teacher, coordinator, researcher, and so on">
         </div>
+        <div>
+          <label class="field-label" for="p-email">Email</label>
+          <input type="email" id="p-email" name="email" required>
+        </div>
+
+        <fieldset class="enquiry-fieldset">
+          <legend>What are you interested in?</legend>
+          <div class="enquiry-checks">
+            <label class="enquiry-check"><input type="checkbox" name="interest" value="Bring a project to our students"> Bring a project to our students</label>
+            <label class="enquiry-check"><input type="checkbox" name="interest" value="Share a problem or research"> Share a problem or research</label>
+            <label class="enquiry-check"><input type="checkbox" name="interest" value="Sponsor or fund access"> Sponsor or fund access</label>
+            <label class="enquiry-check"><input type="checkbox" name="interest" value="Something else"> Something else</label>
+          </div>
+        </fieldset>
+
+        <div>
+          <label class="field-label" for="p-message">Tell us a little about what you have in mind (optional)</label>
+          <textarea id="p-message" name="message"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary enquiry-submit">Send enquiry</button>
+      </form>
+      <div class="enquiry-success" id="enquiry-success" role="status" aria-live="polite">
+        <div class="enquiry-success-badge" aria-hidden="true">
+          <svg viewBox="0 0 52 52">
+            <circle class="es-ring" cx="26" cy="26" r="24"></circle>
+            <path class="es-check" d="M15 27 l7 7 l15 -16"></path>
+          </svg>
+        </div>
+        <h3>Enquiry sent</h3>
+        <p>Thank you, we'll be in touch soon.</p>
       </div>
     </div>
   </section>
@@ -486,13 +638,9 @@
   <!-- 6. CLOSING VISION -- full-bleed, single-line CTA -->
   <section class="org-closing">
     <div class="org-closing-media" aria-hidden="true">
-      <img src="/images/partner-closing-binoculars.jpg" alt="Two people looking out over a green valley, one using binoculars">
+      <img src="/images/partner-closing-students.jpg" alt="High school students taking part in a group learning session">
     </div>
     <div class="org-closing-scrim" aria-hidden="true"></div>
-    <div class="org-closing-content">
-      <p>Empower young technologists to tackle the biggest threats to the natural world.</p>
-      <a href="mailto:partners@syqei.com?subject=Bringing%20a%20project%20to%20Syqei" class="btn btn-primary">Talk to us</a>
-    </div>
   </section>
 
 </main>
@@ -524,5 +672,43 @@
 </footer>
 
 <script src="/script.js"></script>
+<script>
+  // ===== Partner enquiry -- submit to Netlify, then animate confirmation in place =====
+  (function () {
+    var form = document.getElementById('enquiry-form');
+    var panel = document.getElementById('enquiry-success');
+    if (!form || !panel) return;
+
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+
+      var body = new URLSearchParams(new FormData(form)).toString();
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      })
+        .then(reveal)
+        .catch(function () { form.submit(); }); // fall back to a normal submit if the fetch fails
+    });
+
+    function reveal() {
+      form.classList.add('is-sending');
+      setTimeout(function () {
+        form.style.display = 'none';
+        panel.classList.add('is-visible');
+        panel.setAttribute('tabindex', '-1');
+        panel.focus();
+        panel.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      }, reduce ? 0 : 320);
+    }
+  })();
+</script>
 </body>
 </html>

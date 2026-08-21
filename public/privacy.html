@@ -10,6 +10,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
+
+<!-- Google Analytics (GA4) -- replace G-PPELPT779N with your real Measurement ID
+     from https://analytics.google.com once you've created a property for syqei.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PPELPT779N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PPELPT779N');
+</script>
 <style>
   .legal-wrap {
     max-width: 760px;
@@ -46,6 +56,34 @@
   }
   .back-link { display: inline-block; margin-bottom: 30px; font-weight: 600; font-size: 0.9rem; text-decoration: none; color: var(--plum); }
 </style>
+
+<style id="syqei-polish">
+/* Legal page keeps clarity, with a quieter editorial surface. */
+.legal-wrap {
+  position: relative;
+}
+.legal-wrap::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: -120px;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(63,90,70,0.045), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+.legal-note {
+  background: linear-gradient(90deg, rgba(244,235,221,0.86), rgba(247,240,231,0.54));
+  border-left-color: rgba(201,111,69,0.72);
+}
+.legal-wrap h2 {
+  padding-top: 18px;
+  border-top: 1px solid rgba(74,56,47,0.075);
+  color: var(--green);
+}
+.back-link { color: rgba(74,56,47,0.8); }
+</style>
 </head>
 <body>
 
@@ -55,7 +93,7 @@
   <div class="nav-inner">
     <a href="/" style="text-decoration:none;">
       <span class="wordmark-group">
-        <img src="/images/syqei-logo.png" alt="" class="logo-icon">
+        <img src="/images/syqei-logo.png" alt="" class="logo-icon" width="42" height="42">
         <span class="wordmark">syqei</span>
       </span>
     </a>
@@ -67,6 +105,17 @@
       <a href="/blog.html">Blog</a>
       <a href="/#join" class="nav-cta">Register interest</a>
     </nav>
+    <details class="mobile-menu">
+      <summary class="mobile-menu-toggle" role="button" aria-label="Open navigation menu" aria-controls="mobile-navigation">&#9776;</summary>
+      <div class="mobile-menu-panel" id="mobile-navigation">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/partner.html">Partner</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/#join">Register interest</a>
+      </div>
+    </details>
   </div>
 </header>
 
@@ -75,7 +124,7 @@
     <a href="/" class="back-link">&larr; Back to syqei.com</a>
 
     <h1>Privacy Policy</h1>
-    <p class="legal-updated">Last updated 13 August 2026</p>
+    <p class="legal-updated">Last updated 20 August 2026</p>
 
     <div class="legal-note">
       Syqei is in its early stage, and this website is a way to share what we are building and to let
@@ -99,6 +148,12 @@
     <p><strong>Basic Site usage information.</strong> Like most websites, our hosting provider (Netlify)
     automatically logs standard technical information such as browser type, general device information, and
     approximate location derived from IP address, for security and performance purposes.</p>
+    <p><strong>Analytics.</strong> We use Google Analytics to understand how people find and use this Site,
+    such as which pages are visited and roughly where visitors are located. This is collected in aggregate
+    to help us improve, and we do not use it to identify individual visitors. Google processes this
+    information on our behalf, and you can read how at
+    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.
+    If you would prefer not to be measured, most browsers let you block analytics scripts.</p>
 
     <h2>2. How We Use Your Information</h2>
     <ul>
@@ -120,15 +175,18 @@
     <a href="mailto:hello@syqei.com">hello@syqei.com</a>. We will action this within a reasonable timeframe.</p>
 
     <h2>5. Young People &amp; Safeguarding</h2>
-    <p>Syqei is built for young people, including some who are under 18, and keeping them safe is
-    foundational to everything we do. This Site is not directed at children under 16, and we do not
-    knowingly collect their information here. If you are under 18 and would like to register interest,
-    please do so with a parent or guardian's knowledge and involvement.</p>
-    <p>Many young people take part through their school or another organisation, who arrange it alongside a parent or guardian. Taking part in an actual project is separate from registering interest on this Site. Before any young
-    person joins a project, we will put appropriate safeguarding measures in place, including parental or
-    guardian consent for minors, and clear policies on supervision, conduct and data, and this Policy will
-    be updated to reflect them. If you believe a child under 16 has provided us with information through
-    this Site, please contact us and we will remove it.</p>
+    <p>Syqei is designed for high school students aged 14 to 18, as well as parents, schools and partner
+    organisations.</p>
+    <p>We currently collect only the email address voluntarily entered into our update form. If you are
+    under 15, please ask a parent or carer to complete the signup with you or use their email address.</p>
+    <p>We do not ask for your school, home address, exact location, date of birth or photographs through
+    this website.</p>
+    <p>Many young people take part through their school or another organisation, who arrange it alongside a
+    parent or guardian. Taking part in an actual project is separate from registering interest on this Site.
+    Before any young person joins a project, we will put appropriate safeguarding measures in place,
+    including parental or guardian consent for minors, and clear policies on supervision, conduct and data,
+    and this Policy will be updated to reflect them. If you believe a child under 15 has provided us with
+    information through this Site, please contact us and we will remove it.</p>
 
     <h2>6. Changes to This Policy</h2>
     <p>We may update this Policy as Syqei evolves, including a fuller update before projects begin. Material
@@ -142,12 +200,13 @@
 <footer class="footer">
   <div class="footer-inner">
     <span class="wordmark-group">
-      <img src="/images/syqei-logo.png" alt="" class="logo-icon logo-icon--small">
+      <img src="/images/syqei-logo.png" alt="" class="logo-icon logo-icon--small" width="32" height="32">
       <span class="wordmark wordmark--small">syqei</span>
     </span>
     <nav class="footer-links" aria-label="Footer">
       <a href="/">Home</a>
       <a href="/projects.html">Projects</a>
+      <a href="/about.html">About</a>
       <a href="/partner.html">Partner</a>
       <a href="/advertise.html">Advertise</a>
       <a href="/blog.html">Blog</a>

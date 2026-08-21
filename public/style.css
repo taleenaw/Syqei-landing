@@ -85,7 +85,7 @@ a { color: inherit; }
   padding: 20px clamp(20px, 5vw, 60px);
   background: rgba(251, 248, 243, 0.92);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(74, 56, 47, 0.08);
+  border-bottom: 1px solid rgba(201, 111, 69, 0.12);
 }
 /* Gentle fade+settle of the whole bar on first page load */
 @keyframes nav-enter {
@@ -617,7 +617,7 @@ h2 {
   font-weight: 600;
   color: var(--violet-deep);
   background: rgba(251, 248, 243, 0.7);
-  border: 1px solid rgba(74, 56, 47, 0.1);
+  border: 1px solid rgba(201, 111, 69, 0.14);
   padding: 9px 18px;
   border-radius: 8px;
 }
@@ -769,7 +769,7 @@ h2 {
   height: 220px;
   border-radius: var(--radius);
   background: linear-gradient(180deg, rgba(63,90,70,0.25), rgba(217,138,94,0.2));
-  border: 1px solid rgba(74, 56, 47, 0.08);
+  border: 1px solid rgba(201, 111, 69, 0.12);
   overflow: hidden;
 }
 .g-butterfly {
@@ -795,7 +795,7 @@ h2 {
   align-items: center;
   gap: 14px;
   padding: 16px 4px;
-  border-bottom: 1px solid rgba(74, 56, 47, 0.1);
+  border-bottom: 1px solid rgba(201, 111, 69, 0.14);
   font-weight: 500;
   color: var(--stone);
 }
@@ -830,7 +830,7 @@ h2 {
   padding: 8px 16px;
   border-radius: 8px;
   background: rgba(251, 248, 243, 0.7);
-  border: 1px solid rgba(74, 56, 47, 0.1);
+  border: 1px solid rgba(201, 111, 69, 0.14);
   color: var(--stone);
 }
 
@@ -885,7 +885,7 @@ h2 {
 .form-success { margin-top: 20px; font-weight: 600; color: var(--cream-text); }
 
 /* ===== Footer ===== */
-.footer { padding: 32px clamp(20px, 5vw, 60px); border-top: 1px solid rgba(74, 56, 47, 0.1); }
+.footer { padding: 32px clamp(20px, 5vw, 60px); border-top: 1px solid rgba(201, 111, 69, 0.14); }
 .footer-inner {
   max-width: 1160px;
   margin: 0 auto;
@@ -904,7 +904,7 @@ h2 {
   max-width: 1160px;
   margin: 20px auto 0;
   padding-top: 20px;
-  border-top: 1px solid rgba(74, 56, 47, 0.08);
+  border-top: 1px solid rgba(201, 111, 69, 0.12);
   font-size: 0.8rem;
   line-height: 1.6;
   color: var(--stone);
@@ -1126,7 +1126,7 @@ h2 {
 }
 .pillar-card {
   background: rgba(251, 248, 243, 0.6);
-  border: 1px solid rgba(74, 56, 47, 0.08);
+  border: 1px solid rgba(201, 111, 69, 0.12);
   border-radius: var(--radius);
   padding: clamp(26px, 3vw, 34px);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -1217,9 +1217,9 @@ h2 {
   justify-content: space-between;
   gap: 20px;
   padding: clamp(18px, 2.5vw, 24px) 4px;
-  border-top: 1px solid rgba(74, 56, 47, 0.12);
+  border-top: 1px solid rgba(201, 111, 69, 0.16);
 }
-.experience-item:last-child { border-bottom: 1px solid rgba(74, 56, 47, 0.12); }
+.experience-item:last-child { border-bottom: 1px solid rgba(201, 111, 69, 0.16); }
 .experience-name {
   font-family: var(--font-display);
   font-weight: 500;
@@ -1289,3 +1289,128 @@ h2 {
 @media (prefers-reduced-motion: reduce) {
   .cursor-bfly { display: none !important; }
 }
+
+/* ==================================================================
+   SYQEI EDITORIAL POLISH LAYER
+   Tonal depth, softer transparency, and a less template-like finish.
+   ================================================================== */
+:root {
+  --paper-warm: #F7F0E7;
+  --paper-clay: #F3E5DA;
+  --paper-sage: #EEF1EB;
+  --hairline: rgba(201, 111, 69, 0.15);
+  --hairline-light: rgba(251, 248, 243, 0.18);
+  --shadow-low: 0 10px 30px rgba(74, 56, 47, 0.065);
+  --shadow-soft: 0 22px 56px rgba(74, 56, 47, 0.08);
+}
+
+body {
+  background:
+    radial-gradient(900px 460px at -8% 8%, rgba(201, 111, 69, 0.055), transparent 66%),
+    radial-gradient(760px 480px at 108% 18%, rgba(63, 90, 70, 0.05), transparent 65%),
+    var(--bg);
+}
+
+h1, h2, h3, .film-title, .founder-quote, .closing-band-text {
+  text-wrap: balance;
+}
+
+p, li { text-wrap: pretty; }
+
+::selection {
+  background: rgba(201, 111, 69, 0.22);
+  color: var(--brown);
+}
+
+.grain {
+  opacity: 0.025;
+  mix-blend-mode: multiply;
+}
+
+.section-label,
+.eyebrow {
+  font-size: 0.74rem;
+  letter-spacing: 0.17em;
+  opacity: 0.9;
+}
+
+/* Glassier nav without turning it into a generic floating pill. */
+.nav {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background: rgba(251, 248, 243, 0.84);
+  backdrop-filter: blur(18px) saturate(118%);
+  -webkit-backdrop-filter: blur(18px) saturate(118%);
+  border-bottom-color: rgba(201, 111, 69, 0.11);
+}
+.nav:not(.nav--over-hero) {
+  box-shadow: 0 10px 34px rgba(74, 56, 47, 0.045);
+}
+
+/* Homepage cinematic state: completely clear over the hero film.
+   The solid/glass nav only appears once script.js removes nav--over-hero. */
+.nav.nav--over-hero {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: transparent;
+  box-shadow: none;
+}
+.nav-links { gap: 26px; }
+.nav-links > a:not(.nav-cta) { font-weight: 500; }
+.nav-cta {
+  background: rgba(201, 111, 69, 0.97);
+  border: 1px solid rgba(176, 92, 54, 0.2);
+  box-shadow: 0 8px 22px rgba(176, 92, 54, 0.12);
+}
+.nav-cta:hover {
+  background: var(--orange-deep);
+  box-shadow: 0 11px 28px rgba(176, 92, 54, 0.17);
+}
+
+.mobile-menu-panel {
+  background: rgba(251, 248, 243, 0.96);
+  border: 1px solid var(--hairline);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Buttons feel flatter and more editorial, less component-library. */
+.btn {
+  border-radius: 7px;
+  letter-spacing: 0.005em;
+}
+.btn-primary {
+  box-shadow: 0 9px 26px rgba(201, 111, 69, 0.16);
+}
+.btn-primary:hover {
+  box-shadow: 0 13px 32px rgba(201, 111, 69, 0.22);
+}
+.btn-ghost {
+  background: rgba(251, 248, 243, 0.42);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.btn-on-film {
+  background: rgba(251, 248, 243, 0.085);
+  border-color: rgba(251, 248, 243, 0.42);
+  backdrop-filter: blur(7px) saturate(110%);
+  -webkit-backdrop-filter: blur(7px) saturate(110%);
+}
+
+/* Footer picks up the paper tones instead of ending on flat white. */
+.footer {
+  background: linear-gradient(180deg, rgba(247, 240, 231, 0.42), rgba(251, 248, 243, 0.96));
+  border-top-color: rgba(201, 111, 69, 0.119);
+}
+.footer-links a { color: rgba(110, 93, 81, 0.92); }
+.acknowledgement { color: rgba(110, 93, 81, 0.88); }
+
+/* Reusable form surface treatment. */
+input, textarea, select { caret-color: var(--orange); }
+
+@media (max-width: 640px) {
+  .nav { padding-top: 13px; padding-bottom: 13px; }
+}
+
