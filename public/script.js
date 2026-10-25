@@ -23,6 +23,33 @@
   label();
 })();
 
+// ===== Conversion tracking =====
+// GA4 events. cta_click for main buttons, form_start when someone begins a form,
+// and generate_lead or sign_up when it sends. Each one records the page it came from.
+function track(name, params) {
+  if (typeof window.gtag !== "function") return;
+  params = params || {};
+  params.page_path = window.location.pathname;
+  window.gtag("event", name, params);
+}
+
+document.querySelectorAll("[data-cta]").forEach(function (el) {
+  el.addEventListener("click", function () {
+    track("cta_click", { cta: el.dataset.cta });
+  });
+});
+
+document.querySelectorAll("form[data-netlify]").forEach(function (form) {
+  var page = form.querySelector("[name=source_page]");
+  if (page) page.value = window.location.pathname;
+  var started = false;
+  form.addEventListener("focusin", function () {
+    if (started) return;
+    started = true;
+    track("form_start", { form_name: form.getAttribute("name") });
+  });
+});
+
 // ===== Netlify forms =====
 // Posts in the background so people see a success message without leaving the page.
 // Falls back to a normal submit if the request fails.
@@ -46,13 +73,11 @@ document.querySelectorAll("form[data-netlify]").forEach(function (form) {
           success.hidden = false;
           success.focus();
         }
-        if (typeof window.gtag === "function") {
-          var role = form.querySelector("[name=role]");
-          window.gtag("event", form.getAttribute("name") === "enquiry" ? "generate_lead" : "sign_up", {
-            form_name: form.getAttribute("name"),
-            role: role ? role.value : undefined,
-          });
-        }
+        var role = form.querySelector("[name=role]");
+        track(form.getAttribute("name") === "enquiry" ? "generate_lead" : "sign_up", {
+          form_name: form.getAttribute("name"),
+          role: role ? role.value : undefined,
+        });
       })
       .catch(function () {
         if (button) button.disabled = false;

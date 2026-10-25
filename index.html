@@ -39,8 +39,9 @@
     <nav class="nav" aria-label="Primary">
       <a href="/projects.html">Missions</a>
       <a href="/partner.html">For schools</a>
+      <a href="/blog.html">Stories</a>
       <a href="/about.html">About</a>
-      <a href="/#contact" class="btn btn-lime">Book a pilot</a>
+      <a href="/#contact" class="btn btn-lime" data-cta="nav_pilot">Book a pilot</a>
     </nav>
     <details class="menu">
       <summary aria-label="Open menu">Menu</summary>
@@ -48,6 +49,7 @@
         <a href="/">Home</a>
         <a href="/projects.html">Missions</a>
         <a href="/partner.html">For schools</a>
+        <a href="/blog.html">Stories</a>
         <a href="/about.html">About</a>
         <a href="/#contact">Book a pilot</a>
       </div>
@@ -62,8 +64,8 @@
       <h1>Technology missions for secondary schools.</h1>
       <p class="lead">Students use real emerging tools to solve real research problems, then meet the people who do it for a job. Each mission runs in one lesson, in the browser, with no logins.</p>
       <div class="actions">
-        <a href="#contact" class="btn btn-lime">Book a founding pilot</a>
-        <a href="#mission" class="btn btn-line">See Mission 001</a>
+        <a href="#contact" class="btn btn-lime" data-cta="hero_pilot">Book a founding pilot</a>
+        <a href="#mission" class="btn btn-line" data-cta="hero_mission">See Mission 001</a>
       </div>
       <p class="hero-note">Built with researchers from The University of Western Australia. For students aged 14 to 18.</p>
     </div>
@@ -142,16 +144,24 @@
     <div>
       <h2>Decide at 8.15. Run it at 9.</h2>
       <p class="lead" style="margin-top:24px">Every mission comes with a teacher guide you can read in five minutes. You don't need a tech background to run it.</p>
+      <h3 style="margin-top:40px">Before class</h3>
       <ul class="ticks">
-        <li>A 60 minute run sheet with what to say and ask</li>
-        <li>Learning outcomes and an answer guide</li>
-        <li>No logins and no student accounts</li>
-        <li>Runs on school laptops, with a lite mode for older devices</li>
-        <li>A device check page your IT team can open in seconds</li>
+        <li>Open the mission once on the classroom display so it's ready</li>
+        <li>Open the device check on one student laptop</li>
+        <li>Share one class link. No logins, no accounts</li>
       </ul>
+      <p style="margin-top:24px">The full guide also has learning outcomes, an answer guide for every step, careers to talk about and notes for IT.</p>
     </div>
-    <figure class="screen">
-      <img class="shot" src="/images/mission/teacher-guide.jpg" alt="The Mission 001 teacher guide, showing the lesson summary, learning outcomes and before class checklist." loading="lazy" width="1600" height="1125">
+    <figure class="runsheet" aria-labelledby="runsheet-title">
+      <p class="runsheet-top"><span id="runsheet-title">Mission 001 run sheet</span><span>50 to 60 minutes</span></p>
+      <ol>
+        <li><span class="t">0 to 5</span><div><h4>Hook</h4><p>Show the wing on screen. The class votes. 3D or flat? Don't reveal yet.</p></div></li>
+        <li><span class="t">5 to 20</span><div><h4>Discover</h4><p>Students hunt for hidden moths, race the computer and meet the researchers.</p><p class="ask">Ask. Where was the computer faster than you? Where did camouflage beat it?</p></div></li>
+        <li><span class="t">20 to 32</span><div><h4>Experiment</h4><p>Students spin the 3D wing and find the painted tricks.</p><p class="ask">Ask. How can something flat look curved?</p></div></li>
+        <li><span class="t">32 to 45</span><div><h4>Create</h4><p>Demo one slider on the display. Students design their own illusion and save a version they like.</p></div></li>
+        <li><span class="t">45 to 50</span><div><h4>Keep</h4><p>Students finish their field file. Two or three show theirs to the class.</p></div></li>
+      </ol>
+      <figcaption>An excerpt from the Mission 001 teacher guide. Times are in minutes.</figcaption>
     </figure>
   </div>
 </section>
@@ -191,6 +201,25 @@
   </div>
 </section>
 
+<section class="light band" id="evidence">
+  <div class="wrap">
+    <div class="head">
+      <h2>What students said.</h2>
+      <p class="lead">Our first pilot was a facilitated early version of Mission 001 with 52 Year 9 students from two Perth schools. Every student filled in the same short survey before and after.</p>
+    </div>
+    <dl class="stats">
+      <div><dt>94%</dt><dd>liked or loved it. 48 of the 51 students who gave a rating.</dd></div>
+      <div><dt>42 of 51</dt><dd>said they knew more about technology careers afterwards.</dd></div>
+      <div><dt>9 of 9</dt><dd>students who started out not interested in tech still liked or loved it.</dd></div>
+    </dl>
+    <div class="quotes">
+      <blockquote><p>Technology is not all about mathematics and hard problem solving, it is about embracing skills and creativity.</p><cite>Year 9 student</cite></blockquote>
+      <blockquote><p>There is a lot of career paths in technology that I can go into.</p><cite>Year 9 student</cite></blockquote>
+    </div>
+    <p class="fine">Pilot run on 24 September 2026. A teacher's response is excluded from the numbers. More pilots with Year 9 to Year 12 students across Perth and regional WA are underway.</p>
+  </div>
+</section>
+
 <section class="dark band">
   <div class="wrap">
     <div class="head">
@@ -201,6 +230,7 @@
       <article class="offer">
         <h3>Founding pilot</h3>
         <p class="for">For one or two classes this term or next</p>
+        <p class="price">From A$1,000 <span>per pilot</span></p>
         <ul>
           <li>Mission 001 for your classes</li>
           <li>The teacher pack and setup support</li>
@@ -211,6 +241,7 @@
       <article class="offer">
         <h3>Founding 2027 licence</h3>
         <p class="for">For your whole school next year</p>
+        <p class="price">From A$2,500 <span>a year</span></p>
         <ul>
           <li>Every mission released in 2027</li>
           <li>Teacher resources and class links</li>
@@ -220,8 +251,8 @@
       </article>
     </div>
     <div class="offer-foot">
-      <p>Piloted in 2026 with Year 9 to Year 12 students across Perth and regional WA. Running holiday programs, tutoring or clubs? Missions can be licensed for your groups too.</p>
-      <a href="#contact" class="btn btn-lime">Talk to us about a pilot</a>
+      <p>Paid and fixed scope. We confirm the price for your class numbers before anything is booked, then send one invoice. Running holiday programs, tutoring or clubs? Missions can be licensed for your groups too.</p>
+      <a href="#contact" class="btn btn-lime" data-cta="founding_talk">Talk to us about a pilot</a>
     </div>
   </div>
 </section>
@@ -247,6 +278,7 @@
     <div>
       <form name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form" data-success="enquiry-success">
         <input type="hidden" name="form-name" value="enquiry">
+        <input type="hidden" name="source_page" value="">
         <p class="hidden-field"><label>Leave this empty <input name="bot-field"></label></p>
         <div class="row">
           <div class="field">

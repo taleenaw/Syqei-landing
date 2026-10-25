@@ -39,8 +39,9 @@
     <nav class="nav" aria-label="Primary">
       <a href="/projects.html">Missions</a>
       <a href="/partner.html">For schools</a>
+      <a href="/blog.html" aria-current="page">Stories</a>
       <a href="/about.html">About</a>
-      <a href="/#contact" class="btn btn-lime">Book a pilot</a>
+      <a href="/#contact" class="btn btn-lime" data-cta="nav_pilot">Book a pilot</a>
     </nav>
     <details class="menu">
       <summary aria-label="Open menu">Menu</summary>
@@ -48,6 +49,7 @@
         <a href="/">Home</a>
         <a href="/projects.html">Missions</a>
         <a href="/partner.html">For schools</a>
+        <a href="/blog.html">Stories</a>
         <a href="/about.html">About</a>
         <a href="/#contact">Book a pilot</a>
       </div>
@@ -59,14 +61,39 @@
 <section class="dark page-head">
   <div class="wrap">
     <h1>Stories from Syqei.</h1>
-    <p class="lead">Coming soon. Meet the researchers behind each mission and the people who do these jobs for real.</p>
+    <p class="lead">The people behind each mission. The researchers who asked the question, the jobs that use the technology, and what students made.</p>
   </div>
 </section>
 <section class="white band">
   <div class="wrap">
+    <div class="stories">
+      <article class="story">
+        <div class="story-art" style="background-image:url(/images/mission/scan-poster.jpg)"></div>
+        <p class="story-tag">Coming soon</p>
+        <h3>The moth that fools a computer</h3>
+        <p>How a flat wing tricks birds, people and depth estimators, and why researchers at UWA wanted to know.</p>
+      </article>
+      <article class="story">
+        <div class="story-art" style="background-image:url(/images/mission/race-chart.jpg)"></div>
+        <p class="story-tag">Coming soon</p>
+        <h3>What does a computer vision engineer actually do?</h3>
+        <p>The job behind phone cameras, self-driving cars and Mission 001, explained by someone who does it.</p>
+      </article>
+      <article class="story">
+        <div class="story-art" style="background-image:url(/images/mission/design.jpg)"></div>
+        <p class="story-tag">Coming soon</p>
+        <h3>Inside our first pilot</h3>
+        <p>52 Year 9 students, two schools and a camouflaged moth. What happened and what we changed.</p>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="light band">
+  <div class="wrap">
     <h2>Hear when the first story drops.</h2>
     <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="inline-form" data-success="news-success">
       <input type="hidden" name="form-name" value="newsletter">
+      <input type="hidden" name="source_page" value="">
       <p class="hidden-field"><label>Leave this empty <input name="bot-field"></label></p>
       <label class="visually-hidden" for="n-email">Email address</label>
       <input type="email" id="n-email" name="email" placeholder="you@example.com" autocomplete="email" required>

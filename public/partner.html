@@ -39,8 +39,9 @@
     <nav class="nav" aria-label="Primary">
       <a href="/projects.html">Missions</a>
       <a href="/partner.html" aria-current="page">For schools</a>
+      <a href="/blog.html">Stories</a>
       <a href="/about.html">About</a>
-      <a href="/#contact" class="btn btn-lime">Book a pilot</a>
+      <a href="/#contact" class="btn btn-lime" data-cta="nav_pilot">Book a pilot</a>
     </nav>
     <details class="menu">
       <summary aria-label="Open menu">Menu</summary>
@@ -48,6 +49,7 @@
         <a href="/">Home</a>
         <a href="/projects.html">Missions</a>
         <a href="/partner.html">For schools</a>
+        <a href="/blog.html">Stories</a>
         <a href="/about.html">About</a>
         <a href="/#contact">Book a pilot</a>
       </div>
@@ -111,6 +113,43 @@
   </div>
 </section>
 
+<section class="dark band">
+  <div class="wrap">
+    <div class="head">
+      <h2>Founding school pricing.</h2>
+      <p class="lead">Founding places are open for the rest of 2026 and for 2027.</p>
+    </div>
+    <div class="offers">
+      <article class="offer">
+        <h3>Founding pilot</h3>
+        <p class="for">For one or two classes this term or next</p>
+        <p class="price">From A$1,000 <span>per pilot</span></p>
+        <ul>
+          <li>Mission 001 for your classes</li>
+          <li>The teacher pack and setup support</li>
+          <li>A completion summary and student feedback report</li>
+          <li>The next mission when it's released</li>
+        </ul>
+      </article>
+      <article class="offer">
+        <h3>Founding 2027 licence</h3>
+        <p class="for">For your whole school next year</p>
+        <p class="price">From A$2,500 <span>a year</span></p>
+        <ul>
+          <li>Every mission released in 2027</li>
+          <li>Teacher resources and class links</li>
+          <li>Basic completion reporting</li>
+          <li>Onboarding with the founder</li>
+        </ul>
+      </article>
+    </div>
+    <div class="offer-foot">
+      <p>Paid and fixed scope. We confirm the price for your class numbers before anything is booked, then send one invoice. In our first pilot, 94% of students liked or loved it. <a href="/#evidence" class="text-link" style="color:var(--lime)">See the results</a>.</p>
+      <a href="#contact-schools" class="btn btn-lime" data-cta="schools_pricing">Ask for a quote</a>
+    </div>
+  </div>
+</section>
+
 <section class="white band">
   <div class="wrap">
     <div class="head">
@@ -170,6 +209,7 @@
     <div>
       <form name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form" data-success="enquiry-success">
         <input type="hidden" name="form-name" value="enquiry">
+        <input type="hidden" name="source_page" value="">
         <p class="hidden-field"><label>Leave this empty <input name="bot-field"></label></p>
         <div class="row">
           <div class="field">
