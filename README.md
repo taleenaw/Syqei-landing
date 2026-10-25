@@ -1,68 +1,63 @@
-# Syqei Website
+# Syqei website
 
-A single-page landing site: hero, problem/differentiation, how it works, values, and a waitlist form.
-No build step — plain HTML/CSS/JS. Deploys straight to Netlify.
+The marketing site for syqei.com. Plain HTML pages, built with Vite and deployed by Netlify.
 
-## 1. Get it running locally (in Kitty)
+## Run it locally
 
-Unzip the folder, then in Kitty:
-
-```bash
-cd path/to/syqei-website
-python3 -m http.server 8080
-```
-
-Open `http://localhost:8080` in your browser. Edit `index.html` / `style.css` / `script.js`
-in your editor of choice, save, refresh the browser to see changes. Ctrl+C in Kitty to stop the server.
-
-## 2. Put it on GitHub (recommended, makes Netlify auto-deploy on every save)
+Use Node 22.
 
 ```bash
-cd path/to/syqei-website
-git init
-git add .
-git commit -m "Initial Syqei landing page"
+npm ci
+npm run dev
 ```
 
-Then create a new empty repo on github.com (no README/gitignore), and:
+Open http://localhost:5173. Changes show as you save.
+
+## Build
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/syqei-website.git
-git branch -M main
-git push -u origin main
+npm run build     # outputs to dist/
+npm run preview   # serves dist/ to check the build
+npm run check     # type checks the mission preview code
 ```
 
-## 3. Deploy to Netlify
+Netlify reads `netlify.toml`. It runs `npm run build` and publishes `dist/`. You don't need to set anything in the Netlify dashboard.
 
-1. Go to app.netlify.com → sign up/log in (free tier is fine)
-2. "Add new site" → "Import an existing project" → connect GitHub → pick `syqei-website`
-3. Leave build settings blank (no build command, publish directory = `/`) since this is plain HTML
-4. Click Deploy — you'll get a live `random-name-123.netlify.app` URL within a minute
+## Where things live
 
-**No separate email/waitlist backend needed** — the form on the page already has
-`data-netlify="true"`, which Netlify auto-detects on deploy. Submissions show up under
-Netlify dashboard → your site → **Forms**. You can also set up an email notification there
-(Site settings → Forms → Form notifications) so you get an email every time someone joins.
+| Path | What it is |
+| --- | --- |
+| `*.html` at the root | One file per page. Edit the text directly |
+| `stories/` | Published stories |
+| `public/style.css` | All styles |
+| `public/script.js` | Forms, analytics events, the readiness checklist |
+| `src/preview.ts` | The 30 second Mission 001 preview |
+| `src/vision/` | Scene, detector and visuals copied from the syqei-studio app. Copy them again if the studio versions change |
+| `public/images/` | Images |
+| `public/_redirects`, `public/_headers` | Netlify redirects and security headers |
+| `public/sitemap.xml`, `public/robots.txt` | For search engines. Add new pages to the sitemap |
 
-## 4. Connect your Porkbun domain (syqei.com)
+To add a page, create the HTML file at the root and add its name to `pages` in `vite.config.js`.
 
-In Netlify: Site settings → Domain management → Add a domain → enter `syqei.com`.
+## Forms
 
-Netlify will give you either:
-- **A records** to add (simplest — stays on Porkbun's own DNS), or
-- **Netlify's own nameservers** to switch to (only do this if you want Netlify managing all DNS)
+Netlify Forms picks up the `enquiry` and `newsletter` forms on deploy. Submissions show in Netlify under Forms.
 
-Recommended: stick with A records so you don't disturb your existing Porkbun DNS setup
-(you've already got 11 DNS records configured, including the `/survey` forwarding).
+## Analytics events (GA4)
 
-In Porkbun: Domain → syqei.com → DNS Records → add the A record(s) Netlify gives you,
-pointing `@` (root domain) at Netlify's IP. If you want `www.syqei.com` too, add the CNAME
-Netlify provides for that as well.
+| Event | When |
+| --- | --- |
+| `cta_click` | A main button is clicked. `cta` says which one and where |
+| `mission_preview_start`, `mission_preview_complete` | Someone plays the 30 second preview |
+| `pricing_view`, `pilot_results_view` | Pricing or pilot results come into view, or the results link is clicked |
+| `teacher_guide_view`, `device_check_click` | Links to the teacher guide or device check |
+| `faq_open` | An FAQ is opened. `topic` says which |
+| `form_start` | Someone starts filling in a form |
+| `generate_lead` | A form is sent. `lead_type` is `pilot_enquiry` or `newsletter` |
+| `email_click` | An email link is clicked |
 
-DNS changes can take anywhere from a few minutes to a few hours to propagate.
+Never send names, emails or form text to analytics.
 
-## 5. Update content later
+## Publishing changes
 
-Everything's in plain text inside `index.html` — headline, copy, the "happening near you
-right now" example, and the three how-it-works steps. No build tool needed, just edit,
-save, and push to GitHub — Netlify redeploys automatically within about a minute.
+Work on a branch, open a pull request, check the Netlify Deploy Preview link, then merge to `main`. Merging to `main` publishes the site.

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission 001. The Illusion Engine | Syqei</title>
+<meta name="description" content="A one-lesson computer vision mission for Years 9 to 12, built from UWA research into moth camouflage. Try 30 seconds of it in your browser.">
+<meta name="theme-color" content="#14032a">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://syqei.com/projects.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Syqei">
+<meta property="og:url" content="https://syqei.com/projects.html">
+<meta property="og:title" content="Mission 001. The Illusion Engine | Syqei">
+<meta property="og:description" content="A one-lesson computer vision mission for Years 9 to 12, built from UWA research into moth camouflage. Try 30 seconds of it in your browser.">
+<meta property="og:image" content="https://syqei.com/images/mission/scan-poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mission 001. The Illusion Engine | Syqei">
+<meta name="twitter:description" content="A one-lesson computer vision mission for Years 9 to 12, built from UWA research into moth camouflage. Try 30 seconds of it in your browser.">
+<meta name="twitter:image" content="https://syqei.com/images/mission/scan-poster.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script type="module" src="/src/preview.ts"></script>
+
+<!-- Google Analytics (GA4). Google Signals and ad personalisation are off. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PPELPT779N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PPELPT779N', { allow_google_signals: false, allow_ad_personalization_signals: false });
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="logo" aria-label="Syqei home"><img src="/images/syqei-wordmark.svg" alt="syqei" width="104" height="42"></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/projects.html" aria-current="page">Missions</a>
+      <a href="/partner.html">For schools</a>
+      <a href="/stories.html">Stories</a>
+      <a href="/about.html">About</a>
+      <a href="/partner.html#request" class="btn btn-lime" data-cta="nav_request">Request a pilot</a>
+    </nav>
+    <details class="menu">
+      <summary aria-label="Open menu">Menu</summary>
+      <div class="menu-panel">
+        <a href="/">Home</a>
+        <a href="/projects.html">Missions</a>
+        <a href="/partner.html">For schools</a>
+        <a href="/stories.html">Stories</a>
+        <a href="/about.html">About</a>
+        <a href="/partner.html#request" data-cta="menu_request">Request a pilot</a>
+      </div>
+    </details>
+  </div>
+</header>
+<main id="main">
+
+<section class="dark page-head">
+  <div class="wrap split">
+    <div>
+      <h1><span class="h1-sub">Mission 001</span>The Illusion Engine</h1>
+      <p class="lead">Some moths have flat wings that look curved. Students race a computer vision model to find camouflaged moths, spin a 3D wing, then design an illusion that fools a depth estimator.</p>
+      <ul class="chips" aria-label="Mission details">
+        <li>Computer vision</li><li>3D</li><li>Depth estimation</li>
+        <li>Years 9 to 12</li><li>50 to 60 min</li><li>No student login</li>
+        <li class="chip-live">Ready now</li>
+      </ul>
+      <div class="actions">
+        <a href="/studio/project/illusion-engine/play" class="btn btn-lime" data-cta="missions_play">Play the full mission</a>
+        <a href="/studio/project/illusion-engine/teach" class="btn btn-line" data-teacher-guide>See the teacher guide</a>
+      </div>
+    </div>
+    <figure class="preview" data-preview="missions" id="try">
+      <div class="preview-stage">
+        <canvas tabindex="-1" aria-label="A camouflaged scene with one hidden moth. Click the moth when you find it."></canvas>
+        <img class="preview-poster" src="/images/mission/scan-poster.jpg" alt="" width="1280" height="800">
+        <div class="preview-overlay" data-overlay>
+          <h3>Find the hidden moth.</h3>
+          <p>One camouflaged moth. 20 seconds. Then a computer vision model tries the same image.</p>
+          <button type="button" class="btn btn-lime" data-start>Start</button>
+        </div>
+        <span class="preview-chip" data-chip hidden></span>
+      </div>
+      <div class="preview-bar">
+        <p class="preview-status" data-status aria-live="polite">Takes about 30 seconds. Works with a mouse or touch.</p>
+        <div class="preview-actions">
+          <button type="button" class="btn btn-line btn-sm" data-show hidden>Show me where it is</button>
+          <button type="button" class="btn btn-lime btn-sm" data-race hidden>Race the computer</button>
+          <button type="button" class="btn btn-line btn-sm" data-again hidden>Try another image</button>
+        </div>
+        <div class="preview-after" data-after hidden>
+          <a href="/studio/project/illusion-engine/play" class="text-link" data-cta="missions_preview_full">Play the full mission</a>
+          <a href="#request" class="text-link" data-cta="missions_preview_request">Request a founding pilot</a>
+        </div>
+      </div>
+      <noscript><p class="preview-status">Turn on JavaScript to try this part of Mission 001.</p></noscript>
+    </figure>
+  </div>
+</section>
+
+<section class="white band">
+  <div class="wrap">
+    <div class="head">
+      <h2>Inside the mission.</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Discover</h3><p>Hunt for hidden moths, race a detector and meet the scientists behind the research.</p></li>
+      <li><h3>Experiment</h3><p>Spin the wing in 3D and spot the light and shadow tricks that fake depth.</p></li>
+      <li><h3>Create</h3><p>Design an illusion with sliders, or write the code for it in optional coding levels.</p></li>
+      <li><h3>Keep</h3><p>Download a field file with what they made, what they can now do and the careers behind it.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="plum band">
+  <div class="wrap">
+    <div class="head">
+      <h2>What students make.</h2>
+      <p class="lead">Screens from the mission. Student work stays on their own device, so these are our examples.</p>
+    </div>
+    <div class="gallery gallery--make">
+      <figure>
+        <img src="/images/mission/race-chart.jpg" alt="A chart of a student's search times against the computer's on six scenes." loading="lazy" width="1400" height="732">
+        <figcaption>A labelled dataset of six scenes, raced against a computer.</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/mission/field-file.jpg" alt="An example field file with an illusion design, its depth map and what the student changed." loading="lazy" width="1000" height="1535">
+        <figcaption>A field file to download and keep.</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/mission/design.jpg" alt="An illusion design scoring 100 against the depth estimator." loading="lazy" width="1600" height="732">
+        <figcaption>An illusion that fools a depth estimator.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="light band">
+  <div class="wrap">
+    <div class="head">
+      <h2>Run Mission 001 with one or two classes.</h2>
+      <p class="lead">Founding pilots start from A$1,000 and include the teacher pack, onboarding and a results report.</p>
+      <div class="actions">
+        <a href="/partner.html#request" class="btn btn-ink" data-cta="missions_request">Request a founding pilot</a>
+        <a href="/partner.html#pricing" class="btn btn-line-dark">What's included</a>
+      </div>
+    </div>
+    <div class="coming">
+      <h3>Coming next in the Computer Vision track</h3>
+      <ul>
+        <li><strong>Mission 002. Teach the detector.</strong> Label your own images and train a model to find hidden moths. In development.</li>
+        <li><strong>Mission 003. Vision in the field.</strong> Point computer vision at a new research problem. In development.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo" aria-label="Syqei home"><img src="/images/syqei-wordmark.svg" alt="syqei" width="120" height="48"></a>
+        <p>Technology missions for secondary schools, built from real research.</p>
+      </div>
+      <nav class="footer-cols" aria-label="Footer">
+        <div>
+          <h2>Product</h2>
+          <a href="/projects.html">Mission 001</a>
+          <a href="/partner.html">For schools</a>
+          <a href="/partner.html#pricing">Pilot pricing</a>
+          <a href="/studio/check" data-device-check>Device check</a>
+        </div>
+        <div>
+          <h2>Company</h2>
+          <a href="/about.html">About</a>
+          <a href="/stories.html">Stories</a>
+          <a href="/about.html#research">Research collaborators</a>
+          <a href="mailto:hello@syqei.com">hello@syqei.com</a>
+          <a href="https://instagram.com/syqei.studio" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <div>
+          <h2>Trust</h2>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/studio/privacy">Student app privacy</a>
+          <a href="/accessibility.html">Accessibility</a>
+        </div>
+      </nav>
+    </div>
+    <p class="acknowledgement">We acknowledge the Whadjuk Noongar people, the Traditional Owners of the land on which Syqei is built and operated, and the many Traditional Custodians of Country across Western Australia. We pay our respects to Elders past, present and emerging, and recognise their continuing connection to land, waters and culture.</p>
+    <p class="copyright">&copy; 2026 Syqei</p>
+  </div>
+</footer>
+<script src="/script.js"></script>
+</body>
+</html>

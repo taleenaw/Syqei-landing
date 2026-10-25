@@ -1,31 +1,7 @@
-// Syqei site script. Plain JS, no build step.
+// Syqei site script. Plain JS, loaded on every page.
 
-// ===== Hero scan video =====
-// Respect reduced motion. The poster frame shows instead, with a button to play.
-(function () {
-  var video = document.querySelector("[data-scan]");
-  var toggle = document.querySelector("[data-scan-toggle]");
-  if (!video || !toggle) return;
-  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  function label() {
-    toggle.textContent = video.paused ? "Play" : "Pause";
-    toggle.setAttribute("aria-label", video.paused ? "Play the scan video" : "Pause the scan video");
-  }
-  if (reduced) video.pause();
-  else video.play().catch(function () {});
-  toggle.addEventListener("click", function () {
-    if (video.paused) video.play().catch(function () {});
-    else video.pause();
-  });
-  video.addEventListener("play", label);
-  video.addEventListener("pause", label);
-  label();
-})();
-
-// ===== Conversion tracking =====
-// GA4 events. cta_click for main buttons, form_start when someone begins a form,
-// and generate_lead or sign_up when it sends. Each one records the page it came from.
+// ===== Analytics =====
+// GA4 events. Never send names, emails or anything typed into a form.
 function track(name, params) {
   if (typeof window.gtag !== "function") return;
   params = params || {};
@@ -33,12 +9,87 @@ function track(name, params) {
   window.gtag("event", name, params);
 }
 
+// Main buttons. data-cta says which button and where it sits.
 document.querySelectorAll("[data-cta]").forEach(function (el) {
   el.addEventListener("click", function () {
     track("cta_click", { cta: el.dataset.cta });
   });
 });
+document.querySelectorAll('a[href^="mailto:"]').forEach(function (el) {
+  el.addEventListener("click", function () {
+    track("email_click");
+  });
+});
+document.querySelectorAll("[data-device-check]").forEach(function (el) {
+  el.addEventListener("click", function () {
+    track("device_check_click");
+  });
+});
+document.querySelectorAll("[data-teacher-guide]").forEach(function (el) {
+  el.addEventListener("click", function () {
+    track("teacher_guide_view");
+  });
+});
+document.querySelectorAll("[data-results-link]").forEach(function (el) {
+  el.addEventListener("click", function () {
+    track("pilot_results_view", { via: "link" });
+  });
+});
+document.querySelectorAll("details[data-faq]").forEach(function (el) {
+  el.addEventListener("toggle", function () {
+    if (el.open) track("faq_open", { topic: el.dataset.faq });
+  });
+});
 
+// Sections worth knowing someone reached. Fires once per page view.
+if ("IntersectionObserver" in window) {
+  var seen = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var name = entry.target.dataset.view;
+        track(name === "pricing" ? "pricing_view" : "pilot_results_view", { via: "scroll" });
+        seen.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.4 },
+  );
+  document.querySelectorAll("[data-view]").forEach(function (el) {
+    seen.observe(el);
+  });
+}
+
+// ===== Try 30 seconds button =====
+// Scrolls to the preview and puts focus on its Start button.
+document.querySelectorAll("[data-try]").forEach(function (el) {
+  el.addEventListener("click", function (e) {
+    var start = document.querySelector("[data-preview] [data-start]");
+    if (!start) return;
+    e.preventDefault();
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document.getElementById("try").scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
+    if (!start.closest("[hidden]")) start.focus({ preventScroll: true });
+  });
+});
+
+// ===== Could you run this tomorrow =====
+document.querySelectorAll("[data-ready]").forEach(function (form) {
+  var boxes = form.querySelectorAll("input[type=checkbox]");
+  var out = form.querySelector("[data-ready-result]");
+  form.addEventListener("change", function () {
+    var n = 0;
+    boxes.forEach(function (b) {
+      if (b.checked) n++;
+    });
+    out.textContent =
+      n === boxes.length
+        ? "You're ready to run a mission tomorrow."
+        : n + " of " + boxes.length + " ticked.";
+  });
+});
+
+// ===== Netlify forms =====
+// Posts in the background so people see a success message without leaving the page.
 document.querySelectorAll("form[data-netlify]").forEach(function (form) {
   var page = form.querySelector("[name=source_page]");
   if (page) page.value = window.location.pathname;
@@ -48,12 +99,7 @@ document.querySelectorAll("form[data-netlify]").forEach(function (form) {
     started = true;
     track("form_start", { form_name: form.getAttribute("name") });
   });
-});
 
-// ===== Netlify forms =====
-// Posts in the background so people see a success message without leaving the page.
-// Falls back to a normal submit if the request fails.
-document.querySelectorAll("form[data-netlify]").forEach(function (form) {
   var success = document.getElementById(form.dataset.success);
   var error = form.querySelector(".form-error");
   form.addEventListener("submit", function (e) {
@@ -74,8 +120,9 @@ document.querySelectorAll("form[data-netlify]").forEach(function (form) {
           success.focus();
         }
         var role = form.querySelector("[name=role]");
-        track(form.getAttribute("name") === "enquiry" ? "generate_lead" : "sign_up", {
-          form_name: form.getAttribute("name"),
+        track("generate_lead", {
+          lead_type: form.getAttribute("name") === "enquiry" ? "pilot_enquiry" : "newsletter",
+          source_page: window.location.pathname,
           role: role ? role.value : undefined,
         });
       })

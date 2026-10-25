@@ -1,7 +1,25 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { resolve } from "node:path";
+import { defineConfig } from "vite";
 
-// https://vite.dev/config/
+// Every page is a plain HTML file at the repo root. Vite builds them all into dist/.
+// Files in public/ (styles, images, redirects) are copied as they are.
+const pages = [
+  "index",
+  "partner",
+  "projects",
+  "about",
+  "stories",
+  "stories/first-pilot",
+  "privacy",
+  "accessibility",
+  "think",
+  "404",
+];
+
 export default defineConfig({
-  plugins: [react()],
-})
+  build: {
+    rollupOptions: {
+      input: Object.fromEntries(pages.map((p) => [p, resolve(import.meta.dirname, `${p}.html`)])),
+    },
+  },
+});
