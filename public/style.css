@@ -1830,3 +1830,278 @@ p {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ===== Computer vision marks =====
+   The visual language of Mission 001 used as brand graphics.
+   .cv          a detection box with a confidence label, e.g. data-label="moth 89%"
+   .cv--ink     the same box in violet, for light backgrounds
+   .cv--miss    a wrong guess, in coral
+   .scan-edge   a scan line that sweeps once across the top of a section
+   .cv-wing     an edge-map moth in the margin, boxed as a low-confidence candidate */
+:root {
+  --cv: var(--lime);
+  --cv-text: var(--ink);
+  --miss: #f2a7a0;
+}
+.cv {
+  --cv-color: var(--cv);
+  --cv-label-text: var(--cv-text);
+  position: relative;
+  width: fit-content;
+  isolation: isolate;
+}
+.cv--ink {
+  --cv-color: var(--violet);
+  --cv-label-text: var(--white);
+}
+.cv--miss {
+  --cv-color: var(--miss);
+  --cv-label-text: var(--ink);
+}
+.cv::before {
+  content: "";
+  position: absolute;
+  inset: -12px -14px;
+  border: 2px solid var(--cv-color);
+  border-radius: 3px;
+  pointer-events: none;
+  z-index: 1;
+}
+.cv--block {
+  display: block;
+}
+.cv::after {
+  content: attr(data-label);
+  content: attr(data-label) / "";
+  position: absolute;
+  left: -15px;
+  top: -12px;
+  transform: translateY(-100%);
+  padding: 3px 8px 4px;
+  border-radius: 3px 3px 0 0;
+  background: var(--cv-color);
+  color: var(--cv-label-text);
+  font: 600 0.78rem/1.2 var(--body);
+  letter-spacing: 0;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+  z-index: 1;
+}
+figure.cv,
+img.cv,
+.cv--block {
+  width: auto;
+}
+figure.cv::before {
+  inset: -10px;
+}
+figure.cv::after {
+  left: -11px;
+  top: -10px;
+}
+
+/* Lock-on. JS adds .cv-on to <html>, then .is-found when a mark scrolls into view. */
+.cv-on .cv::before,
+.cv-on .cv::after {
+  opacity: 0;
+  transition:
+    opacity 0.35s ease,
+    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.cv-on .cv::before {
+  transform: scale(1.18);
+}
+.cv-on .cv.is-found::before {
+  opacity: 1;
+  transform: scale(1);
+}
+.cv-on .cv.is-found::after {
+  opacity: 1;
+  transition-delay: 0.25s;
+}
+
+/* Scan line across a section's top edge */
+.scan-edge {
+  position: relative;
+  overflow-x: clip;
+}
+.scan-edge::before,
+.scan-edge::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  pointer-events: none;
+}
+.scan-edge::before {
+  right: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--scan-color, var(--lime)) 0 1px,
+    transparent 1px 24px
+  );
+  opacity: 0.35;
+}
+.scan-edge::after {
+  width: 220px;
+  background: linear-gradient(90deg, transparent, var(--scan-color, var(--lime)));
+  box-shadow: 0 0 18px 2px var(--scan-color, var(--lime));
+  opacity: 0;
+  transform: translateX(-240px);
+}
+.light.scan-edge,
+.white.scan-edge,
+.proof.scan-edge {
+  --scan-color: var(--violet);
+}
+.cv-on .scan-edge.is-found::after {
+  animation: scan-sweep 1.8s cubic-bezier(0.45, 0, 0.2, 1) 1 forwards;
+}
+@keyframes scan-sweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-240px);
+  }
+  10% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(calc(100vw + 20px));
+  }
+}
+
+/* Edge-map moths in the margins */
+.has-wing {
+  position: relative;
+  overflow: hidden;
+}
+.has-wing > .wrap {
+  position: relative;
+  z-index: 1;
+}
+.cv-wing {
+  position: absolute;
+  width: var(--w, 150px);
+  aspect-ratio: 224 / 124;
+  pointer-events: none;
+  z-index: 0;
+  transform: rotate(var(--r, -12deg));
+}
+.cv-wing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--wing-color, var(--lilac));
+  -webkit-mask: url(/images/cv-wing.svg) center / contain no-repeat;
+  mask: url(/images/cv-wing.svg) center / contain no-repeat;
+  opacity: var(--wing-o, 0.45);
+  filter: drop-shadow(0 0 6px var(--wing-glow, rgba(216, 209, 231, 0.6)));
+}
+.cv-wing::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border: 1.5px dashed var(--wing-color, var(--lilac));
+  border-radius: 3px;
+  opacity: 0.55;
+}
+.cv-wing span {
+  position: absolute;
+  left: -13px;
+  top: -12px;
+  transform: translateY(-100%);
+  padding: 2px 6px 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--wing-color, var(--lilac));
+  color: var(--ink);
+  font: 600 0.7rem/1.2 var(--body);
+  white-space: nowrap;
+  opacity: 0.75;
+}
+.light .cv-wing,
+.white .cv-wing {
+  --wing-color: var(--violet);
+  --wing-glow: transparent;
+  --wing-o: 0.3;
+}
+.light .cv-wing span,
+.white .cv-wing span {
+  color: var(--white);
+}
+.cv-wing.at-right {
+  right: calc(var(--gutter) + 20px);
+}
+.cv-wing.at-left {
+  left: 20px;
+}
+.cv-wing.at-top {
+  top: 24px;
+}
+.cv-wing.at-mid {
+  top: 50%;
+  margin-top: -40px;
+}
+.cv-wing.at-bottom {
+  bottom: 0;
+}
+.wrap {
+  position: relative;
+}
+.contact-intro {
+  position: relative;
+  min-height: 100%;
+}
+.cv-on .cv-wing {
+  opacity: 0;
+  transition: opacity 0.8s ease 0.3s;
+}
+.cv-on .cv-wing.is-found {
+  opacity: 1;
+}
+@media (max-width: 1100px) {
+  .cv-wing {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-on .cv::before,
+  .cv-on .cv::after,
+  .cv-on .cv-wing {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .cv-on .cv-wing {
+    transform: rotate(var(--r, -12deg)) !important;
+  }
+  .scan-edge::after {
+    display: none;
+  }
+}
+
+.founder-fig {
+  margin: 0;
+}
+.founder-fig img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 22px;
+}
+.page-head h1.cv,
+.hero h1.cv {
+  margin-top: 30px;
+}
+
+.proof-stats {
+  margin-top: 44px;
+}
+.proof-stats dt.cv {
+  margin-bottom: 22px;
+}

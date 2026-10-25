@@ -132,3 +132,47 @@ document.querySelectorAll("form[data-netlify]").forEach(function (form) {
       });
   });
 });
+
+// ===== Computer vision marks =====
+// Detection boxes lock on and their confidence counts up when they scroll into view.
+// Scan lines sweep once. Without JS, or with reduced motion, everything just shows.
+(function () {
+  var marks = document.querySelectorAll(".cv, .scan-edge, .cv-wing");
+  if (!marks.length || !("IntersectionObserver" in window)) return;
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.documentElement.classList.add("cv-on");
+
+  function countUp(el) {
+    var label = el.getAttribute("data-label") || "";
+    var m = label.match(/^(.*?)(\d+)%$/);
+    if (!m || reduced) return;
+    var prefix = m[1];
+    var target = Number(m[2]);
+    var start = performance.now();
+    var dur = 700;
+    function frame(now) {
+      var p = Math.min(1, (now - start) / dur);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.setAttribute("data-label", prefix + Math.round(target * eased) + "%");
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    el.setAttribute("data-label", prefix + "0%");
+    requestAnimationFrame(frame);
+  }
+
+  var io = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        el.classList.add("is-found");
+        if (el.classList.contains("cv")) setTimeout(function () { countUp(el); }, reduced ? 0 : 250);
+        io.unobserve(el);
+      });
+    },
+    { threshold: 0.35, rootMargin: "0px 0px -8% 0px" },
+  );
+  marks.forEach(function (el) {
+    io.observe(el);
+  });
+})();
