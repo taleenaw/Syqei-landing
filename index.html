@@ -1,417 +1,319 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Syqei | Real tech projects for young people</title>
-<link rel="icon" type="image/png" href="/images/favicon.png">
-<meta name="description" content="Syqei Studio turns real ecological questions, conservation challenges and environmental data into creative technology projects for young people. Explore AI, data, design, coding and digital mapping.">
+<title>Syqei | Technology missions for secondary schools</title>
+<meta name="description" content="Ready-to-run technology missions for secondary schools. Students use real emerging tools to solve real research problems and discover the careers behind them.">
+<meta name="theme-color" content="#14032a">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://syqei.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://syqei.com/">
-<meta property="og:title" content="Syqei | Real tech projects for young people">
-<meta property="og:description" content="Syqei Studio turns ecological questions and environmental data into creative technology projects for young people. Explore AI, data, design, coding and digital mapping.">
-<meta property="og:image" content="https://syqei.com/images/happening.png">
+<meta property="og:title" content="Syqei | Technology missions for secondary schools">
+<meta property="og:description" content="Ready-to-run technology missions for secondary schools. Students use real emerging tools to solve real research problems and discover the careers behind them.">
+<meta property="og:image" content="https://syqei.com/images/mission/scan-poster.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Syqei | Real tech projects for young people">
-<meta name="twitter:description" content="Creative technology projects for young people built from ecological questions and environmental data. Explore AI, data, design, coding and digital mapping.">
-<meta name="twitter:image" content="https://syqei.com/images/happening.png">
+<meta name="twitter:title" content="Syqei | Technology missions for secondary schools">
+<meta name="twitter:description" content="Ready-to-run technology missions for secondary schools. Students use real emerging tools to solve real research problems and discover the careers behind them.">
+<meta name="twitter:image" content="https://syqei.com/images/mission/scan-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 
-<!-- Hero scrim tuned slightly heavier for the brighter whale/ocean footage,
-     so the cream headline stays legible. Scoped to the top hero only.
-     If you later swap in team or showcase footage, you can retune this. -->
-<style>
-  .film-hero-scrim {
-    background:
-      linear-gradient(180deg, rgba(36,28,22,0.44) 0%, rgba(36,28,22,0.14) 30%, rgba(36,28,22,0.40) 64%, rgba(36,28,22,0.86) 100%);
-  }
-
-  /* Flush hero: let the nav overlay the hero so the film starts at the very
-     top edge. The nav still turns solid and sticky on scroll (script.js). */
-  .has-cinematic-hero .film-hero { margin-top: 0; }
-  .has-cinematic-hero #site-nav.nav--over-hero {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-  }
-
-  /* Short closing emphasis line for the concept bands (idea + after). */
-  .concept-punch {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 500;
-    font-size: clamp(1.15rem, 2vw, 1.5rem);
-    line-height: 1.3;
-    color: var(--violet-deep);
-    margin: 22px 0 0;
-  }
-
-  /* Founder intro -- editorial, quote-led (big quote, bold lead, closing line) */
-  .founder-quote {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: clamp(1.7rem, 3vw, 2.5rem);
-    line-height: 1.16;
-    color: var(--brown);
-    margin: 4px 0 10px;
-  }
-  .founder-split-content p { max-width: 54ch; }
-  .founder-split-content p.founder-intro {
-    font-weight: 600;
-    color: var(--brown);
-  }
-  .founder-split-content p.founder-story {
-    font-size: 0.92rem;
-    line-height: 1.65;
-  }
-  .founder-split-content { background: var(--bg); }
-  .founder-closing {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(1.3rem, 2.3vw, 1.75rem);
-    line-height: 1.35;
-    color: var(--green);
-    margin: 14px 0 0;
-    max-width: 22ch;
-  }
-  .founder-split-content .founder-cta {
-    align-self: stretch;
-    justify-content: center;
-    background: var(--green);
-    color: var(--cream-text);
-    padding-top: 17px;
-    padding-bottom: 17px;
-    margin-top: 18px;
-  }
-  .founder-split-content .founder-cta:hover { background: var(--green-deep); }
-  .founder-social {
-    align-self: center;
-    margin-top: 14px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--brown-soft);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  .founder-social:hover { color: var(--orange); }
-  .founder-social span { color: var(--orange); margin-left: 4px; }
-
-  /* Quiet tertiary link under the hero buttons (skill translator) */
-  .film-skills {
-    display: inline-block;
-    margin-top: 20px;
-    font-size: 0.92rem;
-    font-weight: 500;
-    color: rgba(251, 248, 243, 0.82);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  .film-skills:hover { color: var(--cream-text); }
-  .film-skills span { color: var(--orange-soft); margin-left: 4px; }
-  .film-skills:focus-visible { outline: 3px solid var(--orange-soft); outline-offset: 3px; border-radius: 4px; }
-
-
-  /* In-place signup form inside the green join section */
-  .join-form { margin: 10px auto 0; max-width: 460px; }
-  .join-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
-  .join-row input[type="email"] {
-    flex: 1;
-    min-width: 200px;
-    padding: 14px 18px;
-    border-radius: 10px;
-    border: 1.5px solid rgba(251, 248, 243, 0.3);
-    background: var(--bg);
-    color: var(--brown);
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-  }
-  .join-row input[type="email"]:focus-visible { outline: 3px solid var(--orange-soft); outline-offset: 2px; }
-  .join-row .btn { flex-shrink: 0; }
-  .join-note { color: rgba(251, 248, 243, 0.8); font-size: 0.82rem; margin: 14px auto 0; max-width: 460px; }
-
-  /* Keep the homepage signup band compact so the closing image arrives sooner. */
-  .waitlist {
-    padding-top: clamp(48px, 6.5vw, 72px);
-    padding-bottom: clamp(48px, 6.5vw, 72px);
-  }
-  .waitlist-sub { margin-bottom: 28px; }
-  .waitlist .form-success { color: var(--cream-text); font-weight: 600; margin-top: 16px; }
-
-  /* ===== What you actually get -- editorial, image-led ===== */
-  .get { padding: clamp(64px,10vw,120px) clamp(20px,5vw,60px); background: var(--bg); }
-  .get-inner { max-width: 1080px; margin: 0 auto; }
-  .get-head { max-width: 640px; margin: 0 0 clamp(40px,6vw,64px); }
-  .get-head .section-label { color: var(--green); }
-  .get-head h2 { margin: 10px 0 0; }
-  .get-item { margin-bottom: clamp(48px,7vw,88px); }
-  .get-item:last-of-type { margin-bottom: clamp(28px,4vw,40px); }
-  .get-item-head { display: flex; align-items: baseline; gap: 16px; margin: 0 0 12px; flex-wrap: wrap; }
-  .get-num { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.1rem,1.6vw,1.35rem); color: var(--orange); }
-  .get-item h3 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.6rem,3.4vw,2.4rem); line-height: 1.1; color: var(--brown); margin: 0; }
-  .get-item > p { color: var(--brown-soft); font-size: clamp(1.05rem,1.5vw,1.2rem); line-height: 1.6; max-width: 52ch; margin: 0 0 24px; }
-  .get-photo { position: relative; z-index: 1; width: 100%; aspect-ratio: 16/9; overflow: hidden; }
-  .get-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-  /* Three steps side by side, image-first so photos align in a row */
-  .get-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(28px, 4vw, 52px); align-items: start; }
-  .get-grid .get-item { margin: 0; display: flex; flex-direction: column; }
-  .get-grid .get-item-head { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin: 26px 0 8px; }
-  .get-grid .get-num { font-size: 1rem; }
-  .get-grid .get-item h3 { font-size: clamp(1.15rem, 1.7vw, 1.45rem); }
-  .get-grid .get-item > p { font-size: 1rem; margin: 0; }
-
-  /* Flat terracotta block behind each photo -- one colour, varied opacity, sharp corners */
-  .get-photo-wrap { position: relative; }
-  .get-photo-shape {
-    position: absolute;
-    right: clamp(-26px, -1.8vw, -16px); bottom: clamp(-26px, -1.8vw, -16px);
-    width: 100%; height: 100%;
-    background: var(--orange);
-    opacity: var(--shape-o, 0.22);
-    z-index: 0;
-  }
-  .get-item:nth-child(2) .get-photo-shape {
-    right: auto; bottom: auto;
-    left: clamp(-26px, -1.8vw, -16px); top: clamp(-26px, -1.8vw, -16px);
-  }
-
-  /* Organic, hand-drawn arrow between steps */
-  .get-arrow {
-    position: absolute;
-    right: clamp(-46px, -3.2vw, -30px);
-    top: 42%;
-    transform: translateY(-50%);
-    width: clamp(58px, 5vw, 84px);
-    z-index: 3;
-    pointer-events: none;
-  }
-  .get-arrow--to-third {
-    right: clamp(-96px, -6vw, -68px);
-  }
-  .get-arrow svg { width: 100%; height: auto; display: block; overflow: visible; }
-
-  @media (max-width: 760px) {
-    .get-grid { grid-template-columns: 1fr; gap: clamp(48px, 12vw, 72px); }
-    .get-arrow,
-    .get-arrow--to-third {
-      right: 50%;
-      top: auto;
-      bottom: clamp(-40px, -9vw, -30px);
-      transform: translateX(50%) rotate(78deg);
-      width: clamp(58px, 10vw, 82px);
-    }
-  }
-
-  .film-sub--note { font-size: 0.98rem; opacity: 0.9; margin-top: 12px; }
-
-  /* ===== Ways into tech + real problem ===== */
-  .ways { padding: clamp(56px,9vw,110px) clamp(20px,5vw,60px); background: var(--cream); }
-  .ways-inner { max-width: 820px; margin: 0 auto; text-align: center; display: grid; gap: clamp(40px,7vw,72px); }
-  .ways-block h2 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.7rem,3.6vw,2.5rem); color: var(--brown); margin: 0 0 16px; line-height: 1.12; }
-  .ways-block p { color: var(--brown-soft); font-size: clamp(1.05rem,1.5vw,1.2rem); line-height: 1.65; margin: 0 auto; max-width: 52ch; }
-  .ways-nouns { font-family: var(--font-display); font-style: italic; color: var(--orange) !important; font-size: clamp(1.3rem,2.6vw,1.9rem); margin: 0 0 16px !important; max-width: none !important; }
-</style>
-
-<!-- Google Analytics (GA4) -- replace G-PPELPT779N with your real Measurement ID
-     from https://analytics.google.com once you've created a property for syqei.com -->
+<!-- Google Analytics (GA4). Signals and ad personalisation are off because the audience includes under 18s. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPELPT779N"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-PPELPT779N');
+  gtag('config', 'G-PPELPT779N', { allow_google_signals: false, allow_ad_personalization_signals: false });
 </script>
 </head>
-<body class="has-cinematic-hero">
-
-<div class="grain"></div>
-
-<!-- Nav starts transparent over the film, turns solid once you scroll past the hero. -->
-<header class="nav nav--over-hero" id="site-nav">
-  <div class="nav-inner">
-    <a href="/" class="wordmark-group" style="text-decoration:none;">
-      <img src="/images/syqei-logo.png" alt="" class="logo-icon" width="42" height="42">
-      <span class="wordmark">syqei</span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="/">Home</a>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="logo" aria-label="Syqei home"><img src="/images/syqei-wordmark.svg" alt="syqei" width="104" height="42"></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/projects.html">Missions</a>
+      <a href="/partner.html">For schools</a>
       <a href="/about.html">About</a>
-      <a href="/projects.html">Projects</a>
-      <a href="/partner.html">Partner</a>
-      <a href="/blog.html">Blog</a>
-      <a href="#join" class="nav-cta">Register interest</a>
+      <a href="/#contact" class="btn btn-lime">Book a pilot</a>
     </nav>
-    <details class="mobile-menu">
-      <summary class="mobile-menu-toggle" role="button" aria-label="Open navigation menu" aria-controls="mobile-navigation">&#9776;</summary>
-      <div class="mobile-menu-panel" id="mobile-navigation">
+    <details class="menu">
+      <summary aria-label="Open menu">Menu</summary>
+      <div class="menu-panel">
         <a href="/">Home</a>
+        <a href="/projects.html">Missions</a>
+        <a href="/partner.html">For schools</a>
         <a href="/about.html">About</a>
-        <a href="/projects.html">Projects</a>
-        <a href="/partner.html">Partner</a>
-        <a href="/blog.html">Blog</a>
-        <a href="#join">Register interest</a>
+        <a href="/#contact">Book a pilot</a>
       </div>
     </details>
   </div>
 </header>
+<main id="main">
 
-<main>
-
-  <!-- ============================================================
-       CINEMATIC HERO -- full-viewport film, light UI anchored low.
-       Nature footage still carries the living world the projects
-       are about. Swap for team or showcase footage once you have it.
-       ============================================================ -->
-  <section class="film-hero" aria-label="Introduction">
-    <div class="film-hero-media">
-      <video
-        class="film-hero-video"
-        autoplay muted loop playsinline
-        aria-hidden="true">
-        <source src="/images/whales.mp4" type="video/mp4">
-      </video>
-      <div class="film-hero-scrim" aria-hidden="true"></div>
-    </div>
-
-    <div class="film-hero-content">
-      <p class="film-eyebrow">Real projects. Real people. Real possibilities.</p>
-      <h1 class="film-title">See where technology could <em>take you.</em></h1>
-      <p class="film-sub">Syqei Studio is a creative technology studio where young people explore how technology can tackle some of the biggest threats to the natural world. Through digital projects, they use creative and emerging technologies to explore, experiment and discover. No coding experience needed.</p>
-      <div class="film-actions">
-        <a href="#join" class="btn btn-primary">Be first to join a project</a>
-        <a href="/partner.html" class="btn btn-on-film">For schools and youth organisations</a>
+<section class="dark hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Technology missions for secondary schools.</h1>
+      <p class="lead">Students use real emerging tools to solve real research problems, then meet the people who do it for a job. Each mission runs in one lesson, in the browser, with no logins.</p>
+      <div class="actions">
+        <a href="#contact" class="btn btn-lime">Book a founding pilot</a>
+        <a href="#mission" class="btn btn-line">See Mission 001</a>
       </div>
-      
+      <p class="hero-note">Built with researchers from The University of Western Australia. For students aged 14 to 18.</p>
     </div>
-
-    <a href="#what" class="film-scroll-cue" aria-label="Scroll to explore">
-      <span class="film-scroll-dot"></span>
-    </a>
-  </section>
-
-  <!-- WHAT YOU GET -- editorial, image-led -->
-  <section class="get" id="what">
-    <div class="get-inner">
-      <div class="get-grid">
-      <div class="get-item" style="--shape-o: 0.30;">
-        <div class="get-photo-wrap">
-          <span class="get-photo-shape" aria-hidden="true"></span>
-          <div class="get-photo"><img src="/images/get-portfolio.jpg" alt="A young person working on a real environmental problem on a laptop" loading="lazy"></div>
-          <span class="get-arrow" aria-hidden="true">
-            <svg viewBox="0 0 80 44" fill="none"><path d="M5 26 C 22 10, 34 34, 52 20 C 60 14, 66 18, 72 20" stroke="var(--orange)" stroke-width="3.4" stroke-linecap="round"/><path d="M63 12 L73 20 L61 27" stroke="var(--orange)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
-        <div class="get-item-head"><span class="get-num">[01]</span><h3>Start with something happening in the real world</h3></div>
-        <p>Every Syqei project begins with a real ecological question, conservation challenge or environmental dataset.</p>
+    <figure class="screen">
+      <div class="screen-frame">
+        <video data-scan muted loop playsinline preload="metadata" poster="/images/mission/scan-poster.jpg" aria-label="A computer vision model scanning camouflaged scenes for a hidden moth, switching between greyscale, edge detection and texture views.">
+          <source src="/images/mission/scan.webm" type="video/webm">
+          <source src="/images/mission/scan.mp4" type="video/mp4">
+        </video>
+        <button type="button" class="scan-toggle" data-scan-toggle>Pause</button>
       </div>
-
-      <div class="get-item" style="--shape-o: 0.16;">
-        <div class="get-photo-wrap">
-          <span class="get-photo-shape" aria-hidden="true"></span>
-          <div class="get-photo"><img src="/images/get-tools.jpg" alt="Code and design tools open across a screen" loading="lazy"></div>
-          <span class="get-arrow get-arrow--to-third" aria-hidden="true">
-            <svg viewBox="0 0 80 44" fill="none"><path d="M5 26 C 22 10, 34 34, 52 20 C 60 14, 66 18, 72 20" stroke="var(--orange)" stroke-width="3.4" stroke-linecap="round"/><path d="M63 12 L73 20 L61 27" stroke="var(--orange)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
-        <div class="get-item-head"><span class="get-num">[02]</span><h3>See what technology can do with it</h3></div>
-        <p>Explore it through AI, data visualisation, digital mapping, interaction design, coding and other creative technologies.</p>
-      </div>
-
-      <div class="get-item" style="--shape-o: 0.24;">
-        <div class="get-photo-wrap">
-          <span class="get-photo-shape" aria-hidden="true"></span>
-          <div class="get-photo"><img src="/images/get-people.jpg" alt="Young people talking and collaborating at a table during a project session" loading="lazy"></div>
-        </div>
-        <div class="get-item-head"><span class="get-num">[03]</span><h3>Decide where you take it</h3></div>
-        <p>Turn what you discover into an applied technology project you can test, refine and make your own.</p>
-      </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- WAYS INTO TECH + real problem -->
-  <section class="ways">
-    <div class="ways-inner">
-      <div class="ways-block">
-        <h2>There is more than one way into tech.</h2>
-        <p>Maybe you are into coding, design, games, AI, data or creative computing. Syqei Studio gives young people with different interests a way into technology through real-world problems beyond the classroom.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOUNDER split -- Taleena, photo one half, story the other -->
-  <section class="founder-split">
-    <div class="founder-split-media">
-      <img src="/images/founder-fieldwork.jpg" alt="Taleena crouching in a hi-vis vest examining the ground with others during fieldwork" loading="lazy">
-    </div>
-    <div class="founder-split-content">
-      <p class="founder-quote">I always knew I loved technology, but I wanted to do more with it than follow tutorials and tick off another course.</p>
-      <p class="founder-intro">Hi! I'm Taleena. I study Computer Science and Cybersecurity, and I've always been the kind of person who gets excited by what technology can make possible.</p>
-      <p class="founder-story">The parts of tech that stay with you aren't usually the tutorials. They're the moments where you get to try ideas, work with other people and see where those skills could lead. For a lot of young people, it can be hard to find opportunities that connect technology to something bigger than another assignment or project on a screen. Growing up in Western Australia, surrounded by incredible wildlife and landscapes, made me wonder why technology and ecology are so often treated as separate worlds. Syqei came from wanting to bring them together by giving young people the chance to explore applied technology through problems affecting the natural world.</p>
-      <p class="founder-closing">There has to be a better way to start.</p>
-      <a href="/about.html" class="btn founder-cta">Read the full story</a>
-      <a href="https://instagram.com/syqei.studio" class="founder-social" target="_blank" rel="noopener">Follow on Instagram <span aria-hidden="true">&rarr;</span></a>
-    </div>
-  </section>
-
-  <!-- JOIN -- primary conversion, form in place so CTAs land directly on it -->
-  <section class="waitlist" id="join">
-    <div class="waitlist-inner">
-      <h2>Projects are where it starts.</h2>
-      <p class="waitlist-sub">Join the list and we'll email you when the next project opens.</p>
-
-      <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="join-form" id="waitlist-form">
-        <input type="hidden" name="form-name" value="newsletter">
-        <p class="hidden-field"><label>Don't fill this out <input name="bot-field"></label></p>
-        <div class="join-row">
-          <label class="visually-hidden" for="join-email">Email address</label>
-          <input type="email" id="join-email" name="email" placeholder="you@example.com" required>
-          <button type="submit" class="btn btn-primary">Send me updates</button>
-        </div>
-        <p class="join-note">Under 15? Ask a parent or carer to sign up with you.</p>
-      </form>
-      <p class="form-success" id="form-success" hidden>You're on the list, thank you.</p>
-
-    </div>
-  </section>
-
-</main>
-
-<!-- CLOSING banner -- outback landscape sign-off before the footer -->
-<section class="closing-band">
-  <img src="/images/wa-outback-armsopen.jpg" alt="Taleena standing among red-dirt scrub with arms open under a wide Western Australian sky" loading="lazy">
-  <div class="closing-band-overlay"></div>
-  <p class="closing-band-text">Build boldly.</p>
+      <figcaption>From Mission 001. A computer vision model hunts for a camouflaged moth. Students race it.</figcaption>
+    </figure>
+  </div>
 </section>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <span class="wordmark-group">
-      <img src="/images/syqei-logo.png" alt="" class="logo-icon logo-icon--small" width="32" height="32">
-      <span class="wordmark wordmark--small">syqei</span>
-    </span>
-    <nav class="footer-links" aria-label="Footer">
-      <a href="/projects.html">Projects</a>
-      <a href="/about.html">About</a>
-      <a href="/partner.html">Partner</a>
-      <a href="/advertise.html">Advertise</a>
-      <a href="/blog.html">Blog</a>
-      <a href="https://instagram.com/syqei.studio" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:hello@syqei.com">Email</a>
-      <a href="/privacy.html">Privacy</a>
-    </nav>
+<section class="white band">
+  <div class="wrap">
+    <div class="head">
+      <h2>How a mission works.</h2>
+      <p class="lead">Every mission follows the same four moves, so teachers know what to expect and students know where they are.</p>
+    </div>
+    <ol class="steps">
+      <li>
+        <h3>Meet the research</h3>
+        <p>Each mission starts with a real question from working scientists. Students hear it from them.</p>
+      </li>
+      <li>
+        <h3>Use the tools</h3>
+        <p>Students run the kinds of tools researchers use. Computer vision, 3D, data and code, all in the browser.</p>
+      </li>
+      <li>
+        <h3>Make something</h3>
+        <p>They design their own solution, test it and save it to a field file they can download.</p>
+      </li>
+      <li>
+        <h3>See the careers</h3>
+        <p>Every mission ends with what students can now do and the jobs that do this for real.</p>
+      </li>
+    </ol>
   </div>
-  <p class="acknowledgement">
-    We acknowledge the Whadjuk Noongar people, the Traditional Owners of the land on which
-    Syqei is built and operated, and the many Traditional Custodians of Country across Western
-    Australia. We pay our respects to Elders past, present, and emerging, and recognise their
-    continuing connection to land, waters, and culture.
-  </p>
-</footer>
+</section>
 
+<section class="plum band" id="mission">
+  <div class="wrap">
+    <div class="mission-top">
+      <div>
+        <h2><span>Mission 001</span>The Illusion Engine</h2>
+        <p class="lead" style="margin-top:24px">Some moths have flat wings that look curved. The trick fools birds, people and computers. Students find out how, then design an illusion of their own.</p>
+      </div>
+      <dl class="mission-meta">
+        <div><dt>Built from research by</dt><dd>Dr Jennifer Kelley and Dr Annie Jessop</dd></div>
+        <div><dt>Technology</dt><dd>Computer vision, depth estimation, 3D and code</dd></div>
+        <div><dt>Careers</dt><dd>Computer vision engineer, behavioural ecologist, biophotonics researcher, technical artist</dd></div>
+      </dl>
+    </div>
+    <div class="gallery">
+      <figure>
+        <img src="/images/mission/race-chart.jpg" alt="A bar chart comparing how long a student took to find each hidden moth with how long the computer took." loading="lazy" width="1400" height="732">
+        <figcaption>Race a detector on the same six scenes. Every click becomes a labelled dataset.</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/mission/wing.jpg" alt="A 3D moth wing that looks curved but is flat." loading="lazy" width="1200" height="871">
+        <figcaption>Spin a 3D wing to see the shape your brain invents.</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/mission/design.jpg" alt="The design tool. A painted wing beside its estimated depth map, with sliders and an illusion score of 100." loading="lazy" width="1600" height="732">
+        <figcaption>Design an illusion that fools a depth estimator.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="light band">
+  <div class="wrap split">
+    <div>
+      <h2>Decide at 8.15. Run it at 9.</h2>
+      <p class="lead" style="margin-top:24px">Every mission comes with a teacher guide you can read in five minutes. You don't need a tech background to run it.</p>
+      <ul class="ticks">
+        <li>A 60 minute run sheet with what to say and ask</li>
+        <li>Learning outcomes and an answer guide</li>
+        <li>No logins and no student accounts</li>
+        <li>Runs on school laptops, with a lite mode for older devices</li>
+        <li>A device check page your IT team can open in seconds</li>
+      </ul>
+    </div>
+    <figure class="screen">
+      <img class="shot" src="/images/mission/teacher-guide.jpg" alt="The Mission 001 teacher guide, showing the lesson summary, learning outcomes and before class checklist." loading="lazy" width="1600" height="1125">
+    </figure>
+  </div>
+</section>
+
+<section class="white band">
+  <div class="wrap">
+    <div class="head">
+      <h2>Missions grow into tracks.</h2>
+      <p class="lead">Each track is three missions on one technology. Students who finish one can go deeper with the next.</p>
+    </div>
+
+    <div class="track-name">
+      <h3>Computer Vision track</h3>
+      <p>How computers see, and how to fool them.</p>
+    </div>
+    <ol class="track">
+      <li class="is-live">
+        <span class="num">Mission 1</span>
+        <h3>The Illusion Engine</h3>
+        <p>Race a detector, spin a 3D wing and design an illusion that fools a depth estimator.</p>
+        <span class="status">Ready to run</span>
+      </li>
+      <li>
+        <span class="num">Mission 2</span>
+        <h3>Teach the detector</h3>
+        <p>Label your own images and train a model to find hidden moths.</p>
+        <span class="status">In development</span>
+      </li>
+      <li>
+        <span class="num">Mission 3</span>
+        <h3>Vision in the field</h3>
+        <p>Point computer vision at a new research problem.</p>
+        <span class="status">In development</span>
+      </li>
+    </ol>
+
+  </div>
+</section>
+
+<section class="dark band">
+  <div class="wrap">
+    <div class="head">
+      <h2>Become a founding school.</h2>
+      <p class="lead">We're working with a small group of schools to shape Syqei for 2027. Founding schools get early access and a direct line to the founder.</p>
+    </div>
+    <div class="offers">
+      <article class="offer">
+        <h3>Founding pilot</h3>
+        <p class="for">For one or two classes this term or next</p>
+        <ul>
+          <li>Mission 001 for your classes</li>
+          <li>The teacher pack and setup support</li>
+          <li>A completion summary and student feedback report</li>
+          <li>The next mission when it's released</li>
+        </ul>
+      </article>
+      <article class="offer">
+        <h3>Founding 2027 licence</h3>
+        <p class="for">For your whole school next year</p>
+        <ul>
+          <li>Every mission released in 2027</li>
+          <li>Teacher resources and class links</li>
+          <li>Basic completion reporting</li>
+          <li>Onboarding with the founder</li>
+        </ul>
+      </article>
+    </div>
+    <div class="offer-foot">
+      <p>Piloted in 2026 with Year 9 to Year 12 students across Perth and regional WA. Running holiday programs, tutoring or clubs? Missions can be licensed for your groups too.</p>
+      <a href="#contact" class="btn btn-lime">Talk to us about a pilot</a>
+    </div>
+  </div>
+</section>
+
+<section class="light band">
+  <div class="wrap founder">
+    <img src="/images/about-hero-mentoring.jpg" alt="Taleena mentoring a high school student." loading="lazy">
+    <div>
+      <blockquote>The tech that stuck with me came from real problems. Not tutorials.</blockquote>
+      <p>Hi, I'm Taleena. I study Computer Science and Cybersecurity at UWA and mentor high school students across WA. I started Syqei to turn research happening right now into missions any school can run.</p>
+      <div class="actions"><a href="/about.html" class="btn btn-line-dark">Read the story</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark band" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Book a pilot or ask a question.</h2>
+      <p class="lead" style="margin-top:24px">Tell us a little about your school or program. Taleena will reply by email.</p>
+      <p class="direct">Prefer email? Write to <a href="mailto:hello@syqei.com">hello@syqei.com</a>.</p>
+    </div>
+    <div>
+      <form name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form" data-success="enquiry-success">
+        <input type="hidden" name="form-name" value="enquiry">
+        <p class="hidden-field"><label>Leave this empty <input name="bot-field"></label></p>
+        <div class="row">
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="f-role">I'm a</label>
+            <select id="f-role" name="role" required>
+              <option value="" selected disabled>Choose one</option>
+              <option>Teacher</option>
+              <option>School leader</option>
+              <option>Program or enrichment provider</option>
+              <option>Researcher</option>
+              <option>Parent or carer</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-org">School or organisation</label>
+            <input id="f-org" name="organisation" autocomplete="organization">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-msg">What would you like to know?</label>
+          <textarea id="f-msg" name="message" placeholder="Year levels, class sizes, when you'd like to run it, or anything else."></textarea>
+        </div>
+        <label class="check"><input type="checkbox" name="updates" value="yes"> Email me when new missions are released.</label>
+        <button type="submit" class="btn btn-lime">Send enquiry</button>
+        <p class="form-error" hidden>That didn't send. Check your connection and try again, or email hello@syqei.com.</p>
+        <p class="form-note">We only use these details to reply to you. See our <a href="/privacy.html">privacy policy</a>.</p>
+      </form>
+      <p class="form-success" id="enquiry-success" tabindex="-1" hidden>Thanks. Your enquiry is sent and we'll reply by email.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="/" class="logo" aria-label="Syqei home"><img src="/images/syqei-wordmark.svg" alt="syqei" width="120" height="48"></a>
+        <p>Technology missions for secondary schools, built from real research.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/projects.html">Missions</a>
+        <a href="/partner.html">For schools</a>
+        <a href="/about.html">About</a>
+        <a href="/blog.html">Stories</a>
+        <a href="/think.html">Think like a technologist</a>
+        <a href="/#contact">Contact</a>
+        <a href="mailto:hello@syqei.com">hello@syqei.com</a>
+        <a href="https://instagram.com/syqei.studio" target="_blank" rel="noopener">Instagram</a>
+        <a href="/privacy.html">Privacy</a>
+      </nav>
+    </div>
+    <p class="acknowledgement">We acknowledge the Whadjuk Noongar people, the Traditional Owners of the land on which Syqei is built and operated, and the many Traditional Custodians of Country across Western Australia. We pay our respects to Elders past, present and emerging, and recognise their continuing connection to land, waters and culture.</p>
+    <p class="copyright">&copy; 2026 Syqei</p>
+  </div>
+</footer>
 <script src="/script.js"></script>
 </body>
 </html>

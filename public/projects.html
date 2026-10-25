@@ -1,152 +1,217 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projects | Syqei</title>
-<link rel="icon" type="image/png" href="/images/favicon.png">
-<meta name="description" content="Syqei Studio turns ecological questions and environmental data into applied technology projects for young people aged 14 to 18.">
+<title>Missions | Syqei</title>
+<meta name="description" content="Syqei missions take students inside real research problems with the tools used to solve them. Start with Mission 001, The Illusion Engine.">
+<meta name="theme-color" content="#14032a">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://syqei.com/projects.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://syqei.com/projects.html">
-<meta property="og:title" content="Projects at Syqei">
-<meta property="og:description" content="Inside Syqei Studio, young people explore applied technology through real ecological questions and environmental data.">
-<meta property="og:image" content="https://syqei.com/images/happening.png">
+<meta property="og:title" content="Missions | Syqei">
+<meta property="og:description" content="Syqei missions take students inside real research problems with the tools used to solve them. Start with Mission 001, The Illusion Engine.">
+<meta property="og:image" content="https://syqei.com/images/mission/scan-poster.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Projects at Syqei">
-<meta name="twitter:description" content="One real problem, many ways to build. Applied technology projects shaped from ecology, environmental data and creative computing.">
-<meta name="twitter:image" content="https://syqei.com/images/happening.png">
+<meta name="twitter:title" content="Missions | Syqei">
+<meta name="twitter:description" content="Syqei missions take students inside real research problems with the tools used to solve them. Start with Mission 001, The Illusion Engine.">
+<meta name="twitter:image" content="https://syqei.com/images/mission/scan-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 
-<!-- Google Analytics (GA4) -- replace G-PPELPT779N with your real Measurement ID
-     from https://analytics.google.com once you've created a property for syqei.com -->
+<!-- Google Analytics (GA4). Signals and ad personalisation are off because the audience includes under 18s. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPELPT779N"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-PPELPT779N');
+  gtag('config', 'G-PPELPT779N', { allow_google_signals: false, allow_ad_personalization_signals: false });
 </script>
-<style>
-  /* ---- Shared coming-soon landing style ---- */
-  .coming {
-    min-height: 58vh;
-    max-width: 760px;
-    margin: 0 auto;
-    padding: clamp(88px, 11vw, 132px) clamp(20px, 5vw, 60px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  .coming .section-label {
-    color: var(--green);
-    margin-bottom: 18px;
-  }
-  .coming h1 {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: clamp(2.7rem, 6vw, 4.35rem);
-    line-height: 1.02;
-    letter-spacing: -0.02em;
-    color: var(--brown);
-    margin: 0 0 24px;
-  }
-  .coming-sub {
-    color: var(--brown-soft);
-    font-size: clamp(1.05rem, 1.55vw, 1.2rem);
-    line-height: 1.65;
-    max-width: 48ch;
-    margin: 0 auto 30px;
-  }
-  .coming .btn {
-    margin-top: 2px;
-  }
-
-  @media (max-width: 640px) {
-    .coming {
-      min-height: 54vh;
-      padding-top: 72px;
-      padding-bottom: 72px;
-    }
-  }
-</style>
 </head>
 <body>
-
-<header class="nav">
-  <div class="nav-inner">
-    <a href="/" style="text-decoration:none;">
-      <span class="wordmark-group">
-        <img src="/images/syqei-logo.png" alt="" class="logo-icon" width="42" height="42">
-        <span class="wordmark">syqei</span>
-      </span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="/">Home</a>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="logo" aria-label="Syqei home"><img src="/images/syqei-wordmark.svg" alt="syqei" width="104" height="42"></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/projects.html" aria-current="page">Missions</a>
+      <a href="/partner.html">For schools</a>
       <a href="/about.html">About</a>
-      <a href="/projects.html" aria-current="page">Projects</a>
-      <a href="/partner.html">Partner</a>
-      <a href="/blog.html">Blog</a>
-      <a href="/#join" class="nav-cta">Register interest</a>
+      <a href="/#contact" class="btn btn-lime">Book a pilot</a>
     </nav>
-    <details class="mobile-menu">
-      <summary class="mobile-menu-toggle" role="button" aria-label="Open navigation menu" aria-controls="mobile-navigation">&#9776;</summary>
-      <div class="mobile-menu-panel" id="mobile-navigation">
+    <details class="menu">
+      <summary aria-label="Open menu">Menu</summary>
+      <div class="menu-panel">
         <a href="/">Home</a>
+        <a href="/projects.html">Missions</a>
+        <a href="/partner.html">For schools</a>
         <a href="/about.html">About</a>
-        <a href="/projects.html">Projects</a>
-        <a href="/partner.html">Partner</a>
-        <a href="/blog.html">Blog</a>
-        <a href="/#join">Register interest</a>
+        <a href="/#contact">Book a pilot</a>
       </div>
     </details>
   </div>
 </header>
+<main id="main">
 
-<main>
+<section class="dark page-head">
+  <div class="wrap">
+    <h1>Missions.</h1>
+    <p class="lead">Each mission takes students inside a real research problem with the tools used to solve it. Missions are grouped into tracks, so students can go deeper on one technology.</p>
+  </div>
+</section>
 
-  <!-- FIRST PROJECT -- coming soon.
-       When real dates, location and place count exist, add them to the status line,
-       e.g. "Opens September - Perth - 20 places", which reads far more real than "opening soon". -->
-  <section class="coming">
-    <p class="section-label">Projects</p>
-    <h1>Coming soon.</h1>
-    <p class="coming-sub">Our first applied technology project is forming in Western Australia. Places will be limited.</p>
-    <a href="/#join" class="btn btn-primary">Register your interest</a>
-  </section>
+<section class="plum band">
+  <div class="wrap split">
+    <div>
+      <h2><span style="display:block;color:var(--lime);font-size:.42em;letter-spacing:0;margin-bottom:14px">Mission 001</span>The Illusion Engine</h2>
+      <p class="lead" style="margin-top:24px">Some moths have flat wings that look curved. Students race a computer vision model to find camouflaged moths, spin a 3D wing, then design an illusion that fools a depth estimator.</p>
+      <dl class="mission-meta" style="margin-top:28px">
+        <div><dt>Built from research by</dt><dd>Dr Jennifer Kelley and Dr Annie Jessop</dd></div>
+        <div><dt>Length</dt><dd>One 50 to 60 minute lesson, with optional coding levels</dd></div>
+        <div><dt>Students make</dt><dd>A labelled dataset, an illusion design and a field file</dd></div>
+      </dl>
+    </div>
+    <figure class="screen">
+      <div class="screen-frame">
+        <video data-scan muted loop playsinline preload="metadata" poster="/images/mission/scan-poster.jpg" aria-label="A computer vision model scanning camouflaged scenes for a hidden moth.">
+          <source src="/images/mission/scan.webm" type="video/webm">
+          <source src="/images/mission/scan.mp4" type="video/mp4">
+        </video>
+        <button type="button" class="scan-toggle" data-scan-toggle>Pause</button>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="white band">
+  <div class="wrap">
+    <div class="head">
+      <h2>Inside the mission.</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Discover</h3><p>Hunt for hidden moths, race a detector and meet the scientists behind the research.</p></li>
+      <li><h3>Experiment</h3><p>Spin the wing in 3D and spot the light and shadow tricks that fake depth.</p></li>
+      <li><h3>Create</h3><p>Design an illusion with sliders, or write the code for it in optional coding levels.</p></li>
+      <li><h3>Keep</h3><p>Download a field file with what they made, what they can now do and the careers behind it.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="light band">
+  <div class="wrap">
+    <div class="head">
+      <h2>Tracks.</h2>
+      <p class="lead">Each track is three missions on one technology. More tracks are in development for 2027.</p>
+    </div>
+
+    <div class="track-name">
+      <h3>Computer Vision track</h3>
+      <p>How computers see, and how to fool them.</p>
+    </div>
+    <ol class="track">
+      <li class="is-live">
+        <span class="num">Mission 1</span>
+        <h3>The Illusion Engine</h3>
+        <p>Race a detector, spin a 3D wing and design an illusion that fools a depth estimator.</p>
+        <span class="status">Ready to run</span>
+      </li>
+      <li>
+        <span class="num">Mission 2</span>
+        <h3>Teach the detector</h3>
+        <p>Label your own images and train a model to find hidden moths.</p>
+        <span class="status">In development</span>
+      </li>
+      <li>
+        <span class="num">Mission 3</span>
+        <h3>Vision in the field</h3>
+        <p>Point computer vision at a new research problem.</p>
+        <span class="status">In development</span>
+      </li>
+    </ol>
+
+  </div>
+</section>
+
+<section class="dark band" id="contact-missions">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Book a pilot or ask a question.</h2>
+      <p class="lead" style="margin-top:24px">Tell us a little about your school or program. Taleena will reply by email.</p>
+      <p class="direct">Prefer email? Write to <a href="mailto:hello@syqei.com">hello@syqei.com</a>.</p>
+    </div>
+    <div>
+      <form name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form" data-success="enquiry-success">
+        <input type="hidden" name="form-name" value="enquiry">
+        <p class="hidden-field"><label>Leave this empty <input name="bot-field"></label></p>
+        <div class="row">
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="f-role">I'm a</label>
+            <select id="f-role" name="role" required>
+              <option value="" selected disabled>Choose one</option>
+              <option>Teacher</option>
+              <option>School leader</option>
+              <option>Program or enrichment provider</option>
+              <option>Researcher</option>
+              <option>Parent or carer</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-org">School or organisation</label>
+            <input id="f-org" name="organisation" autocomplete="organization">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-msg">What would you like to know?</label>
+          <textarea id="f-msg" name="message" placeholder="Year levels, class sizes, when you'd like to run it, or anything else."></textarea>
+        </div>
+        <label class="check"><input type="checkbox" name="updates" value="yes"> Email me when new missions are released.</label>
+        <button type="submit" class="btn btn-lime">Send enquiry</button>
+        <p class="form-error" hidden>That didn't send. Check your connection and try again, or email hello@syqei.com.</p>
+        <p class="form-note">We only use these details to reply to you. See our <a href="/privacy.html">privacy policy</a>.</p>
+      </form>
+      <p class="form-success" id="enquiry-success" tabindex="-1" hidden>Thanks. Your enquiry is sent and we'll reply by email.</p>
+    </div>
+  </div>
+</section>
 
 </main>
-
-<footer class="footer">
-  <div class="footer-inner">
-    <span class="wordmark-group">
-      <img src="/images/syqei-logo.png" alt="" class="logo-icon logo-icon--small" width="32" height="32">
-      <span class="wordmark wordmark--small">syqei</span>
-    </span>
-    <nav class="footer-links" aria-label="Footer">
-      <a href="/">Home</a>
-      <a href="/projects.html">Projects</a>
-      <a href="/about.html">About</a>
-      <a href="/partner.html">Partner</a>
-      <a href="/advertise.html">Advertise</a>
-      <a href="/blog.html">Blog</a>
-      <a href="https://instagram.com/syqei.studio" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:hello@syqei.com">Email</a>
-      <a href="/privacy.html">Privacy</a>
-    </nav>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="/" class="logo" aria-label="Syqei home"><img src="/images/syqei-wordmark.svg" alt="syqei" width="120" height="48"></a>
+        <p>Technology missions for secondary schools, built from real research.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/projects.html">Missions</a>
+        <a href="/partner.html">For schools</a>
+        <a href="/about.html">About</a>
+        <a href="/blog.html">Stories</a>
+        <a href="/think.html">Think like a technologist</a>
+        <a href="/#contact">Contact</a>
+        <a href="mailto:hello@syqei.com">hello@syqei.com</a>
+        <a href="https://instagram.com/syqei.studio" target="_blank" rel="noopener">Instagram</a>
+        <a href="/privacy.html">Privacy</a>
+      </nav>
+    </div>
+    <p class="acknowledgement">We acknowledge the Whadjuk Noongar people, the Traditional Owners of the land on which Syqei is built and operated, and the many Traditional Custodians of Country across Western Australia. We pay our respects to Elders past, present and emerging, and recognise their continuing connection to land, waters and culture.</p>
+    <p class="copyright">&copy; 2026 Syqei</p>
   </div>
-  <p class="acknowledgement">
-    We acknowledge the Whadjuk Noongar people, the Traditional Owners of the land on which
-    Syqei is built and operated, and the many Traditional Custodians of Country across Western
-    Australia. We pay our respects to Elders past, present, and emerging, and recognise their
-    continuing connection to land, waters, and culture.
-  </p>
 </footer>
-
 <script src="/script.js"></script>
 </body>
 </html>

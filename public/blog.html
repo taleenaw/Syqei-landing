@@ -1,221 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stories from Syqei | Syqei</title>
-<link rel="icon" type="image/png" href="/images/favicon.png">
-<meta name="description" content="Stories from Syqei. Creative technology, ecology and the people building between them. Coming soon.">
+<title>Stories | Syqei</title>
+<meta name="description" content="Stories from Syqei. Meet the researchers behind each mission and the people who do these jobs for real.">
+<meta name="theme-color" content="#14032a">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://syqei.com/blog.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://syqei.com/blog.html">
-<meta property="og:title" content="Stories from Syqei">
-<meta property="og:description" content="Creative technology and ecology. Meet the people behind the work and discover different ways into tech. Coming soon.">
-<meta property="og:image" content="https://syqei.com/images/happening.png">
+<meta property="og:title" content="Stories | Syqei">
+<meta property="og:description" content="Stories from Syqei. Meet the researchers behind each mission and the people who do these jobs for real.">
+<meta property="og:image" content="https://syqei.com/images/mission/scan-poster.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Stories from Syqei">
-<meta name="twitter:description" content="Creative technology and ecology. Meet the people behind the work and discover different ways into tech. Coming soon.">
-<meta name="twitter:image" content="https://syqei.com/images/happening.png">
+<meta name="twitter:title" content="Stories | Syqei">
+<meta name="twitter:description" content="Stories from Syqei. Meet the researchers behind each mission and the people who do these jobs for real.">
+<meta name="twitter:image" content="https://syqei.com/images/mission/scan-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 
-<!-- Google Analytics (GA4) -->
+<!-- Google Analytics (GA4). Signals and ad personalisation are off because the audience includes under 18s. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPELPT779N"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-PPELPT779N');
+  gtag('config', 'G-PPELPT779N', { allow_google_signals: false, allow_ad_personalization_signals: false });
 </script>
-<style>
-  /* ---- Shared coming-soon landing style ---- */
-  .blog-hero {
-    min-height: 58vh;
-    max-width: 760px;
-    margin: 0 auto;
-    padding: clamp(88px, 11vw, 132px) clamp(20px, 5vw, 60px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  .blog-hero .section-label {
-    color: var(--green);
-    margin-bottom: 18px;
-  }
-  .blog-hero h1 {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: clamp(2.7rem, 6vw, 4.35rem);
-    line-height: 1.02;
-    letter-spacing: -0.02em;
-    color: var(--brown);
-    margin: 0 0 24px;
-  }
-  .blog-hero-sub {
-    color: var(--brown-soft);
-    font-size: clamp(1.05rem, 1.55vw, 1.2rem);
-    line-height: 1.65;
-    max-width: 48ch;
-    margin: 0 auto;
-  }
-
-  /* ---- Newsletter ---- */
-  .blog-newsletter {
-    background: var(--green);
-    color: var(--cream-text);
-    padding: clamp(54px, 7vw, 78px) clamp(20px, 5vw, 60px);
-    text-align: center;
-  }
-  .blog-newsletter-inner {
-    max-width: 620px;
-    margin: 0 auto;
-  }
-  .blog-newsletter h2 {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: clamp(1.55rem, 2.6vw, 2rem);
-    line-height: 1.24;
-    color: var(--cream-text);
-    margin: 0 0 24px;
-  }
-  .blog-newsletter-row {
-    display: flex;
-    gap: 10px;
-    max-width: 500px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-  }
-  .blog-newsletter-row input[type="email"] {
-    flex: 1;
-    min-width: 220px;
-    padding: 14px 18px;
-    border-radius: 10px;
-    border: 1.5px solid rgba(251, 248, 243, 0.3);
-    background: var(--bg);
-    color: var(--brown);
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-  }
-  .blog-newsletter-row input:focus-visible {
-    outline: 3px solid var(--orange-soft);
-    outline-offset: 2px;
-  }
-  .blog-newsletter-row .btn { flex-shrink: 0; }
-  .blog-newsletter-note {
-    font-size: 0.82rem;
-    color: var(--cream-text);
-    opacity: 0.82;
-    margin: 14px auto 0;
-    max-width: 500px;
-  }
-  .blog-newsletter .form-success {
-    color: var(--cream-text);
-    font-weight: 600;
-    margin-top: 18px;
-  }
-
-  @media (max-width: 640px) {
-    .blog-hero {
-      min-height: 54vh;
-      padding-top: 72px;
-      padding-bottom: 72px;
-    }
-  }
-  @media (max-width: 560px) {
-    .blog-newsletter-row .btn { width: 100%; }
-  }
-</style>
 </head>
 <body>
-
-<header class="nav">
-  <div class="nav-inner">
-    <a href="/" style="text-decoration:none;">
-      <span class="wordmark-group">
-        <img src="/images/syqei-logo.png" alt="" class="logo-icon" width="42" height="42">
-        <span class="wordmark">syqei</span>
-      </span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="/">Home</a>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="logo" aria-label="Syqei home"><img src="/images/syqei-wordmark.svg" alt="syqei" width="104" height="42"></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/projects.html">Missions</a>
+      <a href="/partner.html">For schools</a>
       <a href="/about.html">About</a>
-      <a href="/projects.html">Projects</a>
-      <a href="/partner.html">Partner</a>
-      <a href="/blog.html" aria-current="page">Blog</a>
-      <a href="/#join" class="nav-cta">Register interest</a>
+      <a href="/#contact" class="btn btn-lime">Book a pilot</a>
     </nav>
-    <details class="mobile-menu">
-      <summary class="mobile-menu-toggle" role="button" aria-label="Open navigation menu" aria-controls="mobile-navigation">&#9776;</summary>
-      <div class="mobile-menu-panel" id="mobile-navigation">
+    <details class="menu">
+      <summary aria-label="Open menu">Menu</summary>
+      <div class="menu-panel">
         <a href="/">Home</a>
+        <a href="/projects.html">Missions</a>
+        <a href="/partner.html">For schools</a>
         <a href="/about.html">About</a>
-        <a href="/projects.html">Projects</a>
-        <a href="/partner.html">Partner</a>
-        <a href="/blog.html">Blog</a>
-        <a href="/#join">Register interest</a>
+        <a href="/#contact">Book a pilot</a>
       </div>
     </details>
   </div>
 </header>
+<main id="main">
 
-<main>
-
-  <!-- EDITORIAL HERO -->
-  <section class="blog-hero">
-    <p class="section-label">Blog</p>
-    <h1>Coming soon.</h1>
-    <p class="blog-hero-sub">Stories from Syqei will explore conservation technology in the living world. Meet researchers and technologists. Discover different ways into tech.</p>
-  </section>
-
-  <!-- NEWSLETTER -->
-  <section class="blog-newsletter">
-    <div class="blog-newsletter-inner">
-      <h2>Join the monthly newsletter to hear when the first story drops.</h2>
-      <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="blog-newsletter-form" id="waitlist-form">
-        <input type="hidden" name="form-name" value="newsletter">
-        <p class="hidden-field"><label>Don't fill this out <input name="bot-field"></label></p>
-        <div class="blog-newsletter-row">
-          <label class="visually-hidden" for="blog-email">Email address</label>
-          <input type="email" id="blog-email" name="email" placeholder="you@example.com" required>
-          <button type="submit" class="btn btn-primary">Join the newsletter</button>
-        </div>
-        <p class="blog-newsletter-note">Under 15? Ask a parent or carer to sign up with you.</p>
-      </form>
-      <p class="form-success" id="form-success" hidden>You're on the list, thank you.</p>
-    </div>
-  </section>
+<section class="dark page-head">
+  <div class="wrap">
+    <h1>Stories from Syqei.</h1>
+    <p class="lead">Coming soon. Meet the researchers behind each mission and the people who do these jobs for real.</p>
+  </div>
+</section>
+<section class="white band">
+  <div class="wrap">
+    <h2>Hear when the first story drops.</h2>
+    <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="inline-form" data-success="news-success">
+      <input type="hidden" name="form-name" value="newsletter">
+      <p class="hidden-field"><label>Leave this empty <input name="bot-field"></label></p>
+      <label class="visually-hidden" for="n-email">Email address</label>
+      <input type="email" id="n-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+      <button type="submit" class="btn btn-ink">Join the list</button>
+      <p class="form-error" hidden>That didn't send. Try again, or email hello@syqei.com.</p>
+    </form>
+    <p class="form-note" style="margin-top:14px">Under 15? Ask a parent or carer to sign up with you.</p>
+    <p id="news-success" tabindex="-1" hidden style="margin-top:20px;font-weight:600;color:var(--plum)">You're on the list. Thank you.</p>
+  </div>
+</section>
 
 </main>
-
-<footer class="footer">
-  <div class="footer-inner">
-    <span class="wordmark-group">
-      <img src="/images/syqei-logo.png" alt="" class="logo-icon logo-icon--small" width="32" height="32">
-      <span class="wordmark wordmark--small">syqei</span>
-    </span>
-    <nav class="footer-links" aria-label="Footer">
-      <a href="/">Home</a>
-      <a href="/projects.html">Projects</a>
-      <a href="/about.html">About</a>
-      <a href="/partner.html">Partner</a>
-      <a href="/advertise.html">Advertise</a>
-      <a href="/blog.html">Blog</a>
-      <a href="https://instagram.com/syqei.studio" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:hello@syqei.com">Email</a>
-      <a href="/privacy.html">Privacy</a>
-    </nav>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="/" class="logo" aria-label="Syqei home"><img src="/images/syqei-wordmark.svg" alt="syqei" width="120" height="48"></a>
+        <p>Technology missions for secondary schools, built from real research.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/projects.html">Missions</a>
+        <a href="/partner.html">For schools</a>
+        <a href="/about.html">About</a>
+        <a href="/blog.html">Stories</a>
+        <a href="/think.html">Think like a technologist</a>
+        <a href="/#contact">Contact</a>
+        <a href="mailto:hello@syqei.com">hello@syqei.com</a>
+        <a href="https://instagram.com/syqei.studio" target="_blank" rel="noopener">Instagram</a>
+        <a href="/privacy.html">Privacy</a>
+      </nav>
+    </div>
+    <p class="acknowledgement">We acknowledge the Whadjuk Noongar people, the Traditional Owners of the land on which Syqei is built and operated, and the many Traditional Custodians of Country across Western Australia. We pay our respects to Elders past, present and emerging, and recognise their continuing connection to land, waters and culture.</p>
+    <p class="copyright">&copy; 2026 Syqei</p>
   </div>
-  <p class="acknowledgement">
-    We acknowledge the Whadjuk Noongar people, the Traditional Owners of the land on which
-    Syqei is built and operated, and the many Traditional Custodians of Country across Western
-    Australia. We pay our respects to Elders past, present, and emerging, and recognise their
-    continuing connection to land, waters, and culture.
-  </p>
 </footer>
-
 <script src="/script.js"></script>
 </body>
 </html>
