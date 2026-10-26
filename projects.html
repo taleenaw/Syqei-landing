@@ -20,7 +20,7 @@
 <meta name="twitter:image" content="https://syqei.com/images/mission/scan-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Sora:wght@400;500;600&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <script type="module" src="/src/preview.ts"></script>
 
@@ -63,6 +63,7 @@
 <section class="dark page-head has-wing">
   <div class="wrap split">
     <div>
+      <p class="stamp">SQ-001</p>
       <h1 class="cv" data-label="illusion 98%"><span class="h1-sub">Mission 001</span>The Illusion Engine</h1>
       <p class="lead">Some moths have flat wings that look curved. Students race a computer vision model to find camouflaged moths, spin a 3D wing, then design an illusion that fools a depth estimator.</p>
       <ul class="chips" aria-label="Mission details">
@@ -117,7 +118,8 @@
   </div>
 </section>
 
-<section class="plum band">
+<section class="plum band has-moth">
+  <button type="button" class="moth-egg moth-egg--plum" style="right:6%;top:12%;--rot:30deg" aria-label="A hidden moth. Select to find it."><span class="moth-egg-tag" aria-hidden="true">found you 100%</span></button>
   <div class="wrap">
     <div class="head">
       <h2>What students make.</h2>
@@ -126,21 +128,21 @@
     <div class="gallery gallery--make">
       <figure>
         <img src="/images/mission/race-chart.jpg" alt="A chart of a student's search times against the computer's on six scenes." loading="lazy" width="1400" height="732">
-        <figcaption>A labelled dataset of six scenes, raced against a computer.</figcaption>
+        <figcaption class="spec"><span class="spec-no">Fig. 1</span><span class="spec-text">A labelled dataset of six scenes, raced against a computer.</span><span class="spec-cat">SQ-001.1</span></figcaption>
       </figure>
       <figure>
         <img src="/images/mission/field-file.jpg" alt="An example field file with an illusion design, its depth map and what the student changed." loading="lazy" width="1000" height="1535">
-        <figcaption>A field file to download and keep.</figcaption>
+        <figcaption class="spec"><span class="spec-no">Fig. 2</span><span class="spec-text">A field file to download and keep.</span><span class="spec-cat">SQ-001.F</span></figcaption>
       </figure>
       <figure>
         <img src="/images/mission/design.jpg" alt="An illusion design scoring 100 against the depth estimator." loading="lazy" width="1600" height="732">
-        <figcaption>An illusion that fools a depth estimator.</figcaption>
+        <figcaption class="spec"><span class="spec-no">Fig. 3</span><span class="spec-text">An illusion that fools a depth estimator. Score 100.</span><span class="spec-cat">SQ-001.3</span></figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<section class="light band">
+<section class="light band paper">
   <div class="wrap">
     <div class="head">
       <h2>Run Mission 001 with one or two classes.</h2>
@@ -153,8 +155,8 @@
     <div class="coming">
       <h3>Coming next in the Computer Vision track</h3>
       <ul>
-        <li><strong>Mission 002. Teach the detector.</strong> Label your own images and train a model to find hidden moths. In development.</li>
-        <li><strong>Mission 003. Vision in the field.</strong> Point computer vision at a new research problem. In development.</li>
+        <li><span class="stamp stamp--ink stamp--sm">SQ-002</span> <strong>Teach the detector.</strong> Label your own images and train a model to find hidden moths. In development.</li>
+        <li><span class="stamp stamp--ink stamp--sm">SQ-003</span> <strong>Vision in the field.</strong> Point computer vision at a new research problem. In development.</li>
       </ul>
     </div>
   </div>
