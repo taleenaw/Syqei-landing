@@ -1,31 +1,15 @@
-// Syqei site script. Plain JS, no build step.
+// Syqei site script. Plain JS, loaded on every page.
 
-// ===== Hero scan video =====
-// Respect reduced motion. The poster frame shows instead, with a button to play.
-(function () {
-  var video = document.querySelector("[data-scan]");
-  var toggle = document.querySelector("[data-scan-toggle]");
-  if (!video || !toggle) return;
-  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+// True when the OS asks for less motion, or the visitor switched motion off on the site.
+function motionOff() {
+  return (
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+    document.documentElement.dataset.motion === "off"
+  );
+}
 
-  function label() {
-    toggle.textContent = video.paused ? "Play" : "Pause";
-    toggle.setAttribute("aria-label", video.paused ? "Play the scan video" : "Pause the scan video");
-  }
-  if (reduced) video.pause();
-  else video.play().catch(function () {});
-  toggle.addEventListener("click", function () {
-    if (video.paused) video.play().catch(function () {});
-    else video.pause();
-  });
-  video.addEventListener("play", label);
-  video.addEventListener("pause", label);
-  label();
-})();
-
-// ===== Conversion tracking =====
-// GA4 events. cta_click for main buttons, form_start when someone begins a form,
-// and generate_lead or sign_up when it sends. Each one records the page it came from.
+// ===== Analytics =====
+// GA4 events. Never send names, emails or anything typed into a form.
 function track(name, params) {
   if (typeof window.gtag !== "function") return;
   params = params || {};
@@ -33,12 +17,87 @@ function track(name, params) {
   window.gtag("event", name, params);
 }
 
+// Main buttons. data-cta says which button and where it sits.
 document.querySelectorAll("[data-cta]").forEach(function (el) {
   el.addEventListener("click", function () {
     track("cta_click", { cta: el.dataset.cta });
   });
 });
+document.querySelectorAll('a[href^="mailto:"]').forEach(function (el) {
+  el.addEventListener("click", function () {
+    track("email_click");
+  });
+});
+document.querySelectorAll("[data-device-check]").forEach(function (el) {
+  el.addEventListener("click", function () {
+    track("device_check_click");
+  });
+});
+document.querySelectorAll("[data-teacher-guide]").forEach(function (el) {
+  el.addEventListener("click", function () {
+    track("teacher_guide_view");
+  });
+});
+document.querySelectorAll("[data-results-link]").forEach(function (el) {
+  el.addEventListener("click", function () {
+    track("pilot_results_view", { via: "link" });
+  });
+});
+document.querySelectorAll("details[data-faq]").forEach(function (el) {
+  el.addEventListener("toggle", function () {
+    if (el.open) track("faq_open", { topic: el.dataset.faq });
+  });
+});
 
+// Sections worth knowing someone reached. Fires once per page view.
+if ("IntersectionObserver" in window) {
+  var seen = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var name = entry.target.dataset.view;
+        track(name === "pricing" ? "pricing_view" : "pilot_results_view", { via: "scroll" });
+        seen.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.4 },
+  );
+  document.querySelectorAll("[data-view]").forEach(function (el) {
+    seen.observe(el);
+  });
+}
+
+// ===== Try 30 seconds button =====
+// Scrolls to the preview and puts focus on its Start button.
+document.querySelectorAll("[data-try]").forEach(function (el) {
+  el.addEventListener("click", function (e) {
+    var start = document.querySelector("[data-preview] [data-start]");
+    if (!start) return;
+    e.preventDefault();
+    var reduced = motionOff();
+    document.getElementById("try").scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
+    if (!start.closest("[hidden]")) start.focus({ preventScroll: true });
+  });
+});
+
+// ===== Could you run this tomorrow =====
+document.querySelectorAll("[data-ready]").forEach(function (form) {
+  var boxes = form.querySelectorAll("input[type=checkbox]");
+  var out = form.querySelector("[data-ready-result]");
+  form.addEventListener("change", function () {
+    var n = 0;
+    boxes.forEach(function (b) {
+      if (b.checked) n++;
+    });
+    out.textContent =
+      n === boxes.length
+        ? "You're ready to run a mission tomorrow."
+        : n + " of " + boxes.length + " ticked.";
+  });
+});
+
+// ===== Netlify forms =====
+// Posts in the background so people see a success message without leaving the page.
 document.querySelectorAll("form[data-netlify]").forEach(function (form) {
   var page = form.querySelector("[name=source_page]");
   if (page) page.value = window.location.pathname;
@@ -48,12 +107,7 @@ document.querySelectorAll("form[data-netlify]").forEach(function (form) {
     started = true;
     track("form_start", { form_name: form.getAttribute("name") });
   });
-});
 
-// ===== Netlify forms =====
-// Posts in the background so people see a success message without leaving the page.
-// Falls back to a normal submit if the request fails.
-document.querySelectorAll("form[data-netlify]").forEach(function (form) {
   var success = document.getElementById(form.dataset.success);
   var error = form.querySelector(".form-error");
   form.addEventListener("submit", function (e) {
@@ -74,8 +128,9 @@ document.querySelectorAll("form[data-netlify]").forEach(function (form) {
           success.focus();
         }
         var role = form.querySelector("[name=role]");
-        track(form.getAttribute("name") === "enquiry" ? "generate_lead" : "sign_up", {
-          form_name: form.getAttribute("name"),
+        track("generate_lead", {
+          lead_type: { enquiry: "pilot_enquiry", "propose-mission": "mission_proposal" }[form.getAttribute("name")] || "newsletter",
+          source_page: window.location.pathname,
           role: role ? role.value : undefined,
         });
       })
@@ -85,3 +140,224 @@ document.querySelectorAll("form[data-netlify]").forEach(function (form) {
       });
   });
 });
+
+// ===== Computer vision marks =====
+// Detection boxes lock on and their confidence counts up when they scroll into view.
+// Scan lines sweep once. Without JS, or with reduced motion, everything just shows.
+(function () {
+  var marks = document.querySelectorAll(".cv, .scan-edge");
+  if (!marks.length || !("IntersectionObserver" in window)) return;
+  var reduced = motionOff();
+  document.documentElement.classList.add("cv-on");
+
+  function countUp(el) {
+    var label = el.getAttribute("data-label") || "";
+    var m = label.match(/^(.*?)(\d+)%$/);
+    if (!m || reduced) return;
+    var prefix = m[1];
+    var target = Number(m[2]);
+    var start = performance.now();
+    var dur = 700;
+    function frame(now) {
+      var p = Math.min(1, (now - start) / dur);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.setAttribute("data-label", prefix + Math.round(target * eased) + "%");
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    el.setAttribute("data-label", prefix + "0%");
+    requestAnimationFrame(frame);
+  }
+
+  var io = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        el.classList.add("is-found");
+        if (el.classList.contains("cv")) setTimeout(function () { countUp(el); }, reduced ? 0 : 250);
+        io.unobserve(el);
+      });
+    },
+    { threshold: 0.35, rootMargin: "0px 0px -8% 0px" },
+  );
+  marks.forEach(function (el) {
+    if (el.hasAttribute("data-camo") && !reduced) return;
+    io.observe(el);
+  });
+  window.__cvCountUp = countUp;
+})();
+
+
+// ===== Motion toggle =====
+// A switch in the footer, for people who don't know their computer has a reduce motion setting.
+document.querySelectorAll("[data-motion-toggle]").forEach(function (btn) {
+  function label() {
+    var off = document.documentElement.dataset.motion === "off";
+    btn.textContent = off ? "Motion off" : "Motion on";
+    btn.setAttribute("aria-pressed", String(!off));
+  }
+  btn.addEventListener("click", function () {
+    var off = document.documentElement.dataset.motion !== "off";
+    if (off) document.documentElement.dataset.motion = "off";
+    else delete document.documentElement.dataset.motion;
+    try {
+      localStorage.setItem("syqei:motion", off ? "off" : "on");
+    } catch (e) {}
+    label();
+    track("motion_toggle", { motion: off ? "off" : "on" });
+  });
+  label();
+});
+
+// Skip the scan-sweep page transition when motion is off.
+window.addEventListener("pagereveal", function (e) {
+  if (e.viewTransition && motionOff()) e.viewTransition.skipTransition();
+});
+window.addEventListener("pageswap", function (e) {
+  if (e.viewTransition && motionOff()) e.viewTransition.skipTransition();
+});
+
+// ===== Decode labels =====
+// Short labels like "48 of 51" or "SQ-001.1" scramble briefly then settle, like a detector reading them.
+// The real text stays in the page for screen readers the whole time.
+(function () {
+  var els = document.querySelectorAll("[data-decode]");
+  if (!els.length || motionOff() || !("IntersectionObserver" in window)) return;
+  var glyphs = "0123456789ABCDEFHKMNPRSTVXZ#%";
+  function decode(el) {
+    var finalText = el.getAttribute("data-final");
+    var shown = el.querySelector(".decode-shown");
+    var start = performance.now();
+    var dur = 650;
+    function frame(now) {
+      var p = Math.min(1, (now - start) / dur);
+      var locked = Math.floor(p * finalText.length);
+      var out = "";
+      for (var i = 0; i < finalText.length; i++) {
+        var ch = finalText[i];
+        out += i < locked || ch === " " || ch === "." || ch === "-" ? ch : glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+      shown.textContent = out;
+      if (p < 1) requestAnimationFrame(frame);
+      else shown.textContent = finalText;
+    }
+    requestAnimationFrame(frame);
+  }
+  var io = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        decode(entry.target);
+        io.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.6 },
+  );
+  els.forEach(function (el) {
+    var text = el.textContent;
+    el.setAttribute("data-final", text);
+    el.innerHTML = '<span class="visually-hidden">' + text + '</span><span class="decode-shown" aria-hidden="true">' + text + "</span>";
+    io.observe(el);
+  });
+})();
+
+// ===== Camouflaged headline =====
+// The hero headline starts hidden in wing texture. A scan passes once, the camouflage
+// drains away and the detection box locks on. Once per visit. The text is always real text.
+(function () {
+  var h = document.querySelector("[data-camo]");
+  if (!h || motionOff()) return;
+  var seen = false;
+  try {
+    seen = sessionStorage.getItem("syqei:camo") === "1";
+    sessionStorage.setItem("syqei:camo", "1");
+  } catch (e) {}
+  function lockOn() {
+    h.classList.add("is-found");
+    if (window.__cvCountUp) setTimeout(function () { window.__cvCountUp(h); }, 250);
+  }
+  if (seen) {
+    lockOn();
+    return;
+  }
+  var ns = "http://www.w3.org/2000/svg";
+  var svg = document.createElementNS(ns, "svg");
+  svg.setAttribute("width", "0");
+  svg.setAttribute("height", "0");
+  svg.setAttribute("aria-hidden", "true");
+  svg.style.position = "absolute";
+  svg.innerHTML =
+    '<filter id="camo-filter" x="-10%" y="-10%" width="120%" height="120%">' +
+    '<feTurbulence type="fractalNoise" baseFrequency="0.012 0.09" numOctaves="2" seed="7" result="n"/>' +
+    '<feDisplacementMap in="SourceGraphic" in2="n" scale="34" xChannelSelector="R" yChannelSelector="G"/>' +
+    "</filter>";
+  document.body.appendChild(svg);
+  var disp = svg.querySelector("feDisplacementMap");
+  var scan = document.createElement("span");
+  scan.className = "camo-scan";
+  scan.setAttribute("aria-hidden", "true");
+  h.appendChild(scan);
+  h.classList.add("is-camo");
+  var start = performance.now() + 250;
+  var dur = 1500;
+  function frame(now) {
+    var p = Math.max(0, Math.min(1, (now - start) / dur));
+    var e = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+    disp.setAttribute("scale", String(34 * (1 - e)));
+    h.style.setProperty("--camo", String(1 - e));
+    h.style.setProperty("--scan", (p * 100).toFixed(1) + "%");
+    if (p < 1) requestAnimationFrame(frame);
+    else {
+      h.classList.remove("is-camo");
+      scan.remove();
+      svg.remove();
+      lockOn();
+    }
+  }
+  requestAnimationFrame(frame);
+})();
+
+// ===== Margin notes that write themselves in, and headings that come into focus =====
+// Both only run with motion on. With motion off the notes and headings are simply there.
+(function () {
+  if (motionOff() || !("IntersectionObserver" in window)) return;
+  var root = document.documentElement;
+  var notes = document.querySelectorAll(".note");
+  var heads = document.querySelectorAll(".band h2, .page-head ~ section h2");
+  if (notes.length) root.classList.add("notes-ready");
+  if (heads.length) root.classList.add("sharp-ready");
+
+  var watch = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        if (entry.target._notes) {
+          entry.target._notes.forEach(function (n, i) {
+            setTimeout(function () { n.classList.add("is-drawn"); }, 250 + i * 300);
+          });
+        } else {
+          entry.target.classList.add("is-sharp");
+        }
+        watch.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "0px 0px -18% 0px", threshold: 0.2 }
+  );
+  // Watch what each note is written beside, not the note itself (a note sits half outside it).
+  notes.forEach(function (n) {
+    var host = n.parentElement;
+    (host._notes = host._notes || []).push(n);
+    watch.observe(host);
+  });
+  heads.forEach(function (h) {
+    // Headings already on screen when the page opens stay as they are.
+    if (h.getBoundingClientRect().top < window.innerHeight * 0.85) h.classList.add("is-sharp");
+    else watch.observe(h);
+  });
+
+  // The footer switch turns motion off mid-visit: show everything straight away.
+  new MutationObserver(function () {
+    if (!motionOff()) return;
+    root.classList.remove("notes-ready", "sharp-ready");
+  }).observe(root, { attributes: true, attributeFilter: ["data-motion"] });
+})();

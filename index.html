@@ -4,25 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Syqei | Technology missions for secondary schools</title>
-<meta name="description" content="Ready-to-run technology missions for secondary schools. Students use real emerging tools to solve real research problems and discover the careers behind them.">
+<meta name="description" content="Ready-to-run, one-lesson technology missions for secondary schools, built from real research. Students use emerging tools and discover the careers behind them.">
 <meta name="theme-color" content="#14032a">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://syqei.com/">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Syqei">
 <meta property="og:url" content="https://syqei.com/">
 <meta property="og:title" content="Syqei | Technology missions for secondary schools">
-<meta property="og:description" content="Ready-to-run technology missions for secondary schools. Students use real emerging tools to solve real research problems and discover the careers behind them.">
+<meta property="og:description" content="Ready-to-run, one-lesson technology missions for secondary schools, built from real research. Students use emerging tools and discover the careers behind them.">
 <meta property="og:image" content="https://syqei.com/images/mission/scan-poster.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Syqei | Technology missions for secondary schools">
-<meta name="twitter:description" content="Ready-to-run technology missions for secondary schools. Students use real emerging tools to solve real research problems and discover the careers behind them.">
+<meta name="twitter:description" content="Ready-to-run, one-lesson technology missions for secondary schools, built from real research. Students use emerging tools and discover the careers behind them.">
 <meta name="twitter:image" content="https://syqei.com/images/mission/scan-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Sora:wght@300..700&family=Unbounded:wght@300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
-
-<!-- Google Analytics (GA4). Signals and ad personalisation are off because the audience includes under 18s. -->
+<script>try{if(localStorage.getItem("syqei:motion")==="off")document.documentElement.dataset.motion="off"}catch(e){}</script>
+<script type="module" src="/src/preview.ts"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Syqei", "url": "https://syqei.com", "logo": "https://syqei.com/images/brand/wordmark-studio-light.svg", "email": "hello@syqei.com", "description": "Syqei gives secondary schools ready-to-run, one-lesson technology missions built from real research.", "founder": {"@type": "Person", "name": "Taleena Watts"}, "areaServed": "AU", "sameAs": ["https://instagram.com/syqei.studio"]}</script>
+<!-- Google Analytics (GA4). Google Signals and ad personalisation are off. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPELPT779N"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -33,15 +36,16 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="scanbar" aria-hidden="true"></div>
 <header class="site-header">
   <div class="wrap">
-    <a href="/" class="logo" aria-label="Syqei home"><img src="/images/syqei-wordmark.svg" alt="syqei" width="104" height="42"></a>
+    <a href="/" class="logo" aria-label="Syqei home"><img src="/images/brand/wordmark-studio-dark.svg" alt="Syqei Studio" width="122" height="47"></a>
     <nav class="nav" aria-label="Primary">
       <a href="/projects.html">Missions</a>
       <a href="/partner.html">For schools</a>
-      <a href="/blog.html">Stories</a>
+      <a href="/stories.html">Stories</a>
       <a href="/about.html">About</a>
-      <a href="/#contact" class="btn btn-lime" data-cta="nav_pilot">Book a pilot</a>
+      <a href="#request" class="btn btn-lime" data-cta="nav_request">Request a pilot</a>
     </nav>
     <details class="menu">
       <summary aria-label="Open menu">Menu</summary>
@@ -49,9 +53,9 @@
         <a href="/">Home</a>
         <a href="/projects.html">Missions</a>
         <a href="/partner.html">For schools</a>
-        <a href="/blog.html">Stories</a>
+        <a href="/stories.html">Stories</a>
         <a href="/about.html">About</a>
-        <a href="/#contact">Book a pilot</a>
+        <a href="#request" data-cta="menu_request">Request a pilot</a>
       </div>
     </details>
   </div>
@@ -61,31 +65,58 @@
 <section class="dark hero">
   <div class="wrap hero-grid">
     <div>
-      <h1>Technology missions for secondary schools.</h1>
-      <p class="lead">Students use real emerging tools to solve real research problems, then meet the people who do it for a job. Each mission runs in one lesson, in the browser, with no logins.</p>
+      <h1 class="cv" data-label="mission 97%" data-camo>Technology missions for secondary schools.</h1>
+      <p class="lead">Ready-to-run, 50 to 60 minute browser missions where students use emerging technology on problems drawn from real research. No coding background or student accounts needed.</p>
       <div class="actions">
-        <a href="#contact" class="btn btn-lime" data-cta="hero_pilot">Book a founding pilot</a>
-        <a href="#mission" class="btn btn-line" data-cta="hero_mission">See Mission 001</a>
+        <a href="#request" class="btn btn-lime" data-cta="hero_request">Request a founding pilot</a>
+        <a href="#try" class="btn btn-line" data-cta="hero_try" data-try>Try 30 seconds of Mission 001</a>
       </div>
-      <p class="hero-note">Built with researchers from The University of Western Australia. For students aged 14 to 18.</p>
+      <p class="hero-note">Built with researchers from The University of Western Australia.</p>
     </div>
-    <figure class="screen">
-      <div class="screen-frame">
-        <video data-scan muted loop playsinline preload="metadata" poster="/images/mission/scan-poster.jpg" aria-label="A computer vision model scanning camouflaged scenes for a hidden moth, switching between greyscale, edge detection and texture views.">
-          <source src="/images/mission/scan.webm" type="video/webm">
-          <source src="/images/mission/scan.mp4" type="video/mp4">
-        </video>
-        <button type="button" class="scan-toggle" data-scan-toggle>Pause</button>
+    <figure class="preview" data-preview="hero" id="try">
+      <div class="preview-stage">
+        <canvas tabindex="-1" aria-label="A camouflaged scene with one hidden moth. Click the moth when you find it."></canvas>
+        <img class="preview-poster" src="/images/mission/scan-poster.jpg" alt="" width="1280" height="800">
+        <div class="preview-overlay" data-overlay>
+          <h3>Find the hidden moth.</h3>
+          <p>One camouflaged moth. 20 seconds. Then a computer vision model tries the same image.</p>
+          <button type="button" class="btn btn-lime" data-start>Start</button>
+        </div>
+        <span class="preview-chip" data-chip hidden></span>
       </div>
-      <figcaption>From Mission 001. A computer vision model hunts for a camouflaged moth. Students race it.</figcaption>
+      <div class="preview-bar">
+        <p class="preview-status" data-status aria-live="polite">Takes about 30 seconds. Works with a mouse or touch.</p>
+        <div class="preview-actions">
+          <button type="button" class="btn btn-line btn-sm" data-show hidden>Show me where it is</button>
+          <button type="button" class="btn btn-lime btn-sm" data-race hidden>Race the computer</button>
+          <button type="button" class="btn btn-line btn-sm" data-again hidden>Try another image</button>
+        </div>
+        <div class="preview-after" data-after hidden>
+          <a href="/studio/project/illusion-engine/play" class="text-link" data-cta="hero_preview_full">Play the full mission</a>
+          <a href="#request" class="text-link" data-cta="hero_preview_request">Request a founding pilot</a>
+        </div>
+      </div>
+      <noscript><p class="preview-status">Turn on JavaScript to try this part of Mission 001.</p></noscript>
     </figure>
+  </div>
+</section>
+
+<section class="proof scan-edge" aria-labelledby="proof-title" data-view="pilot_results">
+  <div class="wrap">
+    <h2 class="visually-hidden" id="proof-title">Pilot results</h2>
+    <dl class="proof-stats">
+      <div><dt class="cv cv--ink" data-label="liked it 94%" data-decode>48 of 51</dt><dd>students who rated the session liked or loved it</dd></div>
+      <div><dt data-decode>3 to 31</dt><dd>students who said they know quite a lot about tech careers, before and after</dd></div>
+      <div><dt data-decode>52</dt><dd>Year 9 students from two Perth schools, September 2026</dd></div>
+    </dl>
+    <a href="/stories/first-pilot.html" class="text-link" data-results-link>How we measured this</a>
   </div>
 </section>
 
 <section class="white band">
   <div class="wrap">
     <div class="head">
-      <h2>How a mission works.</h2>
+      <h2>How one mission works.</h2>
       <p class="lead">Every mission follows the same four moves, so teachers know what to expect and students know where they are.</p>
     </div>
     <ol class="steps">
@@ -95,7 +126,7 @@
       </li>
       <li>
         <h3>Use the tools</h3>
-        <p>Students run the kinds of tools researchers use. Computer vision, 3D, data and code, all in the browser.</p>
+        <p>Students use tools and techniques from research. Computer vision, 3D, data and code, all in the browser.</p>
       </li>
       <li>
         <h3>Make something</h3>
@@ -103,124 +134,90 @@
       </li>
       <li>
         <h3>See the careers</h3>
-        <p>Every mission ends with what students can now do and the jobs that do this for real.</p>
+        <p>Every mission ends with what students can now do and the jobs that use these tools for real.</p>
       </li>
     </ol>
+    <div class="snaps">
+      <figure class="snap snap--a" style="--rot:-3deg"><span class="tape" aria-hidden="true"></span><img src="/images/photos/interview.jpg" alt="Taleena interviewing Dr Jennifer Kelley and Dr Annie Jessop outdoors for Mission 001." loading="lazy" width="1000" height="1150"><figcaption>Filming the researchers for Mission 001.</figcaption></figure>
+      <figure class="snap snap--b" style="--rot:2.5deg"><span class="tape" aria-hidden="true"></span><img src="/images/photos/lab.jpg" alt="Dr Jennifer Kelley and Dr Annie Jessop in the lab, with moth specimens on the bench and a microscope behind them." loading="lazy" width="480" height="720"><figcaption>In the lab with the real moths.</figcaption></figure>
+      <p class="note note--snaps" aria-hidden="true">the real scientists</p>
+    </div>
   </div>
 </section>
 
-<section class="plum band" id="mission">
+<section class="plum band scan-edge" id="mission">
   <div class="wrap">
     <div class="mission-top">
       <div>
+        <p class="stamp">SQ-001</p>
         <h2><span>Mission 001</span>The Illusion Engine</h2>
         <p class="lead" style="margin-top:24px">Some moths have flat wings that look curved. The trick fools birds, people and computers. Students find out how, then design an illusion of their own.</p>
+
       </div>
       <dl class="mission-meta">
         <div><dt>Built from research by</dt><dd>Dr Jennifer Kelley and Dr Annie Jessop</dd></div>
-        <div><dt>Technology</dt><dd>Computer vision, depth estimation, 3D and code</dd></div>
+        <div><dt>Students make</dt><dd>A labelled dataset, an illusion design and a field file</dd></div>
         <div><dt>Careers</dt><dd>Computer vision engineer, behavioural ecologist, biophotonics researcher, technical artist</dd></div>
       </dl>
     </div>
-    <div class="gallery">
+    <div class="mission-links">
+      <a href="/studio/project/illusion-engine/play" class="btn btn-lime" data-cta="mission_play">Play the full mission</a>
+      <a href="/projects.html" class="btn btn-line" data-cta="mission_details">Mission details</a>
+      <p>Coming next in the Computer Vision track. Teach the detector, and Vision in the field. Both in development.</p>
+    </div>
+    <div class="gallery gallery--overlap">
       <figure>
         <img src="/images/mission/race-chart.jpg" alt="A bar chart comparing how long a student took to find each hidden moth with how long the computer took." loading="lazy" width="1400" height="732">
-        <figcaption>Race a detector on the same six scenes. Every click becomes a labelled dataset.</figcaption>
+        <figcaption class="spec"><span class="spec-no">Fig. 1</span><span class="spec-text">Search times, student against computer. Every click becomes a labelled image.</span><span class="spec-cat" data-decode>SQ-001.1</span></figcaption>
       </figure>
       <figure>
-        <img src="/images/mission/wing.jpg" alt="A 3D moth wing that looks curved but is flat." loading="lazy" width="1200" height="871">
-        <figcaption>Spin a 3D wing to see the shape your brain invents.</figcaption>
+        <div class="cv cv--miss cv--block" data-label="3D shape 12%"><img src="/images/mission/wing.jpg" alt="A 3D moth wing that looks curved but is flat." loading="lazy" width="1200" height="871"></div>
+        <figcaption class="spec"><span class="spec-no">Fig. 2</span><span class="spec-text">The wing in 3D. Turn it side on and the curve disappears.</span><span class="spec-cat" data-decode>SQ-001.2</span></figcaption>
       </figure>
       <figure>
         <img src="/images/mission/design.jpg" alt="The design tool. A painted wing beside its estimated depth map, with sliders and an illusion score of 100." loading="lazy" width="1600" height="732">
-        <figcaption>Design an illusion that fools a depth estimator.</figcaption>
+        <figcaption class="spec"><span class="spec-no">Fig. 3</span><span class="spec-text">A student-style design and its depth estimate. Score 100.</span><span class="spec-cat" data-decode>SQ-001.3</span></figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<section class="light band">
-  <div class="wrap split">
-    <div>
-      <h2>Decide at 8.15. Run it at 9.</h2>
-      <p class="lead" style="margin-top:24px">Every mission comes with a teacher guide you can read in five minutes. You don't need a tech background to run it.</p>
-      <h3 style="margin-top:40px">Before class</h3>
-      <ul class="ticks">
-        <li>Open the mission once on the classroom display so it's ready</li>
-        <li>Open the device check on one student laptop</li>
-        <li>Share one class link. No logins, no accounts</li>
-      </ul>
-      <p style="margin-top:24px">The full guide also has learning outcomes, an answer guide for every step, careers to talk about and notes for IT.</p>
-    </div>
-    <figure class="runsheet" aria-labelledby="runsheet-title">
-      <p class="runsheet-top"><span id="runsheet-title">Mission 001 run sheet</span><span>50 to 60 minutes</span></p>
-      <ol>
-        <li><span class="t">0 to 5</span><div><h4>Hook</h4><p>Show the wing on screen. The class votes. 3D or flat? Don't reveal yet.</p></div></li>
-        <li><span class="t">5 to 20</span><div><h4>Discover</h4><p>Students hunt for hidden moths, race the computer and meet the researchers.</p><p class="ask">Ask. Where was the computer faster than you? Where did camouflage beat it?</p></div></li>
-        <li><span class="t">20 to 32</span><div><h4>Experiment</h4><p>Students spin the 3D wing and find the painted tricks.</p><p class="ask">Ask. How can something flat look curved?</p></div></li>
-        <li><span class="t">32 to 45</span><div><h4>Create</h4><p>Demo one slider on the display. Students design their own illusion and save a version they like.</p></div></li>
-        <li><span class="t">45 to 50</span><div><h4>Keep</h4><p>Students finish their field file. Two or three show theirs to the class.</p></div></li>
-      </ol>
-      <figcaption>An excerpt from the Mission 001 teacher guide. Times are in minutes.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="white band">
+<section class="white band after-overlap">
   <div class="wrap">
     <div class="head">
-      <h2>Missions grow into tracks.</h2>
-      <p class="lead">Each track is three missions on one technology. Students who finish one can go deeper with the next.</p>
+      <h2>Built for school reality.</h2>
+      <p class="lead">Every mission comes with a teacher guide you can read in five minutes. No tech background needed. <a href="/teachers.html" class="text-link">Open the teacher hub</a></p>
     </div>
-
-    <div class="track-name">
-      <h3>Computer Vision track</h3>
-      <p>How computers see, and how to fool them.</p>
+    <div class="facts">
+      <div>
+        <h3>Time</h3>
+        <p>One 50 to 60 minute lesson. Optional coding levels stretch it to a second lesson for fast finishers.</p>
+      </div>
+      <div>
+        <h3>Devices</h3>
+        <p>Runs in a modern browser on laptops and Chromebooks. Nothing to install. A lite mode switches off 3D for older devices.</p>
+      </div>
+      <div>
+        <h3>Privacy</h3>
+        <p>No student accounts, names or emails. Progress saves on the student's own device and nothing they make is uploaded.</p>
+      </div>
+      <div>
+        <h3>Where it fits</h3>
+        <p>Digital Technologies, Science, STEM electives and careers programs. It also works as an enrichment session.</p>
+      </div>
+      <div>
+        <h3>Accessibility</h3>
+        <p>Read aloud on every step, keyboard support, a non-3D option and captions on the researcher video.</p>
+      </div>
+      <div>
+        <h3>Ages</h3>
+        <p>Written for Years 9 to 12. Respectful, not childish. No points, badges or leaderboards.</p>
+      </div>
     </div>
-    <ol class="track">
-      <li class="is-live">
-        <span class="num">Mission 1</span>
-        <h3>The Illusion Engine</h3>
-        <p>Race a detector, spin a 3D wing and design an illusion that fools a depth estimator.</p>
-        <span class="status">Ready to run</span>
-      </li>
-      <li>
-        <span class="num">Mission 2</span>
-        <h3>Teach the detector</h3>
-        <p>Label your own images and train a model to find hidden moths.</p>
-        <span class="status">In development</span>
-      </li>
-      <li>
-        <span class="num">Mission 3</span>
-        <h3>Vision in the field</h3>
-        <p>Point computer vision at a new research problem.</p>
-        <span class="status">In development</span>
-      </li>
-    </ol>
-
   </div>
 </section>
 
-<section class="light band" id="evidence">
-  <div class="wrap">
-    <div class="head">
-      <h2>What students said.</h2>
-      <p class="lead">Our first pilot was a facilitated early version of Mission 001 with 52 Year 9 students from two Perth schools. Every student filled in the same short survey before and after.</p>
-    </div>
-    <dl class="stats">
-      <div><dt>94%</dt><dd>liked or loved it. 48 of the 51 students who gave a rating.</dd></div>
-      <div><dt>42 of 51</dt><dd>said they knew more about technology careers afterwards.</dd></div>
-      <div><dt>9 of 9</dt><dd>students who started out not interested in tech still liked or loved it.</dd></div>
-    </dl>
-    <div class="quotes">
-      <blockquote><p>Technology is not all about mathematics and hard problem solving, it is about embracing skills and creativity.</p><cite>Year 9 student</cite></blockquote>
-      <blockquote><p>There is a lot of career paths in technology that I can go into.</p><cite>Year 9 student</cite></blockquote>
-    </div>
-    <p class="fine">Pilot run on 24 September 2026. A teacher's response is excluded from the numbers. More pilots with Year 9 to Year 12 students across Perth and regional WA are underway.</p>
-  </div>
-</section>
-
-<section class="dark band">
+<section class="dark band scan-edge" id="pricing" data-view="pricing">
   <div class="wrap">
     <div class="head">
       <h2>Become a founding school.</h2>
@@ -229,121 +226,201 @@
     <div class="offers">
       <article class="offer">
         <h3>Founding pilot</h3>
-        <p class="for">For one or two classes this term or next</p>
+        <p class="for">Up to two classes, this term or Term 1 2027</p>
         <p class="price">From A$1,000 <span>per pilot</span></p>
         <ul>
-          <li>Mission 001 for your classes</li>
-          <li>The teacher pack and setup support</li>
-          <li>A completion summary and student feedback report</li>
-          <li>The next mission when it's released</li>
+          <li>Mission 001 for up to two classes</li>
+          <li>A 20 minute onboarding call and the full teacher pack</li>
+          <li>Optional in-person support for your first lesson in Perth</li>
+          <li>A student feedback survey and a short results report for your school</li>
+          <li>The next mission for the same classes when it's released</li>
         </ul>
       </article>
       <article class="offer">
         <h3>Founding 2027 licence</h3>
-        <p class="for">For your whole school next year</p>
+        <p class="for">Every class in your school, all of 2027</p>
         <p class="price">From A$2,500 <span>a year</span></p>
         <ul>
-          <li>Every mission released in 2027</li>
-          <li>Teacher resources and class links</li>
-          <li>Basic completion reporting</li>
+          <li>Mission 001 for every class, all year</li>
+          <li>At least two new missions released during 2027</li>
+          <li>A teacher pack and class link for every mission</li>
+          <li>A completion summary each term</li>
           <li>Onboarding with the founder</li>
         </ul>
       </article>
     </div>
     <div class="offer-foot">
-      <p>Paid and fixed scope. We confirm the price for your class numbers before anything is booked, then send one invoice. Running holiday programs, tutoring or clubs? Missions can be licensed for your groups too.</p>
-      <a href="#contact" class="btn btn-lime" data-cta="founding_talk">Talk to us about a pilot</a>
+      <a href="#request" class="btn btn-lime" data-cta="pricing_request">Request a founding pilot</a>
     </div>
   </div>
 </section>
 
-<section class="light band">
+<section class="quote-bleed paper" id="evidence">
+  <div class="wrap">
+    <h2 class="quote-head">Hear from our students.</h2>
+    <blockquote class="quote-big">
+      <p>Technology is not all about mathematics and hard problem solving, it is about embracing skills and creativity.</p>
+      <cite>Year 9 student</cite>
+    </blockquote>
+    <div class="quote-foot">
+      <blockquote class="quote-small"><p>There is a lot of career paths in technology that I can go into.</p><cite>Year 9 student</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="white band">
   <div class="wrap founder">
-    <img src="/images/about-hero-mentoring.jpg" alt="Taleena mentoring a high school student." loading="lazy">
+    <div class="founder-media">
+      <figure class="cv cv--ink cv--block founder-fig" data-label="founder 99%"><img src="/images/about-hero-mentoring.jpg" alt="Taleena kneeling beside a high school student's desk, mentoring them." loading="lazy" width="1200" height="1500"></figure>
+      <p class="note note--founder" aria-hidden="true">hi, that's me</p>
+    </div>
     <div>
-      <blockquote>The tech that stuck with me came from real problems. Not tutorials.</blockquote>
-      <p>Hi, I'm Taleena. I study Computer Science and Cybersecurity at UWA and mentor high school students across WA. I started Syqei to turn research happening right now into missions any school can run.</p>
-      <div class="actions"><a href="/about.html" class="btn btn-line-dark">Read the story</a></div>
+      <p class="founder-quote">I always knew I loved technology, but I wanted to do more with it than follow tutorials and tick off another course.</p>
+      <p class="founder-intro">Hi! I'm Taleena. I study Computer Science and Cybersecurity, and I've always been the kind of person who gets excited by what technology can make possible.</p>
+      <p class="founder-story">The parts of tech that stay with you aren't usually the tutorials. They're the moments where you get to try ideas, work with other people and see where those skills could lead. For a lot of young people, it can be hard to find opportunities that connect technology to something bigger than another assignment or project on a screen. Growing up in Western Australia, surrounded by incredible wildlife and landscapes, made me wonder why technology and ecology are so often treated as separate worlds. Syqei came from wanting to bring them together by giving young people the chance to explore applied technology through problems affecting the natural world.</p>
+      <p class="founder-closing">There has to be a better way to start.</p>
+      <div class="actions"><a href="/about.html" class="btn btn-ink" data-cta="founder_story">Read the full story</a></div>
+      <a href="https://instagram.com/syqei.studio" class="founder-social" target="_blank" rel="noopener">Follow on Instagram <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>
 
-<section class="dark band" id="contact">
+<section class="white band" aria-labelledby="faq-title">
+  <div class="wrap faq-wrap">
+    <h2 id="faq-title">Questions schools ask.</h2>
+    <div class="faq">
+      <details data-faq="accounts">
+        <summary>Do students need accounts or emails?</summary>
+        <p>No. Students open one class link. There are no logins, and progress saves in the browser on their own device.</p>
+      </details>
+      <details data-faq="devices">
+        <summary>What devices does it work on?</summary>
+        <p>Recent Chrome, Edge, Safari and Firefox on laptops and Chromebooks. Phones and tablets work but a laptop is more comfortable. Open the <a href="/studio/check" data-device-check>device check</a> on one student laptop to be sure.</p>
+      </details>
+      <details data-faq="curriculum">
+        <summary>Where does it fit in the curriculum?</summary>
+        <p>It suits Digital Technologies and Science in Years 9 and 10, STEM electives and careers programs. See <a href='/curriculum.html'>where it fits</a>. We can map it to your program on request.</p>
+      </details>
+      <details data-faq="data">
+        <summary>What data do you collect about students?</summary>
+        <p>No names, emails or accounts. Nothing students make is uploaded. Read the <a href="/studio/privacy">student app privacy notice</a>.</p>
+      </details>
+      <details data-faq="teacher">
+        <summary>Can a teacher run it without you?</summary>
+        <p>Yes. That's the point. The teacher guide has a minute-by-minute run sheet, questions to ask and an answer guide. Founding schools in Perth can also have us there for the first lesson.</p>
+      </details>
+      <details data-faq="payment">
+        <summary>How does payment work?</summary>
+        <p>We agree a fixed quote first, then send one invoice. School purchase orders are fine.</p>
+      </details>
+      <details data-faq="cancel">
+        <summary>What if it doesn't work on the day?</summary>
+        <p>If something on our side stops the lesson running, we reschedule it at no cost.</p>
+      </details>
+      <details data-faq="programs">
+        <summary>Do you work with programs outside school?</summary>
+        <p>Yes. Holiday programs, tutoring centres and clubs can license missions for their groups. <a href="#request">Tell us about your program</a>.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="dark band" id="request">
   <div class="wrap contact-grid">
     <div>
-      <h2>Book a pilot or ask a question.</h2>
-      <p class="lead" style="margin-top:24px">Tell us a little about your school or program. Taleena will reply by email.</p>
+      <h2>Request a founding pilot.</h2>
+      <p class="lead" style="margin-top:24px">Tell us your year levels, class sizes and when you'd like to run it. Taleena replies within two business days.</p>
       <p class="direct">Prefer email? Write to <a href="mailto:hello@syqei.com">hello@syqei.com</a>.</p>
     </div>
     <div>
-      <form name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form" data-success="enquiry-success">
+      <form name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form" data-success="request-success">
         <input type="hidden" name="form-name" value="enquiry">
         <input type="hidden" name="source_page" value="">
         <p class="hidden-field"><label>Leave this empty <input name="bot-field"></label></p>
         <div class="row">
           <div class="field">
-            <label for="f-name">Your name</label>
-            <input id="f-name" name="name" autocomplete="name" required>
+            <label for="request-name">Your name</label>
+            <input id="request-name" name="name" autocomplete="name" required>
           </div>
           <div class="field">
-            <label for="f-email">Email</label>
-            <input id="f-email" name="email" type="email" autocomplete="email" required>
+            <label for="request-email">Work email</label>
+            <input id="request-email" name="email" type="email" autocomplete="email" required>
           </div>
         </div>
         <div class="row">
           <div class="field">
-            <label for="f-role">I'm a</label>
-            <select id="f-role" name="role" required>
+            <label for="request-role">Your role</label>
+            <select id="request-role" name="role" required>
               <option value="" selected disabled>Choose one</option>
               <option>Teacher</option>
+              <option>Head of learning area</option>
               <option>School leader</option>
+              <option>Careers or STEM coordinator</option>
               <option>Program or enrichment provider</option>
               <option>Researcher</option>
-              <option>Parent or carer</option>
               <option>Something else</option>
             </select>
           </div>
           <div class="field">
-            <label for="f-org">School or organisation</label>
-            <input id="f-org" name="organisation" autocomplete="organization">
+            <label for="request-org">School or organisation</label>
+            <input id="request-org" name="organisation" autocomplete="organization">
           </div>
         </div>
         <div class="field">
-          <label for="f-msg">What would you like to know?</label>
-          <textarea id="f-msg" name="message" placeholder="Year levels, class sizes, when you'd like to run it, or anything else."></textarea>
+          <label for="request-msg">Year levels, class sizes and timing</label>
+          <textarea id="request-msg" name="message" placeholder="For example. Two Year 9 classes of about 28, any week in Term 4."></textarea>
         </div>
         <label class="check"><input type="checkbox" name="updates" value="yes"> Email me when new missions are released.</label>
-        <button type="submit" class="btn btn-lime">Send enquiry</button>
-        <p class="form-error" hidden>That didn't send. Check your connection and try again, or email hello@syqei.com.</p>
+        <button type="submit" class="btn btn-lime">Send pilot request</button>
+        <p class="form-error" role="alert" hidden>That didn't send. Check your connection and try again, or email hello@syqei.com.</p>
         <p class="form-note">We only use these details to reply to you. See our <a href="/privacy.html">privacy policy</a>.</p>
       </form>
-      <p class="form-success" id="enquiry-success" tabindex="-1" hidden>Thanks. Your enquiry is sent and we'll reply by email.</p>
+      <div class="form-success" id="request-success" tabindex="-1" hidden>
+        <p class="form-success-title">Your pilot request is in.</p>
+        <p>Taleena will reply within two business days with availability, a few questions about class sizes and a fixed quote.</p>
+      </div>
     </div>
   </div>
 </section>
+
 
 </main>
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-top">
-      <div>
-        <a href="/" class="logo" aria-label="Syqei home"><img src="/images/syqei-wordmark.svg" alt="syqei" width="120" height="48"></a>
+      <div class="footer-brand">
+        <a href="/" class="logo" aria-label="Syqei home"><img src="/images/brand/wordmark-studio-dark.svg" alt="Syqei Studio" width="150" height="58"></a>
         <p>Technology missions for secondary schools, built from real research.</p>
       </div>
-      <nav class="footer-links" aria-label="Footer">
-        <a href="/projects.html">Missions</a>
-        <a href="/partner.html">For schools</a>
-        <a href="/about.html">About</a>
-        <a href="/blog.html">Stories</a>
-        <a href="/think.html">Think like a technologist</a>
-        <a href="/#contact">Contact</a>
-        <a href="mailto:hello@syqei.com">hello@syqei.com</a>
-        <a href="https://instagram.com/syqei.studio" target="_blank" rel="noopener">Instagram</a>
-        <a href="/privacy.html">Privacy</a>
+      <nav class="footer-cols" aria-label="Footer">
+        <div>
+          <h2>Product</h2>
+          <a href="/partner.html#pricing">Pilot pricing</a>
+          <a href="/curriculum.html">Curriculum fit</a>
+          <a href="/careers.html">Careers library</a>
+          <a href="/teachers.html">Teacher hub</a>
+          <a href="/roadmap.html">Track roadmap</a>
+          <a href="/studio/check" data-device-check>Device check</a>
+        </div>
+        <div>
+          <h2>Company</h2>
+          <a href="/research.html">The research</a>
+          <a href="/lab-notes.html">Lab notes</a>
+          <a href="/parents.html">For parents</a>
+          <a href="/press.html">Press</a>
+          <a href="https://instagram.com/syqei.studio" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <div>
+          <h2>Trust</h2>
+          <a href="/trust.html">Trust and child safety</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/studio/privacy">Student app privacy</a>
+          <a href="/accessibility.html">Accessibility</a>
+        </div>
       </nav>
     </div>
     <p class="acknowledgement">We acknowledge the Whadjuk Noongar people, the Traditional Owners of the land on which Syqei is built and operated, and the many Traditional Custodians of Country across Western Australia. We pay our respects to Elders past, present and emerging, and recognise their continuing connection to land, waters and culture.</p>
-    <p class="copyright">&copy; 2026 Syqei</p>
+    <p class="copyright">&copy; 2026 Syqei <button type="button" class="motion-toggle" data-motion-toggle aria-pressed="true">Motion on</button></p>
   </div>
 </footer>
 <script src="/script.js"></script>
