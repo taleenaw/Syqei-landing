@@ -3196,3 +3196,6 @@ body {
 .footer-cols a { padding: 3px 0; line-height: 1.35; }
 .quote-head { font-size: clamp(1.4rem, 2.6vw, 2rem); margin: 0 0 clamp(18px, 3vw, 32px); color: var(--plum); }
 .offer-foot { display: flex; justify-content: flex-start; border-top: 0; padding-top: 0; margin-top: 24px; }
+.offer .price-eg { margin: -10px 0 18px; font-size: 0.9rem; color: var(--text-light-soft); }
+.offer-note { margin: 22px 0 0; color: var(--text-light); font-weight: 500; }
+.offer-note::before { content: "✓ "; color: var(--lime); }
