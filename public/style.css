@@ -18,9 +18,9 @@
   --display: "Unbounded", "Sora", system-ui, sans-serif;
   --body: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --wrap: 1200px;
+  --wrap: 1280px;
   --gutter: clamp(20px, 5vw, 56px);
-  --band: clamp(72px, 10vw, 136px);
+  --band: clamp(48px, 6.5vw, 92px);
 }
 
 *,
@@ -125,7 +125,7 @@ p {
 .lead {
   font-size: clamp(1.1rem, 1.6vw, 1.3rem);
   line-height: 1.55;
-  max-width: 38em;
+  max-width: 48em;
 }
 .kicker {
   display: inline-block;
@@ -328,7 +328,7 @@ p {
 
 /* Hero */
 .hero {
-  padding: clamp(56px, 8vw, 104px) 0 clamp(64px, 9vw, 120px);
+  padding: clamp(40px, 5.5vw, 76px) 0 clamp(44px, 6vw, 84px);
   overflow: hidden;
 }
 .hero-grid {
@@ -396,11 +396,11 @@ p {
 
 /* Section heads */
 .head {
-  max-width: 44rem;
-  margin-bottom: clamp(40px, 6vw, 64px);
+  max-width: 54rem;
+  margin-bottom: clamp(24px, 3.5vw, 40px);
 }
 .head p {
-  margin-top: 20px;
+  margin-top: 14px;
 }
 
 /* The four moves. A real sequence, so it is numbered. */
@@ -882,7 +882,7 @@ p {
 
 /* Page heads for inner pages */
 .page-head {
-  padding: clamp(64px, 9vw, 120px) 0 clamp(56px, 8vw, 96px);
+  padding: clamp(44px, 6vw, 84px) 0 clamp(40px, 5vw, 68px);
 }
 .page-head h1 {
   max-width: 14em;
@@ -1065,7 +1065,7 @@ p {
 .site-footer {
   background: var(--ink);
   color: var(--text-light-soft);
-  padding: 64px 0 40px;
+  padding: 48px 0 28px;
   border-top: 1px solid var(--line-dark);
 }
 .footer-top {
@@ -1073,15 +1073,15 @@ p {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 32px;
-  padding-bottom: 40px;
+  padding-bottom: 28px;
   border-bottom: 1px solid var(--line-dark);
 }
 .footer-top .logo img {
   width: 120px;
 }
 .footer-top p {
-  margin: 16px 0 0;
-  max-width: 26em;
+  margin: 12px 0 0;
+  max-width: 30em;
   font-size: 0.95rem;
 }
 .footer-links {
@@ -1098,10 +1098,10 @@ p {
   color: var(--text-light);
 }
 .acknowledgement {
-  margin: 32px 0 0;
+  margin: 24px 0 0;
   font-size: 0.85rem;
   line-height: 1.6;
-  max-width: 64em;
+  max-width: none;
 }
 .copyright {
   margin: 16px 0 0;
@@ -1807,7 +1807,7 @@ p {
 }
 .footer-cols div {
   display: grid;
-  gap: 10px;
+  gap: 2px;
   align-content: start;
 }
 .footer-cols h2 {
@@ -2125,15 +2125,16 @@ figcaption.spec {
   position: relative;
 }
 .note--wing {
-  right: 4px;
-  bottom: -38px;
+  right: 18px;
+  top: 18px;
   transform: rotate(-3deg);
   color: var(--lime) !important;
 }
 .note--wing::after {
   right: 100%;
-  bottom: 8px;
-  transform: scaleX(-1) rotate(-40deg);
+  top: 16px;
+  margin-right: 2px;
+  transform: scale(-1, 1) rotate(-8deg);
 }
 .founder-media {
   position: relative;
@@ -2145,8 +2146,8 @@ figcaption.spec {
   color: var(--plum) !important;
 }
 .note--founder::after {
-  left: -46px;
-  top: 14px;
+  left: -62px;
+  top: 20px;
   transform: scaleX(-1) rotate(10deg);
 }
 @media (max-width: 1000px) {
@@ -2175,7 +2176,7 @@ figcaption.spec {
   color: var(--plum);
 }
 .after-overlap {
-  padding-top: calc(var(--band) + 220px);
+  padding-top: calc(var(--band) + 170px);
 }
 .mission-links {
   margin: 0 0 clamp(36px, 5vw, 56px);
@@ -2233,7 +2234,7 @@ figcaption.spec {
 
 /* 3. Full-bleed magazine quote */
 .quote-bleed {
-  padding: clamp(80px, 11vw, 150px) 0;
+  padding: clamp(52px, 7vw, 96px) 0;
   overflow: hidden;
 }
 .quote-meta {
@@ -3191,3 +3192,5 @@ body {
 .prose a.btn { text-decoration: none; }
 .prose a.btn-ink, .prose a.btn-ink:hover { color: var(--white); }
 .prose a.btn-line-dark { color: var(--ink); }
+
+.footer-cols a { padding: 3px 0; line-height: 1.35; }
