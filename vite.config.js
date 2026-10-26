@@ -16,6 +16,7 @@ const pages = [
   "curriculum",
   "trust",
   "press",
+  "careers",
   "think",
   "404",
 ];
