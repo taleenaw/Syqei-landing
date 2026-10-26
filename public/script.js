@@ -137,7 +137,7 @@ document.querySelectorAll("form[data-netlify]").forEach(function (form) {
 // Detection boxes lock on and their confidence counts up when they scroll into view.
 // Scan lines sweep once. Without JS, or with reduced motion, everything just shows.
 (function () {
-  var marks = document.querySelectorAll(".cv, .scan-edge, .cv-wing");
+  var marks = document.querySelectorAll(".cv, .scan-edge");
   if (!marks.length || !("IntersectionObserver" in window)) return;
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.documentElement.classList.add("cv-on");
