@@ -1,5 +1,13 @@
 // Syqei site script. Plain JS, loaded on every page.
 
+// True when the OS asks for less motion, or the visitor switched motion off on the site.
+function motionOff() {
+  return (
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+    document.documentElement.dataset.motion === "off"
+  );
+}
+
 // ===== Analytics =====
 // GA4 events. Never send names, emails or anything typed into a form.
 function track(name, params) {
@@ -66,7 +74,7 @@ document.querySelectorAll("[data-try]").forEach(function (el) {
     var start = document.querySelector("[data-preview] [data-start]");
     if (!start) return;
     e.preventDefault();
-    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var reduced = motionOff();
     document.getElementById("try").scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
     if (!start.closest("[hidden]")) start.focus({ preventScroll: true });
   });
@@ -139,7 +147,7 @@ document.querySelectorAll("form[data-netlify]").forEach(function (form) {
 (function () {
   var marks = document.querySelectorAll(".cv, .scan-edge");
   if (!marks.length || !("IntersectionObserver" in window)) return;
-  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reduced = motionOff();
   document.documentElement.classList.add("cv-on");
 
   function countUp(el) {
@@ -173,6 +181,138 @@ document.querySelectorAll("form[data-netlify]").forEach(function (form) {
     { threshold: 0.35, rootMargin: "0px 0px -8% 0px" },
   );
   marks.forEach(function (el) {
+    if (el.hasAttribute("data-camo") && !reduced) return;
     io.observe(el);
   });
+  window.__cvCountUp = countUp;
+})();
+
+
+// ===== Motion toggle =====
+// A switch in the footer, for people who don't know their computer has a reduce motion setting.
+document.querySelectorAll("[data-motion-toggle]").forEach(function (btn) {
+  function label() {
+    var off = document.documentElement.dataset.motion === "off";
+    btn.textContent = off ? "Motion off" : "Motion on";
+    btn.setAttribute("aria-pressed", String(!off));
+  }
+  btn.addEventListener("click", function () {
+    var off = document.documentElement.dataset.motion !== "off";
+    if (off) document.documentElement.dataset.motion = "off";
+    else delete document.documentElement.dataset.motion;
+    try {
+      localStorage.setItem("syqei:motion", off ? "off" : "on");
+    } catch (e) {}
+    label();
+    track("motion_toggle", { motion: off ? "off" : "on" });
+  });
+  label();
+});
+
+// Skip the scan-sweep page transition when motion is off.
+window.addEventListener("pagereveal", function (e) {
+  if (e.viewTransition && motionOff()) e.viewTransition.skipTransition();
+});
+window.addEventListener("pageswap", function (e) {
+  if (e.viewTransition && motionOff()) e.viewTransition.skipTransition();
+});
+
+// ===== Decode labels =====
+// Short labels like "48 of 51" or "SQ-001.1" scramble briefly then settle, like a detector reading them.
+// The real text stays in the page for screen readers the whole time.
+(function () {
+  var els = document.querySelectorAll("[data-decode]");
+  if (!els.length || motionOff() || !("IntersectionObserver" in window)) return;
+  var glyphs = "0123456789ABCDEFHKMNPRSTVXZ#%";
+  function decode(el) {
+    var finalText = el.getAttribute("data-final");
+    var shown = el.querySelector(".decode-shown");
+    var start = performance.now();
+    var dur = 650;
+    function frame(now) {
+      var p = Math.min(1, (now - start) / dur);
+      var locked = Math.floor(p * finalText.length);
+      var out = "";
+      for (var i = 0; i < finalText.length; i++) {
+        var ch = finalText[i];
+        out += i < locked || ch === " " || ch === "." || ch === "-" ? ch : glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+      shown.textContent = out;
+      if (p < 1) requestAnimationFrame(frame);
+      else shown.textContent = finalText;
+    }
+    requestAnimationFrame(frame);
+  }
+  var io = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        decode(entry.target);
+        io.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.6 },
+  );
+  els.forEach(function (el) {
+    var text = el.textContent;
+    el.setAttribute("data-final", text);
+    el.innerHTML = '<span class="visually-hidden">' + text + '</span><span class="decode-shown" aria-hidden="true">' + text + "</span>";
+    io.observe(el);
+  });
+})();
+
+// ===== Camouflaged headline =====
+// The hero headline starts hidden in wing texture. A scan passes once, the camouflage
+// drains away and the detection box locks on. Once per visit. The text is always real text.
+(function () {
+  var h = document.querySelector("[data-camo]");
+  if (!h || motionOff()) return;
+  var seen = false;
+  try {
+    seen = sessionStorage.getItem("syqei:camo") === "1";
+    sessionStorage.setItem("syqei:camo", "1");
+  } catch (e) {}
+  function lockOn() {
+    h.classList.add("is-found");
+    if (window.__cvCountUp) setTimeout(function () { window.__cvCountUp(h); }, 250);
+  }
+  if (seen) {
+    lockOn();
+    return;
+  }
+  var ns = "http://www.w3.org/2000/svg";
+  var svg = document.createElementNS(ns, "svg");
+  svg.setAttribute("width", "0");
+  svg.setAttribute("height", "0");
+  svg.setAttribute("aria-hidden", "true");
+  svg.style.position = "absolute";
+  svg.innerHTML =
+    '<filter id="camo-filter" x="-10%" y="-10%" width="120%" height="120%">' +
+    '<feTurbulence type="fractalNoise" baseFrequency="0.012 0.09" numOctaves="2" seed="7" result="n"/>' +
+    '<feDisplacementMap in="SourceGraphic" in2="n" scale="34" xChannelSelector="R" yChannelSelector="G"/>' +
+    "</filter>";
+  document.body.appendChild(svg);
+  var disp = svg.querySelector("feDisplacementMap");
+  var scan = document.createElement("span");
+  scan.className = "camo-scan";
+  scan.setAttribute("aria-hidden", "true");
+  h.appendChild(scan);
+  h.classList.add("is-camo");
+  var start = performance.now() + 250;
+  var dur = 1500;
+  function frame(now) {
+    var p = Math.max(0, Math.min(1, (now - start) / dur));
+    var e = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+    disp.setAttribute("scale", String(34 * (1 - e)));
+    h.style.setProperty("--camo", String(1 - e));
+    h.style.setProperty("--scan", (p * 100).toFixed(1) + "%");
+    if (p < 1) requestAnimationFrame(frame);
+    else {
+      h.classList.remove("is-camo");
+      scan.remove();
+      svg.remove();
+      lockOn();
+    }
+  }
+  requestAnimationFrame(frame);
 })();

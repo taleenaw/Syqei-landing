@@ -12,6 +12,10 @@ const pages = [
   "stories/first-pilot",
   "privacy",
   "accessibility",
+  "research",
+  "curriculum",
+  "trust",
+  "press",
   "think",
   "404",
 ];

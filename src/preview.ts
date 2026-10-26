@@ -6,6 +6,7 @@
 import { SCENE_H, SCENE_W, drawScene, hits, type Backdrop, type Target } from "./vision/camoScene";
 import { detect } from "./vision/detect";
 import { buildViews, drawBox, fade, paintScan, wipe } from "./vision/visuals";
+import { motionOff } from "./motion";
 
 const LIME = "#cbde79";
 const MISS = "#f2a7a0";
@@ -59,7 +60,7 @@ function mount(root: HTMLElement) {
   const raceBtn = root.querySelector<HTMLButtonElement>("[data-race]")!;
   const againBtn = root.querySelector<HTMLButtonElement>("[data-again]")!;
   const after = root.querySelector<HTMLElement>("[data-after]")!;
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduced = motionOff();
   const location = root.dataset.preview || "page";
 
   canvas.width = SCENE_W;

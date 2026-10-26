@@ -22,6 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Sora:wght@400;500;600&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
+<script>try{if(localStorage.getItem("syqei:motion")==="off")document.documentElement.dataset.motion="off"}catch(e){}</script>
 
 <!-- Google Analytics (GA4). Google Signals and ad personalisation are off. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPELPT779N"></script>
@@ -34,6 +35,7 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="scanbar" aria-hidden="true"></div>
 <header class="site-header">
   <div class="wrap">
     <a href="/" class="logo" aria-label="Syqei home"><img src="/images/brand/wordmark-studio-dark.svg" alt="Syqei Studio" width="122" height="47"></a>
@@ -100,7 +102,7 @@
     <p>Syqei is designed so students finish a lesson having used a technology they may only have heard about before.</p>
 
     <h2 id="research">Research collaborators</h2>
-    <p>Mission 001 is built from published research into how the moth <em>Eudocima salaminia</em> paints a flat wing to look three dimensional, and how that fools computer vision.</p>
+    <p><a href="/research.html">Mission 001 is built from published research</a> into how the moth <em>Eudocima salaminia</em> paints a flat wing to look three dimensional, and how that fools computer vision.</p>
     <ul>
       <li><strong>Dr Jennifer Kelley</strong>, The University of Western Australia. Animal camouflage and visual perception.</li>
       <li><strong>Dr Annie Jessop</strong>. Biophotonics. How the structure of living things makes colour and light.</li>
@@ -140,18 +142,21 @@
           <a href="/projects.html">Mission 001</a>
           <a href="/partner.html">For schools</a>
           <a href="/partner.html#pricing">Pilot pricing</a>
+          <a href="/curriculum.html">Curriculum fit</a>
           <a href="/studio/check" data-device-check>Device check</a>
         </div>
         <div>
           <h2>Company</h2>
           <a href="/about.html">About</a>
           <a href="/stories.html">Stories</a>
-          <a href="/about.html#research">Research collaborators</a>
+          <a href="/research.html">The research</a>
+          <a href="/press.html">Press</a>
           <a href="mailto:hello@syqei.com">hello@syqei.com</a>
           <a href="https://instagram.com/syqei.studio" target="_blank" rel="noopener">Instagram</a>
         </div>
         <div>
           <h2>Trust</h2>
+          <a href="/trust.html">Trust and child safety</a>
           <a href="/privacy.html">Privacy</a>
           <a href="/studio/privacy">Student app privacy</a>
           <a href="/accessibility.html">Accessibility</a>
@@ -159,7 +164,7 @@
       </nav>
     </div>
     <p class="acknowledgement">We acknowledge the Whadjuk Noongar people, the Traditional Owners of the land on which Syqei is built and operated, and the many Traditional Custodians of Country across Western Australia. We pay our respects to Elders past, present and emerging, and recognise their continuing connection to land, waters and culture.</p>
-    <p class="copyright">&copy; 2026 Syqei</p>
+    <p class="copyright">&copy; 2026 Syqei <button type="button" class="motion-toggle" data-motion-toggle aria-pressed="true">Motion on</button></p>
   </div>
 </footer>
 <script src="/script.js"></script>
