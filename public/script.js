@@ -129,7 +129,7 @@ document.querySelectorAll("form[data-netlify]").forEach(function (form) {
         }
         var role = form.querySelector("[name=role]");
         track("generate_lead", {
-          lead_type: form.getAttribute("name") === "enquiry" ? "pilot_enquiry" : "newsletter",
+          lead_type: { enquiry: "pilot_enquiry", "propose-mission": "mission_proposal" }[form.getAttribute("name")] || "newsletter",
           source_page: window.location.pathname,
           role: role ? role.value : undefined,
         });
@@ -315,4 +315,49 @@ window.addEventListener("pageswap", function (e) {
     }
   }
   requestAnimationFrame(frame);
+})();
+
+// ===== Margin notes that write themselves in, and headings that come into focus =====
+// Both only run with motion on. With motion off the notes and headings are simply there.
+(function () {
+  if (motionOff() || !("IntersectionObserver" in window)) return;
+  var root = document.documentElement;
+  var notes = document.querySelectorAll(".note");
+  var heads = document.querySelectorAll(".band h2, .page-head ~ section h2");
+  if (notes.length) root.classList.add("notes-ready");
+  if (heads.length) root.classList.add("sharp-ready");
+
+  var watch = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        if (entry.target._notes) {
+          entry.target._notes.forEach(function (n, i) {
+            setTimeout(function () { n.classList.add("is-drawn"); }, 250 + i * 300);
+          });
+        } else {
+          entry.target.classList.add("is-sharp");
+        }
+        watch.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "0px 0px -18% 0px", threshold: 0.2 }
+  );
+  // Watch what each note is written beside, not the note itself (a note sits half outside it).
+  notes.forEach(function (n) {
+    var host = n.parentElement;
+    (host._notes = host._notes || []).push(n);
+    watch.observe(host);
+  });
+  heads.forEach(function (h) {
+    // Headings already on screen when the page opens stay as they are.
+    if (h.getBoundingClientRect().top < window.innerHeight * 0.85) h.classList.add("is-sharp");
+    else watch.observe(h);
+  });
+
+  // The footer switch turns motion off mid-visit: show everything straight away.
+  new MutationObserver(function () {
+    if (!motionOff()) return;
+    root.classList.remove("notes-ready", "sharp-ready");
+  }).observe(root, { attributes: true, attributeFilter: ["data-motion"] });
 })();

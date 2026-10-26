@@ -17,6 +17,10 @@ const pages = [
   "trust",
   "press",
   "careers",
+  "teachers",
+  "parents",
+  "roadmap",
+  "lab-notes",
   "think",
   "404",
 ];

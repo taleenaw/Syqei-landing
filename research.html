@@ -20,7 +20,7 @@
 <meta name="twitter:image" content="https://syqei.com/images/mission/scan-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Sora:wght@400;500;600&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Sora:wght@300..700&family=Unbounded:wght@300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <script>try{if(localStorage.getItem("syqei:motion")==="off")document.documentElement.dataset.motion="off"}catch(e){}</script>
 <script type="module" src="/src/lens.ts"></script>
@@ -150,7 +150,36 @@
       <li><strong>Dr Annie Jessop</strong>. Biophotonics. How the structure of living things makes colour and light.</li>
     </ul>
     <p>Mission 001 simplifies the research for a 60 minute lesson. The scene generator and detector are teaching versions built by Syqei, not the research team's models.</p>
-    <p><strong>Are you a researcher?</strong> We turn published research into missions. It takes about an hour of your time. <a href="/#request">Get in touch</a>.</p>
+    <p><strong>Are you a researcher?</strong> We turn published research into missions. It takes about an hour of your time. <a href="#propose">Propose a mission</a>.</p>
+  </div>
+</section>
+
+<section class="light band paper" id="propose">
+  <div class="wrap split" style="align-items:start">
+    <div class="prose">
+      <p class="stamp stamp--ink">For researchers</p>
+      <h2>Propose a mission.</h2>
+      <p>Is there a question in your research that a 15 year old could investigate? We turn published research into missions for secondary schools.</p>
+      <ul>
+        <li>About an hour of your time. A short interview and a fact check.</li>
+        <li>You approve anything that uses your name or your images.</li>
+        <li>We do the translation, the design and the classroom side.</li>
+      </ul>
+    </div>
+    <form name="propose-mission" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="propose-form" data-success="propose-success">
+      <input type="hidden" name="form-name" value="propose-mission">
+      <input type="hidden" name="source_page" value="">
+      <p class="hidden-field"><label>Leave this empty <input name="bot-field"></label></p>
+      <label>Your name <input type="text" name="name" autocomplete="name" required></label>
+      <label>Email <input type="email" name="email" autocomplete="email" required></label>
+      <label>University or organisation <input type="text" name="organisation" required></label>
+      <label>Your research in a sentence or two <textarea name="research" rows="3" required></textarea></label>
+      <label>What could students see, test or make? <span class="hint">Images, data, footage, a surprising result. A rough idea is fine.</span><textarea name="students" rows="3"></textarea></label>
+      <label>Link to a paper or page (optional) <input type="url" name="link" placeholder="https://"></label>
+      <button type="submit" class="btn btn-ink" data-cta="propose_submit">Send the idea</button>
+      <p class="form-error" role="alert" hidden>That didn't send. Try again, or email hello@syqei.com.</p>
+    </form>
+    <p id="propose-success" tabindex="-1" hidden class="form-success">Thank you. Taleena will be in touch.</p>
   </div>
 </section>
 
@@ -170,6 +199,8 @@
           <a href="/partner.html#pricing">Pilot pricing</a>
           <a href="/curriculum.html">Curriculum fit</a>
           <a href="/careers.html">Careers library</a>
+          <a href="/teachers.html">Teacher hub</a>
+          <a href="/roadmap.html">Track roadmap</a>
           <a href="/studio/check" data-device-check>Device check</a>
         </div>
         <div>
@@ -177,6 +208,8 @@
           <a href="/about.html">About</a>
           <a href="/stories.html">Stories</a>
           <a href="/research.html">The research</a>
+          <a href="/lab-notes.html">Lab notes</a>
+          <a href="/parents.html">For parents</a>
           <a href="/press.html">Press</a>
           <a href="mailto:hello@syqei.com">hello@syqei.com</a>
           <a href="https://instagram.com/syqei.studio" target="_blank" rel="noopener">Instagram</a>
