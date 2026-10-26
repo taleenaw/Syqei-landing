@@ -2436,3 +2436,52 @@ figcaption.spec {
     width: 104px;
   }
 }
+
+/* Founder intro. Quote-led, like the original homepage */
+.founder .founder-quote {
+  margin: 0 0 18px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+  color: var(--plum) !important;
+}
+.founder .founder-intro {
+  font-weight: 600;
+  color: var(--ink) !important;
+  max-width: 54ch;
+}
+.founder .founder-story {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 54ch;
+}
+.founder .founder-closing {
+  margin: 18px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  line-height: 1.3;
+  color: var(--violet) !important;
+}
+.founder .actions {
+  margin-top: 24px;
+}
+.founder-social {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-dark-soft);
+}
+.founder-social:hover {
+  color: var(--plum);
+}
+.founder-social span {
+  color: var(--violet);
+  margin-left: 4px;
+}
+.founder {
+  align-items: center;
+}
