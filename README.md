@@ -41,7 +41,7 @@ To add a page, create the HTML file at the root and add its name to `pages` in `
 
 ## Forms
 
-Netlify Forms picks up the `enquiry` and `newsletter` forms on deploy. Submissions show in Netlify under Forms.
+Netlify Forms picks up the `enquiry`, `parent-waitlist` and `newsletter` forms on deploy. Submissions show in Netlify under Forms.
 
 ## Analytics events (GA4)
 
@@ -53,7 +53,7 @@ Netlify Forms picks up the `enquiry` and `newsletter` forms on deploy. Submissio
 | `teacher_guide_view`, `device_check_click` | Links to the teacher guide or device check |
 | `faq_open` | An FAQ is opened. `topic` says which |
 | `form_start` | Someone starts filling in a form |
-| `generate_lead` | A form is sent. `lead_type` is `pilot_enquiry` or `newsletter` |
+| `generate_lead` | A form is sent. `lead_type` is `pilot_enquiry`, `parent_waitlist` or `newsletter` |
 | `email_click` | An email link is clicked |
 
 Never send names, emails or form text to analytics.

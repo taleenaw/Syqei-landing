@@ -67,7 +67,8 @@
   <div class="wrap">
     <p class="stamp">For parents and carers</p>
     <h1 class="cv" data-label="curious 98%">What your teenager did with Syqei.</h1>
-    <p class="lead">Syqei makes technology missions for secondary schools. In one lesson, students use real computer vision on a real research question, then see the careers that use it.</p>
+    <p class="lead">Syqei makes technology missions for secondary schools. In one lesson, students use real computer vision on a real research question, then see the careers that use it. From 2027 you can also get every mission at home.</p>
+    <div class="actions"><a href="#waitlist" class="btn btn-lime" data-cta="parents_hero_waitlist">Join the parent waitlist</a></div>
   </div>
 </section>
 
@@ -98,6 +99,52 @@
       <h2>Try it at home.</h2>
       <p>The full mission works in any modern browser. Ask your teenager to show you how they beat the computer, or how the computer beat them.</p>
       <div class="actions"><a href="/studio/project/illusion-engine/play" class="btn btn-ink" data-cta="parents_play">Play Mission 001</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="white band" id="waitlist" aria-labelledby="home-title" data-view="pricing">
+  <div class="wrap split" style="align-items:start">
+    <div>
+      <p class="stamp stamp--ink">Opening for 2027</p>
+      <h2 id="home-title">Syqei at home.</h2>
+      <p class="lead" style="margin-top:24px">Every mission released in 2027, for one student, for A$49 for the whole year. Your teenager gets a home link, and you get a short guide for each mission.</p>
+      <ul class="ticks">
+        <li>No student account. We only need your email.</li>
+        <li>Runs in any modern browser on a laptop. Nothing to install.</li>
+        <li>No ads and no tracking inside the student app.</li>
+        <li>Mission 001 now, and at least two new missions during 2027.</li>
+      </ul>
+    </div>
+    <div>
+      <form name="parent-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form form--light" data-success="waitlist-success">
+        <input type="hidden" name="form-name" value="parent-waitlist">
+        <input type="hidden" name="source_page" value="">
+        <p class="hidden-field"><label>Leave this empty <input name="bot-field"></label></p>
+        <div class="field">
+          <label for="waitlist-email">Your email</label>
+          <input id="waitlist-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="waitlist-year">Your teenager's year level (optional)</label>
+          <select id="waitlist-year" name="year_level">
+            <option value="" selected>Choose one</option>
+            <option>Year 7</option>
+            <option>Year 8</option>
+            <option>Year 9</option>
+            <option>Year 10</option>
+            <option>Year 11</option>
+            <option>Year 12</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-ink">Join the waitlist</button>
+        <p class="form-error" role="alert" hidden>That didn't send. Check your connection and try again, or email hello@syqei.com.</p>
+        <p class="form-note">We only use your email to tell you when home access opens. See our <a href="/privacy.html">privacy policy</a>.</p>
+      </form>
+      <div class="form-success" id="waitlist-success" tabindex="-1" hidden>
+        <p class="form-success-title">You're on the waitlist.</p>
+        <p>We'll email you when home access opens for 2027.</p>
+      </div>
     </div>
   </div>
 </section>

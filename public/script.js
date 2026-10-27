@@ -129,7 +129,7 @@ document.querySelectorAll("form[data-netlify]").forEach(function (form) {
         }
         var role = form.querySelector("[name=role]");
         track("generate_lead", {
-          lead_type: { enquiry: "pilot_enquiry", "propose-mission": "mission_proposal" }[form.getAttribute("name")] || "newsletter",
+          lead_type: { enquiry: "pilot_enquiry", "propose-mission": "mission_proposal", "parent-waitlist": "parent_waitlist" }[form.getAttribute("name")] || "newsletter",
           source_page: window.location.pathname,
           role: role ? role.value : undefined,
         });
