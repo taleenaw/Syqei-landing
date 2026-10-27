@@ -1489,6 +1489,19 @@ p {
   color: var(--text-dark-soft);
   max-width: 22em;
 }
+.proof-stats--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media (max-width: 1000px) and (min-width: 761px) {
+  .proof-stats--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 24px;
+  }
+  .proof-stats--4 > div:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
 .proof .text-link {
   font-weight: 600;
   color: var(--plum);
@@ -3416,58 +3429,6 @@ main {
   }
 }
 
-/* Pilot insights. One number and two voices. */
-.insights-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr;
-  gap: 0;
-  border-top: 2px solid var(--ink);
-}
-.insights-grid > * {
-  margin: 0;
-  padding: 28px 28px 0 0;
-}
-.insights-grid > * + * {
-  padding-left: 28px;
-  border-left: 1px solid var(--line-light);
-}
-.insight-num {
-  display: inline-block;
-  margin: 8px 0 18px;
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: clamp(2.4rem, 4vw, 3.4rem);
-  line-height: 1;
-  color: var(--plum);
-}
-.insight-stat p:not(.insight-num) {
-  font-size: 0.98rem;
-}
-.insight-quote p {
-  margin: 0 0 16px;
-  font-family: var(--serif);
-  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
-  line-height: 1.35;
-  color: var(--text-dark);
-}
-.insight-quote cite {
-  font-style: normal;
-  font-size: 0.9rem;
-  color: var(--text-dark-soft);
-}
-@media (max-width: 900px) {
-  .insights-grid {
-    grid-template-columns: 1fr;
-  }
-  .insights-grid > *,
-  .insights-grid > * + * {
-    padding: 24px 0;
-    border-left: 0;
-  }
-  .insights-grid > * + * {
-    border-top: 1px solid var(--line-light);
-  }
-}
 
 /* Keep the two hero buttons on one line on mid-size screens. */
 @media (min-width: 861px) and (max-width: 1180px) {
