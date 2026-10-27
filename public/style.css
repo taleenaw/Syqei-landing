@@ -3439,3 +3439,25 @@ main {
     padding: 0 20px;
   }
 }
+
+/* Classroom photos. */
+.quote-snap {
+  justify-self: center;
+  max-width: 420px;
+}
+.wide-photo {
+  margin: clamp(36px, 5vw, 56px) 0 0;
+}
+.wide-photo img {
+  display: block;
+  width: 100%;
+  max-height: 560px;
+  object-fit: cover;
+  object-position: center 88%;
+  border-radius: 18px;
+}
+.wide-photo figcaption {
+  margin-top: 12px;
+  font-size: 0.92rem;
+  color: var(--text-dark-soft);
+}
