@@ -266,6 +266,7 @@ p {
   gap: 28px;
 }
 .nav a {
+  white-space: nowrap;
   font-size: 0.95rem;
   font-weight: 500;
   text-decoration: none;
@@ -316,6 +317,11 @@ p {
 }
 .menu-panel a:hover {
   background: rgba(216, 209, 231, 0.08);
+}
+@media (max-width: 1040px) {
+  .nav {
+    gap: 20px;
+  }
 }
 @media (max-width: 860px) {
   .nav {
@@ -3199,3 +3205,70 @@ body {
 .offer .price-eg { margin: -10px 0 18px; font-size: 0.9rem; color: var(--text-light-soft); }
 .offer-note { margin: 22px 0 0; color: var(--text-light); font-weight: 500; }
 .offer-note::before { content: "✓ "; color: var(--lime); }
+
+/* How it works. One mission at a glance, as a two column list. */
+.glance {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(28px, 4vw, 56px);
+  border-top: 2px solid var(--ink);
+}
+.glance > div {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line-light);
+}
+.glance dt {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--violet);
+}
+.glance dd {
+  margin: 0;
+  font-size: 0.98rem;
+}
+@media (max-width: 900px) {
+  .glance {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 520px) {
+  .glance > div {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+/* Five part lesson. */
+.steps--5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+@media (max-width: 1100px) {
+  .steps--5 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 40px;
+  }
+  .steps--5 li:nth-child(4) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .steps--5 li:nth-child(3) {
+    padding-left: 28px;
+    border-left: 1px solid var(--line-light);
+  }
+}
+@media (max-width: 700px) {
+  .steps--5 {
+    grid-template-columns: 1fr;
+  }
+  .steps--5 li,
+  .steps--5 li + li,
+  .steps--5 li:nth-child(3) {
+    padding: 24px 0 0;
+    border-left: 0;
+  }
+}

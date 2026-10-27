@@ -15,6 +15,7 @@ const pages = [
   "research",
   "curriculum",
   "trust",
+  "how-it-works",
   "press",
   "careers",
   "teachers",
