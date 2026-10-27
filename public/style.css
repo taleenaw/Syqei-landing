@@ -3365,19 +3365,6 @@ main {
   color: var(--text-dark-soft);
 }
 
-/* Hero entry points for teachers, students and parents. */
-.hero-paths {
-  margin: 22px 0 0;
-  font-size: 0.95rem;
-  color: var(--text-light-soft);
-}
-.hero-paths a {
-  color: var(--text-light);
-  text-underline-offset: 3px;
-}
-.hero-paths a:hover {
-  color: var(--lime);
-}
 
 /* Three stages, each with a real screen. */
 .stages {
@@ -3479,5 +3466,15 @@ main {
   }
   .insights-grid > * + * {
     border-top: 1px solid var(--line-light);
+  }
+}
+
+/* Keep the two hero buttons on one line on mid-size screens. */
+@media (min-width: 861px) and (max-width: 1180px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  }
+  .hero .actions .btn {
+    padding: 0 20px;
   }
 }
