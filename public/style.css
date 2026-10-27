@@ -3364,3 +3364,120 @@ main {
 .form--light .form-note {
   color: var(--text-dark-soft);
 }
+
+/* Hero entry points for teachers, students and parents. */
+.hero-paths {
+  margin: 22px 0 0;
+  font-size: 0.95rem;
+  color: var(--text-light-soft);
+}
+.hero-paths a {
+  color: var(--text-light);
+  text-underline-offset: 3px;
+}
+.hero-paths a:hover {
+  color: var(--lime);
+}
+
+/* Three stages, each with a real screen. */
+.stages {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 40px);
+}
+.stage-shot {
+  margin: 0 0 22px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--line-light);
+  background: var(--ink);
+}
+.stage-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.stage-no {
+  margin: 0 0 6px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--violet);
+}
+.stages h3 {
+  margin-bottom: 8px;
+}
+.stage-line {
+  margin: 0 0 10px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.stage-eg {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-dark-soft);
+}
+@media (max-width: 900px) {
+  .stages {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+}
+
+/* Pilot insights. One number and two voices. */
+.insights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 0;
+  border-top: 2px solid var(--ink);
+}
+.insights-grid > * {
+  margin: 0;
+  padding: 28px 28px 0 0;
+}
+.insights-grid > * + * {
+  padding-left: 28px;
+  border-left: 1px solid var(--line-light);
+}
+.insight-num {
+  display: inline-block;
+  margin: 8px 0 18px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1;
+  color: var(--plum);
+}
+.insight-stat p:not(.insight-num) {
+  font-size: 0.98rem;
+}
+.insight-quote p {
+  margin: 0 0 16px;
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  line-height: 1.35;
+  color: var(--text-dark);
+}
+.insight-quote cite {
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--text-dark-soft);
+}
+@media (max-width: 900px) {
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+  .insights-grid > *,
+  .insights-grid > * + * {
+    padding: 24px 0;
+    border-left: 0;
+  }
+  .insights-grid > * + * {
+    border-top: 1px solid var(--line-light);
+  }
+}
