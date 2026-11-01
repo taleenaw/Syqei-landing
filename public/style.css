@@ -2107,72 +2107,16 @@ figcaption.spec {
 }
 
 /* Handwritten-feel margin notes, with a drawn arrow */
-.note {
-  position: absolute;
-  margin: 0;
-  font-family: var(--serif);
-  font-size: 1.15rem;
-  line-height: 1.2;
-  color: var(--lilac) !important;
-  white-space: nowrap;
-  pointer-events: none;
-}
-.note::after {
-  content: "";
-  position: absolute;
-  width: 54px;
-  height: 34px;
-  background: currentColor;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 54 34' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 4c14 2 30 6 44 24'/%3E%3Cpath d='M38 26l9 2 1-9'/%3E%3C/svg%3E") center / contain no-repeat;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 54 34' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 4c14 2 30 6 44 24'/%3E%3Cpath d='M38 26l9 2 1-9'/%3E%3C/svg%3E") center / contain no-repeat;
-}
 .preview {
   position: relative;
-}
-.note--hero {
-  right: 6px;
-  bottom: -52px;
-  transform: rotate(-3deg);
-}
-.note--hero::after {
-  right: 100%;
-  top: -26px;
-  margin-right: 4px;
-  transform: scale(-1, -1) rotate(10deg);
 }
 .gallery figure {
   position: relative;
 }
-.note--wing {
-  right: 18px;
-  top: 18px;
-  transform: rotate(-3deg);
-  color: var(--lime) !important;
-}
-.note--wing::after {
-  right: 100%;
-  top: 16px;
-  margin-right: 2px;
-  transform: scale(-1, 1) rotate(-8deg);
-}
 .founder-media {
   position: relative;
 }
-.note--founder {
-  right: -18px;
-  top: -44px;
-  transform: rotate(5deg);
-  color: var(--plum) !important;
-}
-.note--founder::after {
-  left: -62px;
-  top: 20px;
-  transform: scaleX(-1) rotate(10deg);
-}
 @media (max-width: 1000px) {
-  .note {
-    display: none;
-  }
 }
 
 /* ===== Breaking the grid ===== */
@@ -2388,18 +2332,6 @@ figcaption.spec {
 .snaps .snap--b {
   width: min(250px, 34%);
   margin-top: 48px;
-}
-.note--snaps {
-  left: min(72%, 680px);
-  top: 46%;
-  transform: rotate(-4deg);
-  color: var(--plum) !important;
-}
-.note--snaps::after {
-  right: 100%;
-  top: -12px;
-  margin-right: 6px;
-  transform: scaleX(-1) rotate(-12deg);
 }
 .snaps--prose {
   justify-content: flex-start;
