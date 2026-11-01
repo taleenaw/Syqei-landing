@@ -2106,7 +2106,6 @@ figcaption.spec {
   vertical-align: 1px;
 }
 
-/* Handwritten-feel margin notes, with a drawn arrow */
 .preview {
   position: relative;
 }
@@ -2115,8 +2114,6 @@ figcaption.spec {
 }
 .founder-media {
   position: relative;
-}
-@media (max-width: 1000px) {
 }
 
 /* ===== Breaking the grid ===== */
@@ -3032,22 +3029,6 @@ body {
 .career-next { display: grid; gap: 12px; color: var(--text-light-soft); }
 @media (max-width: 760px) { .career-grid { grid-template-columns: 1fr; } }
 .career-meet .snap { max-width: 340px; justify-self: center; }
-
-/* ===== Margin notes write themselves in (motion on only) ===== */
-.notes-ready .note {
-  clip-path: inset(-90px 100% -90px -90px);
-  transition: clip-path 1.1s cubic-bezier(0.55, 0.1, 0.3, 1);
-}
-.notes-ready .note.is-drawn {
-  clip-path: inset(-90px -90px -90px -90px);
-}
-.notes-ready .note::after {
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 0.55s ease-out 1s;
-}
-.notes-ready .note.is-drawn::after {
-  clip-path: inset(0 0 0 0);
-}
 
 /* ===== Headings come into focus (motion on only) ===== */
 .sharp-ready .band h2,
