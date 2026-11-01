@@ -3441,22 +3441,6 @@ main {
 }
 
 /* Classroom photos. */
-.wide-photo {
-  margin: clamp(36px, 5vw, 56px) 0 0;
-}
-.wide-photo img {
-  display: block;
-  width: 100%;
-  max-height: 560px;
-  object-fit: cover;
-  object-position: center 88%;
-  border-radius: 18px;
-}
-.wide-photo figcaption {
-  margin-top: 12px;
-  font-size: 0.92rem;
-  color: var(--text-dark-soft);
-}
 
 /* Photo band. A half page split. The photo fills the right side to the edge of the screen,
    the words sit on dark beside it. On phones the photo goes on top. */
@@ -3504,5 +3488,41 @@ main {
   }
   .photo-band-copy {
     padding: 32px var(--gutter) 44px;
+  }
+}
+
+/* Cinematic photo band. Full width, no overlays. A quiet caption line underneath. */
+.cine {
+  margin: 0;
+  background: var(--ink);
+}
+.cine img {
+  display: block;
+  width: 100%;
+  height: clamp(340px, 62vw, 760px);
+  max-height: 82vh;
+  object-fit: cover;
+}
+.cine-cap {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 16px;
+  padding-bottom: 18px;
+  font-size: 0.85rem;
+  color: var(--text-light-soft);
+}
+.cine-cap span:first-child {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--text-light);
+}
+@media (max-width: 640px) {
+  .cine img {
+    height: 72vw;
+  }
+  .cine-cap {
+    flex-direction: column;
+    gap: 4px;
   }
 }
