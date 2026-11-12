@@ -3506,3 +3506,24 @@ main {
     padding: 32px var(--gutter) 44px;
   }
 }
+
+/* Discovery-platform homepage: compact editorial experiment cards. */
+.discovery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2.5rem 0 1.5rem;
+}
+.discovery-grid article {
+  background: #fff;
+  border: 1px solid var(--line-light);
+  border-radius: 14px;
+  padding: clamp(1.2rem, 2vw, 2rem);
+  min-width: 0;
+}
+.discovery-grid h3 { margin: .8rem 0; color: var(--ink); font-family: var(--display); font-size: clamp(1rem, 1.35vw, 1.3rem); line-height: 1.4; }
+.discovery-grid p { color: var(--text-dark-soft); line-height: 1.65; font-size: .93rem; }
+.discovery-number { color: var(--plum); font-size: .73rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.discovery-caveat { max-width: 75ch; margin: 0 0 1.5rem; font-size: .87rem; color: var(--text-dark-soft); }
+@media (max-width: 960px) { .discovery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .discovery-grid { grid-template-columns: 1fr; } }
