@@ -13,16 +13,8 @@ const pages = [
   "privacy",
   "accessibility",
   "research",
-  "curriculum",
   "trust",
-  "how-it-works",
-  "press",
-  "careers",
-  "teachers",
   "parents",
-  "roadmap",
-  "lab-notes",
-  "think",
   "404",
 ];
 
