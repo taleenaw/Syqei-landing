@@ -91,7 +91,7 @@ document.querySelectorAll("[data-ready]").forEach(function (form) {
     });
     out.textContent =
       n === boxes.length
-        ? "You're ready to run a mission tomorrow."
+        ? "You're ready to run Syqei tomorrow."
         : n + " of " + boxes.length + " ticked.";
   });
 });
