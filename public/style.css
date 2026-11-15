@@ -3810,3 +3810,65 @@ main {
 .demo-copy .lead { margin-top: 18px; }
 .specimen h3 { font-family: var(--body); }
 .about-hero h1 { font-size: clamp(2rem, 3.6vw, 3.1rem); max-width: 16em; }
+
+/* Home hero, classroom photo banner (November 2026) */
+.hero-photo {
+  position: relative;
+  min-height: clamp(560px, 88vh, 840px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero-photo-img,
+.hero-photo-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero-photo-img { z-index: -2; }
+.hero-photo-img img { object-fit: cover; object-position: 70% 30%; }
+.hero-photo-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(20, 3, 42, 0.94) 0%, rgba(20, 3, 42, 0.82) 30%, rgba(20, 3, 42, 0.35) 55%, rgba(20, 3, 42, 0) 75%),
+    linear-gradient(0deg, rgba(20, 3, 42, 0.7) 0%, rgba(20, 3, 42, 0) 40%);
+}
+.hero-photo-content {
+  width: 100%;
+  padding-top: 120px;
+  padding-bottom: clamp(48px, 7vw, 88px);
+}
+.hero-photo-content > * { max-width: 34rem; }
+.hero-photo-content h1 {
+  margin: 0 0 20px;
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+.hero-photo-content .lead { color: rgba(255, 255, 255, 0.86); }
+.hero-photo .hero-chips li { border-color: rgba(255, 255, 255, 0.35); color: var(--white); background: rgba(20, 3, 42, 0.35); }
+.hero-photo .actions { margin-top: 28px; }
+
+@media (max-width: 760px) {
+  .hero-photo { display: block; min-height: 0; }
+  .hero-photo-img,
+  .hero-photo-img img { position: static; height: auto; }
+  .hero-photo-img img { aspect-ratio: 4 / 3; object-position: 62% 40%; }
+  .hero-photo-shade { inset: auto 0 auto 0; top: 0; height: calc(100vw * 0.75); background: linear-gradient(0deg, rgba(20, 3, 42, 1) 0%, rgba(20, 3, 42, 0) 35%); }
+  .hero-photo-content { padding-top: 8px; padding-bottom: 48px; }
+}
+@media (min-width: 761px) {
+  .hero-photo-img { left: 30%; width: 70%; }
+  .hero-photo-img img { object-position: 42% 35%; }
+  .hero-photo-shade {
+    background:
+      linear-gradient(90deg, var(--ink) 0%, var(--ink) 30%, rgba(20, 3, 42, 0.55) 40%, rgba(20, 3, 42, 0) 52%),
+      linear-gradient(0deg, rgba(20, 3, 42, 0.55) 0%, rgba(20, 3, 42, 0) 30%);
+  }
+  .hero-photo-content > * { max-width: 30rem; }
+}
