@@ -4233,3 +4233,5 @@ footer::after { background-image: url(/images/brand/symbol-lilac.svg); opacity: 
 .quiz .quiz-result-line, .quiz .quiz-jobs span { color: var(--text-dark-soft) !important; }
 .quiz::before { opacity: 0.5; }
 .career-list .career-more-title { color: var(--plum) !important; }
+.specimen-crop { aspect-ratio: 4 / 3; overflow: hidden; }
+.specimen-crop img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
