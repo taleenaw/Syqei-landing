@@ -4416,3 +4416,13 @@ body:has(.quiz-dialog[open]) { overflow: hidden; }
 .quiz-dialog[open] { animation: quiz-pop 0.22s ease-out; }
 @keyframes quiz-pop { from { opacity: 0; transform: translateY(12px) scale(0.98); } }
 @media (prefers-reduced-motion: reduce) { .quiz-dialog[open] { animation: none; } }
+
+/* About hero, split in half (November 2026) */
+@media (min-width: 761px) {
+  .hero-photo--about { background: var(--ink); min-height: clamp(480px, 70vh, 680px); align-items: center; }
+  .hero-photo--about .hero-photo-img { left: 50%; width: 50%; }
+  .hero-photo--about .hero-photo-img img { object-position: 74% 30%; }
+  .hero-photo--about .hero-photo-shade { display: none; }
+  .hero-photo--about .hero-photo-content { padding-top: 64px; padding-bottom: 64px; }
+  .hero-photo--about .hero-photo-content > * { max-width: min(38rem, calc(50% - 48px)); }
+}
