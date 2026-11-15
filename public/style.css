@@ -4235,3 +4235,5 @@ footer::after { background-image: url(/images/brand/symbol-lilac.svg); opacity: 
 .career-list .career-more-title { color: var(--plum) !important; }
 .specimen-crop { aspect-ratio: 4 / 3; overflow: hidden; }
 .specimen-crop img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.career-item summary { padding-top: 14px; padding-bottom: 14px; }
+.career-more { padding-top: 16px; }

@@ -429,21 +429,21 @@ window.addEventListener("pageswap", function (e) {
   var results = {
     builder: { title: "You're a builder", line: "You like making things that actually work.", jobs: [
       ["Computer vision engineer", "Builds systems that let phones, cars and drones understand images.", "career-vision"],
-      ["Robotics engineer", "Designs robots for farms, mines, hospitals and space.", "career-robotics"],
+      ["Robotics engineer", "Designs robots for farms, mines, hospitals and space."],
       ["Mechatronics engineer", "Mixes electronics, mechanics and code to build smart machines."],
       ["Drone engineer", "Builds drones that map land, check crops and help in rescues."] ] },
     creator: { title: "You're a creator", line: "You like making things people see, feel and use.", jobs: [
       ["Technical artist", "Uses light, shadow and code to make flat screens look 3D.", "career-artist"],
       ["Game designer", "Invents the rules, worlds and challenges that make games fun.", "career-game"],
-      ["UX designer", "Makes apps and websites easy and enjoyable to use.", "career-ux"],
+      ["UX designer", "Makes apps and websites easy and enjoyable to use."],
       ["3D animator", "Brings characters and worlds to life for games, film and ads."] ] },
     explorer: { title: "You're an explorer", line: "You want to understand the real world, outside the screen.", jobs: [
       ["Behavioural ecologist", "Studies how animals survive, hide and fool predators.", "career-ecologist"],
-      ["Remote sensing scientist", "Uses satellite and drone images to track forests, oceans and cities.", "career-remote"],
+      ["Remote sensing scientist", "Uses satellite and drone images to track forests, oceans and cities."],
       ["Environmental data scientist", "Turns data about the planet into answers people can act on."],
       ["Conservation technologist", "Uses cameras, sensors and AI to protect wildlife."] ] },
     solver: { title: "You're a solver", line: "You like a hard question and a pattern nobody else has spotted.", jobs: [
-      ["Data scientist", "Finds the story hiding in huge amounts of data.", "career-data"],
+      ["Data scientist", "Finds the story hiding in huge amounts of data."],
       ["Machine learning engineer", "Teaches computers to learn from examples."],
       ["Biophotonics researcher", "Works out how living things make colour and light.", "career-biophotonics"],
       ["Bioinformatician", "Uses code to read DNA and find patterns in living things."] ] },
