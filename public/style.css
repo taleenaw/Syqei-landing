@@ -3947,3 +3947,48 @@ main {
 @media (min-width: 761px) {
   .hero-photo-content h1 { max-width: 34rem; font-size: clamp(2.6rem, 4.3vw, 3.9rem); }
 }
+
+/* Butterfly mark as backdrop and accent (November 2026) */
+.has-psyche { position: relative; overflow: hidden; isolation: isolate; }
+.has-psyche > .wrap { position: relative; z-index: 1; }
+.psyche {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  width: clamp(260px, 32vw, 460px);
+  aspect-ratio: 113.74 / 192.36;
+  background: center / contain no-repeat;
+}
+.psyche--lime { background-image: url(/images/brand/symbol.svg); opacity: 0.14; }
+.psyche--plum { background-image: url(/images/brand/symbol-plum.svg); opacity: 0.08; }
+.psyche--lilac { background-image: url(/images/brand/symbol-lilac.svg); opacity: 0.1; }
+.psyche--right { right: -4%; top: 50%; transform: translateY(-50%) rotate(14deg); }
+.psyche--right-low { right: 2%; bottom: -12%; transform: rotate(-10deg); }
+.psyche--left { left: -3%; top: 50%; transform: translateY(-50%) rotate(-18deg); }
+.psyche--top-right { right: 6%; top: 28px; transform: rotate(8deg); }
+.psyche--small { width: clamp(90px, 9vw, 140px); opacity: 0.18; }
+
+.quote-psyche { display: block; width: 28px; height: auto; margin-bottom: 14px; }
+
+footer { position: relative; overflow: hidden; isolation: isolate; }
+footer::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -60px;
+  bottom: -80px;
+  width: 340px;
+  aspect-ratio: 113.74 / 192.36;
+  background: url(/images/brand/symbol.svg) center / contain no-repeat;
+  opacity: 0.08;
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+@media (max-width: 760px) {
+  .psyche--right, .psyche--left { width: 220px; opacity: 0.1; }
+  .psyche--top-right { display: none; }
+  footer::after { width: 220px; }
+}
+.has-psyche .psyche--lilac { opacity: 0.12; }
+#parents .psyche { opacity: 0.05; right: -7%; bottom: -26%; }
+footer::after { background-image: url(/images/brand/symbol-lilac.svg); opacity: 0.07; }
