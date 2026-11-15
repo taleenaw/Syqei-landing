@@ -80,22 +80,6 @@ document.querySelectorAll("[data-try]").forEach(function (el) {
   });
 });
 
-// ===== Could you run this tomorrow =====
-document.querySelectorAll("[data-ready]").forEach(function (form) {
-  var boxes = form.querySelectorAll("input[type=checkbox]");
-  var out = form.querySelector("[data-ready-result]");
-  form.addEventListener("change", function () {
-    var n = 0;
-    boxes.forEach(function (b) {
-      if (b.checked) n++;
-    });
-    out.textContent =
-      n === boxes.length
-        ? "You're ready to run Syqei tomorrow."
-        : n + " of " + boxes.length + " ticked.";
-  });
-});
-
 // ===== Netlify forms =====
 // Posts in the background so people see a success message without leaving the page.
 document.querySelectorAll("form[data-netlify]").forEach(function (form) {
