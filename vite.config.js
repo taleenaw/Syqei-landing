@@ -6,7 +6,6 @@ import { defineConfig } from "vite";
 const pages = [
   "index",
   "partner",
-  "projects",
   "about",
   "stories",
   "stories/first-pilot",

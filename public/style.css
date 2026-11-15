@@ -4026,3 +4026,4 @@ footer::after { background-image: url(/images/brand/symbol-lilac.svg); opacity: 
   .loop-shots { grid-template-columns: 1fr; }
   .loop-shots figure:last-child img { max-width: 360px; }
 }
+.career-kind { margin: 0 0 12px !important; font-size: 0.85rem; font-weight: 600; color: var(--plum) !important; }
