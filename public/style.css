@@ -4237,3 +4237,20 @@ footer::after { background-image: url(/images/brand/symbol-lilac.svg); opacity: 
 .specimen-crop img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .career-item summary { padding-top: 14px; padding-bottom: 14px; }
 .career-more { padding-top: 16px; }
+
+/* About hero, full-width photo (November 2026) */
+.hero-photo--about { min-height: clamp(520px, 78vh, 760px); }
+.hero-photo--about .hero-photo-content > * { max-width: 38rem; }
+.hero-photo--about h1 { font-size: clamp(2.2rem, 4.2vw, 3.6rem); }
+@media (min-width: 761px) {
+  .hero-photo--about .hero-photo-img { left: 0; width: 100%; }
+  .hero-photo--about .hero-photo-img img { object-position: 60% 30%; }
+  .hero-photo--about .hero-photo-shade {
+    background:
+      linear-gradient(90deg, rgba(20, 3, 42, 0.95) 0%, rgba(20, 3, 42, 0.85) 32%, rgba(20, 3, 42, 0.35) 52%, rgba(20, 3, 42, 0) 64%),
+      linear-gradient(0deg, rgba(20, 3, 42, 0.6) 0%, rgba(20, 3, 42, 0) 35%);
+  }
+}
+@media (max-width: 760px) {
+  .hero-photo--about .hero-photo-img img { object-position: 72% 30%; }
+}
