@@ -3944,3 +3944,6 @@ main {
   opacity: 1;
 }
 .show-grid h2 { margin-bottom: 16px; }
+@media (min-width: 761px) {
+  .hero-photo-content h1 { max-width: 34rem; font-size: clamp(2.6rem, 4.3vw, 3.9rem); }
+}
