@@ -3872,3 +3872,28 @@ main {
   }
   .hero-photo-content > * { max-width: 30rem; }
 }
+
+/* No pill tags. Plain text labels instead (November 2026) */
+.hero-facts {
+  margin: 22px 0 0;
+  padding-left: 14px;
+  border-left: 2px solid var(--lime);
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--white) !important;
+}
+.specimen-status--future {
+  align-self: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  font-weight: 600;
+  color: var(--plum);
+}
+.story-tag {
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+}
