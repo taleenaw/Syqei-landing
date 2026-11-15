@@ -429,26 +429,26 @@ window.addEventListener("pageswap", function (e) {
   var results = {
     builder: { title: "You're a builder", line: "You like making things that actually work.", jobs: [
       ["Computer vision engineer", "Builds systems that let phones, cars and drones understand images.", "career-vision"],
-      ["Robotics engineer", "Designs robots for farms, mines, hospitals and space."],
+      ["Robotics engineer", "Designs robots for farms, mines, hospitals and space.", "career-robotics"],
       ["Mechatronics engineer", "Mixes electronics, mechanics and code to build smart machines."],
       ["Drone engineer", "Builds drones that map land, check crops and help in rescues."] ] },
     creator: { title: "You're a creator", line: "You like making things people see, feel and use.", jobs: [
       ["Technical artist", "Uses light, shadow and code to make flat screens look 3D.", "career-artist"],
-      ["Game designer", "Invents the rules, worlds and challenges that make games fun."],
-      ["UX designer", "Makes apps and websites easy and enjoyable to use."],
+      ["Game designer", "Invents the rules, worlds and challenges that make games fun.", "career-game"],
+      ["UX designer", "Makes apps and websites easy and enjoyable to use.", "career-ux"],
       ["3D animator", "Brings characters and worlds to life for games, film and ads."] ] },
     explorer: { title: "You're an explorer", line: "You want to understand the real world, outside the screen.", jobs: [
       ["Behavioural ecologist", "Studies how animals survive, hide and fool predators.", "career-ecologist"],
-      ["Remote sensing scientist", "Uses satellite and drone images to track forests, oceans and cities."],
+      ["Remote sensing scientist", "Uses satellite and drone images to track forests, oceans and cities.", "career-remote"],
       ["Environmental data scientist", "Turns data about the planet into answers people can act on."],
       ["Conservation technologist", "Uses cameras, sensors and AI to protect wildlife."] ] },
     solver: { title: "You're a solver", line: "You like a hard question and a pattern nobody else has spotted.", jobs: [
-      ["Data scientist", "Finds the story hiding in huge amounts of data."],
+      ["Data scientist", "Finds the story hiding in huge amounts of data.", "career-data"],
       ["Machine learning engineer", "Teaches computers to learn from examples."],
       ["Biophotonics researcher", "Works out how living things make colour and light.", "career-biophotonics"],
       ["Bioinformatician", "Uses code to read DNA and find patterns in living things."] ] },
     protector: { title: "You're a protector", line: "You notice when something's off, and you want to fix it.", jobs: [
-      ["Cybersecurity analyst", "Keeps people, schools and companies safe from online attacks."],
+      ["Cybersecurity analyst", "Keeps people, schools and companies safe from online attacks.", "career-cyber"],
       ["Penetration tester", "An ethical hacker, paid to find weak spots before criminals do."],
       ["Digital forensics investigator", "Follows digital clues to work out what happened."],
       ["Privacy engineer", "Builds apps so people's personal information stays safe."] ] },
@@ -456,6 +456,16 @@ window.addEventListener("pageswap", function (e) {
   var order = ["builder", "creator", "explorer", "solver", "protector"];
   var step = 0;
   var score = {};
+
+  var dial = box.querySelector("[data-quiz-dial]");
+  var dialText = box.querySelector("[data-quiz-dial-text]");
+  var ring = 2 * Math.PI * 34;
+  if (dial) dial.style.strokeDasharray = ring;
+  function setDial(done, label) {
+    if (dial) dial.style.strokeDashoffset = ring * (1 - done / questions.length);
+    if (dialText) dialText.textContent = label;
+    box.classList.toggle("is-done", done === questions.length);
+  }
 
   function el(tag, cls, text) {
     var e = document.createElement(tag);
@@ -467,16 +477,14 @@ window.addEventListener("pageswap", function (e) {
   function showQuestion() {
     var item = questions[step];
     stage.innerHTML = "";
-    var count = el("p", "quiz-count", "Question " + (step + 1) + " of " + questions.length);
-    var bar = el("div", "quiz-bar");
-    var fill = el("span");
-    fill.style.width = (step / questions.length) * 100 + "%";
-    bar.appendChild(fill);
+    setDial(step, (step + 1) + "/" + questions.length);
     var h = el("p", "quiz-q", item.q);
     h.tabIndex = -1;
     var list = el("div", "quiz-options");
     item.a.forEach(function (opt) {
-      var b = el("button", "quiz-option", opt[0]);
+      var b = el("button", "quiz-option");
+      b.appendChild(el("span", "quiz-option-mark", "ABCDE".charAt(item.a.indexOf(opt))));
+      b.appendChild(el("span", "", opt[0]));
       b.type = "button";
       b.addEventListener("click", function () {
         score[opt[1]] = (score[opt[1]] || 0) + 1;
@@ -486,7 +494,7 @@ window.addEventListener("pageswap", function (e) {
       });
       list.appendChild(b);
     });
-    stage.append(count, bar, h, list);
+    stage.append(h, list);
     if (step > 0) h.focus();
   }
 
@@ -516,6 +524,7 @@ window.addEventListener("pageswap", function (e) {
     var top = ranked();
     var r = results[top[0]];
     var second = results[top[1]];
+    setDial(questions.length, "Done");
     stage.innerHTML = "";
     var h = el("p", "quiz-result-title", r.title);
     h.tabIndex = -1;
