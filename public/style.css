@@ -4378,3 +4378,41 @@ body:has(.quiz-dialog[open]) { overflow: hidden; }
 @media (max-width: 760px) {
   .psyche-about { width: 130vw; transform: translateX(-55%) rotate(-14deg); opacity: 0.1; }
 }
+
+/* Press as dropdowns (November 2026) */
+.press-list { max-width: 900px; }
+.press-list .kit { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.press-list .copyable { margin: 0; }
+@media (max-width: 640px) { .press-list .kit { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Quiz as a pop-up over the page (November 2026) */
+.quiz-dialog {
+  width: min(720px, calc(100vw - 32px));
+  height: fit-content;
+  max-height: min(860px, calc(100dvh - 48px));
+  margin: auto;
+  border: 1.5px solid var(--ink);
+  border-radius: 24px;
+  background: var(--mist);
+  box-shadow: 0 30px 80px rgba(20, 3, 42, 0.35);
+  overflow-x: hidden;
+}
+.quiz-dialog::backdrop { background: rgba(20, 3, 42, 0.55); backdrop-filter: blur(4px); }
+.quiz-dialog::before { display: none; }
+.quiz-dialog .quiz { max-width: none; padding: clamp(22px, 4vw, 36px); padding-bottom: clamp(26px, 4vw, 40px); }
+.quiz-dialog .quiz::before {
+  display: block;
+  top: -140px;
+  right: -140px;
+  width: 340px;
+  height: 340px;
+  opacity: 0.5;
+}
+.quiz-dialog .quiz-head { margin-bottom: 26px; }
+.quiz-dialog .quiz .quiz-q { font-size: clamp(1.35rem, 2.6vw, 1.8rem); margin-bottom: 18px; }
+.quiz-dialog .quiz-option { padding: 12px 8px; }
+.quiz-dialog .quiz-option-mark { width: 36px; height: 36px; }
+.quiz-dialog .quiz .quiz-result-title { font-size: clamp(1.7rem, 3.4vw, 2.3rem); }
+.quiz-dialog[open] { animation: quiz-pop 0.22s ease-out; }
+@keyframes quiz-pop { from { opacity: 0; transform: translateY(12px) scale(0.98); } }
+@media (prefers-reduced-motion: reduce) { .quiz-dialog[open] { animation: none; } }
