@@ -398,93 +398,76 @@ window.addEventListener("pageswap", function (e) {
   var stage = box.querySelector("[data-quiz-stage]");
 
   var questions = [
-    {
-      q: "It's a free Saturday. You're most likely to...",
-      a: [
-        ["Take something apart to see how it works", "builder"],
-        ["Draw, edit a video or design something", "creator"],
-        ["Get outside, somewhere new or with animals", "explorer"],
-        ["Get stuck into a puzzle or a strategy game", "solver"],
-      ],
-    },
-    {
-      q: "Pick a superpower.",
-      a: [
-        ["Spot patterns nobody else can see", "solver"],
-        ["Never get lost, anywhere on Earth", "explorer"],
-        ["Build anything you imagine in a day", "builder"],
-        ["Know instantly when something's not right", "protector"],
-        ["Make your drawings come to life", "creator"],
-      ],
-    },
-    {
-      q: "Your group project is due. You're the one who...",
-      a: [
-        ["Makes it look amazing", "creator"],
-        ["Gets the thing actually working", "builder"],
-        ["Checks nothing can go wrong", "protector"],
-        ["Finds the facts nobody else found", "explorer"],
-        ["Works out the numbers", "solver"],
-      ],
-    },
-    {
-      q: "You could watch an hour of...",
-      a: [
-        ["A heist film", "protector"],
-        ["A nature documentary", "explorer"],
-        ["How an animated film gets made", "creator"],
-        ["Someone building a robot", "builder"],
-        ["A detective cracking a case", "solver"],
-      ],
-    },
+    { q: "It's a free Saturday. You're most likely to...", a: [
+      ["Take something apart to see how it works", "builder"],
+      ["Draw, edit a video or design something", "creator"],
+      ["Get outside, somewhere new or with animals", "explorer"],
+      ["Get stuck into a puzzle or a strategy game", "solver"],
+      ["Find out how a scam you saw online actually worked", "protector"] ] },
+    { q: "Pick a superpower.", a: [
+      ["Spot patterns nobody else can see", "solver"],
+      ["Never get lost, anywhere on Earth", "explorer"],
+      ["Build anything you imagine in a day", "builder"],
+      ["Know instantly when something's not right", "protector"],
+      ["Make your drawings come to life", "creator"] ] },
+    { q: "Your group project is due. You're the one who...", a: [
+      ["Makes it look amazing", "creator"],
+      ["Gets the thing actually working", "builder"],
+      ["Checks nothing can go wrong", "protector"],
+      ["Finds the facts nobody else found", "explorer"],
+      ["Works out the numbers", "solver"] ] },
+    { q: "You could watch an hour of...", a: [
+      ["A heist film", "protector"],
+      ["A nature documentary", "explorer"],
+      ["How an animated film gets made", "creator"],
+      ["Someone building a robot", "builder"],
+      ["A detective cracking a case", "solver"] ] },
+    { q: "You get to make one app. It's...", a: [
+      ["A game all your friends are playing", "creator"],
+      ["A live map of every bushfire in Australia", "explorer"],
+      ["Something that stops scam texts for good", "protector"],
+      ["A tool that predicts the footy results", "solver"],
+      ["A robot that cleans your room", "builder"] ] },
+    { q: "Your phone screen cracks. You...", a: [
+      ["Watch a video and fix it yourself", "builder"],
+      ["See it as an excuse for a new case design", "creator"],
+      ["Check what's on it before anyone else touches it", "protector"],
+      ["Head outside for the day anyway", "explorer"],
+      ["Compare every repair option to find the best deal", "solver"] ] },
+    { q: "Pick the excursion.", a: [
+      ["A robotics lab", "builder"],
+      ["A game or film studio", "creator"],
+      ["A national park with the rangers", "explorer"],
+      ["A lab full of microscopes and lasers", "solver"],
+      ["A day with a bank's security team", "protector"] ] },
   ];
 
   var results = {
-    builder: {
-      title: "You're a builder",
-      line: "You like making things that actually work.",
-      jobs: [
-        ["Computer vision engineer", "Builds systems that let phones, cars and drones understand images.", "career-vision"],
-        ["Robotics engineer", "Designs robots for farms, mines, hospitals and space."],
-        ["Mechatronics engineer", "Mixes electronics, mechanics and code to build smart machines."],
-      ],
-    },
-    creator: {
-      title: "You're a creator",
-      line: "You like making things people see, feel and use.",
-      jobs: [
-        ["Technical artist", "Uses light, shadow and code to make flat screens look 3D.", "career-artist"],
-        ["Game designer", "Invents the rules, worlds and challenges that make games fun."],
-        ["UX designer", "Makes apps and websites easy and enjoyable to use."],
-      ],
-    },
-    explorer: {
-      title: "You're an explorer",
-      line: "You want to understand the real world, outside the screen.",
-      jobs: [
-        ["Behavioural ecologist", "Studies how animals survive, hide and fool predators.", "career-ecologist"],
-        ["Remote sensing scientist", "Uses satellite and drone images to track forests, oceans and cities."],
-        ["Environmental data scientist", "Turns data about the planet into answers people can act on."],
-      ],
-    },
-    solver: {
-      title: "You're a solver",
-      line: "You like a hard question and a pattern nobody else has spotted.",
-      jobs: [
-        ["Data scientist", "Finds the story hiding in huge amounts of data."],
-        ["Machine learning engineer", "Teaches computers to learn from examples."],
-        ["Biophotonics researcher", "Works out how living things make colour and light.", "career-biophotonics"],
-      ],
-    },
-    protector: {
-      title: "You're a protector",
-      line: "You notice when something's off, and you want to fix it.",
-      jobs: [
-        ["Cybersecurity analyst", "Keeps people, schools and companies safe from online attacks."],
-        ["Penetration tester", "An ethical hacker, paid to find weak spots before criminals do."],
-        ["Digital forensics investigator", "Follows digital clues to work out what happened."],
-      ],
-    },
+    builder: { title: "You're a builder", line: "You like making things that actually work.", jobs: [
+      ["Computer vision engineer", "Builds systems that let phones, cars and drones understand images.", "career-vision"],
+      ["Robotics engineer", "Designs robots for farms, mines, hospitals and space."],
+      ["Mechatronics engineer", "Mixes electronics, mechanics and code to build smart machines."],
+      ["Drone engineer", "Builds drones that map land, check crops and help in rescues."] ] },
+    creator: { title: "You're a creator", line: "You like making things people see, feel and use.", jobs: [
+      ["Technical artist", "Uses light, shadow and code to make flat screens look 3D.", "career-artist"],
+      ["Game designer", "Invents the rules, worlds and challenges that make games fun."],
+      ["UX designer", "Makes apps and websites easy and enjoyable to use."],
+      ["3D animator", "Brings characters and worlds to life for games, film and ads."] ] },
+    explorer: { title: "You're an explorer", line: "You want to understand the real world, outside the screen.", jobs: [
+      ["Behavioural ecologist", "Studies how animals survive, hide and fool predators.", "career-ecologist"],
+      ["Remote sensing scientist", "Uses satellite and drone images to track forests, oceans and cities."],
+      ["Environmental data scientist", "Turns data about the planet into answers people can act on."],
+      ["Conservation technologist", "Uses cameras, sensors and AI to protect wildlife."] ] },
+    solver: { title: "You're a solver", line: "You like a hard question and a pattern nobody else has spotted.", jobs: [
+      ["Data scientist", "Finds the story hiding in huge amounts of data."],
+      ["Machine learning engineer", "Teaches computers to learn from examples."],
+      ["Biophotonics researcher", "Works out how living things make colour and light.", "career-biophotonics"],
+      ["Bioinformatician", "Uses code to read DNA and find patterns in living things."] ] },
+    protector: { title: "You're a protector", line: "You notice when something's off, and you want to fix it.", jobs: [
+      ["Cybersecurity analyst", "Keeps people, schools and companies safe from online attacks."],
+      ["Penetration tester", "An ethical hacker, paid to find weak spots before criminals do."],
+      ["Digital forensics investigator", "Follows digital clues to work out what happened."],
+      ["Privacy engineer", "Builds apps so people's personal information stays safe."] ] },
   };
   var order = ["builder", "creator", "explorer", "solver", "protector"];
   var step = 0;
@@ -523,31 +506,43 @@ window.addEventListener("pageswap", function (e) {
     if (step > 0) h.focus();
   }
 
-  function showResult() {
-    var best = order.slice().sort(function (x, y) {
+  function ranked() {
+    return order.slice().sort(function (x, y) {
       return (score[y] || 0) - (score[x] || 0) || order.indexOf(x) - order.indexOf(y);
-    })[0];
-    var r = results[best];
+    });
+  }
+
+  function jobItem(j) {
+    var li = el("li");
+    li.appendChild(el("strong", "", j[0]));
+    li.appendChild(el("span", "", j[1]));
+    if (j[2]) {
+      var a = el("a", "quiz-jump", "See this career");
+      a.href = "#" + j[2];
+      a.addEventListener("click", function () {
+        var d = document.getElementById(j[2]);
+        if (d) d.open = true;
+      });
+      li.appendChild(a);
+    }
+    return li;
+  }
+
+  function showResult() {
+    var top = ranked();
+    var r = results[top[0]];
+    var second = results[top[1]];
     stage.innerHTML = "";
     var h = el("p", "quiz-result-title", r.title);
     h.tabIndex = -1;
     var line = el("p", "quiz-result-line", r.line);
     var list = el("ul", "quiz-jobs");
-    r.jobs.forEach(function (j) {
-      var li = el("li");
-      li.appendChild(el("strong", "", j[0]));
-      li.appendChild(el("span", "", j[1]));
-      if (j[2]) {
-        var a = el("a", "quiz-jump", "See this career");
-        a.href = "#" + j[2];
-        a.addEventListener("click", function () {
-          var d = document.getElementById(j[2]);
-          if (d) d.open = true;
-        });
-        li.appendChild(a);
-      }
-      list.appendChild(li);
-    });
+    r.jobs.forEach(function (j) { list.appendChild(jobItem(j)); });
+    var also = el("div", "quiz-also");
+    also.appendChild(el("p", "quiz-also-title", (score[top[1]] || 0) > 0 ? "Also worth a look, because you're part " + second.title.replace("You're a ", "").toLowerCase() : "Also worth a look"));
+    var alsoList = el("ul", "quiz-jobs quiz-jobs--small");
+    second.jobs.slice(0, 2).forEach(function (j) { alsoList.appendChild(jobItem(j)); });
+    also.appendChild(alsoList);
     var again = el("button", "quiz-again", "Take it again");
     again.type = "button";
     again.addEventListener("click", function () {
@@ -556,7 +551,7 @@ window.addEventListener("pageswap", function (e) {
       showQuestion();
       stage.querySelector(".quiz-q").focus();
     });
-    stage.append(h, line, list, again);
+    stage.append(h, line, list, also, again);
     h.focus();
   }
 

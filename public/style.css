@@ -4160,3 +4160,53 @@ footer::after { background-image: url(/images/brand/symbol-lilac.svg); opacity: 
 .quiz .quiz-q { color: var(--white) !important; }
 .quiz .quiz-result-title { color: var(--lime) !important; }
 .quiz .quiz-jobs strong { color: var(--white) !important; }
+
+/* Careers dropdowns, lighter open state; quiz extras (November 2026) */
+.career-item { transition: background 0.2s ease; }
+.career-item[open] {
+  margin: 10px 0;
+  padding: 0 18px 4px;
+  border: 1px solid var(--line-light);
+  border-left: 3px solid var(--plum);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.6);
+}
+.career-item[open] summary { padding-left: 0; padding-right: 0; }
+.career-item-body { padding: 0 0 20px; }
+.career-item-body > p {
+  margin: 0 0 16px;
+  font-size: 1.02rem;
+  color: var(--ink);
+  max-width: 36em;
+}
+.career-item-body dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  border-top: 0;
+  padding-top: 0;
+}
+.career-item-body dl > div {
+  padding: 12px 14px;
+  border: 1px solid var(--line-light);
+  border-radius: 10px;
+  background: var(--white);
+}
+.career-item-body dt {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--plum);
+  opacity: 0.75;
+  margin-bottom: 4px;
+}
+.career-item-body dd { margin: 0; font-size: 0.9rem; line-height: 1.45; color: var(--text-dark-soft); }
+.career-item-body .career-subjects { gap: 4px 12px; }
+.career-item-body .career-subjects li::before { content: ""; }
+.career-item-body .career-subjects li + li::before { content: "/ "; color: var(--plum); opacity: 0.5; }
+@media (max-width: 560px) { .career-item-body dl { grid-template-columns: 1fr; } }
+
+.quiz-also { margin: 4px 0 20px; padding-top: 16px; border-top: 1px solid var(--line-dark); }
+.quiz .quiz-also-title { margin: 0 0 10px; font-size: 0.88rem; font-weight: 600; color: var(--lime) !important; }
+.quiz-jobs--small { gap: 10px; margin-bottom: 0; }
+.quiz-jobs--small li { border-left-color: var(--lilac); }
+.quiz-jobs--small strong { font-size: 0.95rem; }
