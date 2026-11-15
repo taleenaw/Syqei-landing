@@ -11,8 +11,8 @@
   var style = document.createElement("style");
   style.textContent =
     ".cursor-bfly{position:fixed;top:0;left:0;z-index:2000;pointer-events:none;opacity:0;" +
-    "transition:opacity .4s ease;will-change:transform;margin:-16px 0 0 -16px}" +
-    ".cursor-bfly span{display:block;width:30px;height:51px;" +
+    "transition:opacity .4s ease;will-change:transform;margin:-10px 0 0 -10px}" +
+    ".cursor-bfly span{display:block;width:20px;height:34px;" +
     "background:url(/images/brand/symbol.svg) center/contain no-repeat;" +
     "filter:drop-shadow(0 0 .6px #14032a) drop-shadow(0 0 .6px #14032a) drop-shadow(0 0 .6px #14032a) drop-shadow(0 3px 6px rgba(20,3,42,.3));" +
     "transform-origin:30% 55%;animation:cursor-bfly-flap .55s ease-in-out infinite alternate}" +
@@ -68,7 +68,7 @@
     var target = Math.max(-22, Math.min(22, dx * 3));
     angle += (target - angle) * 0.1;
     // Sits down and to the right of the pointer, so it trails beside the tip.
-    wrap.style.transform = "translate(" + (px + 18) + "px," + (py + 18) + "px) rotate(" + angle + "deg)";
+    wrap.style.transform = "translate(" + (px + 14) + "px," + (py + 14) + "px) rotate(" + angle + "deg)";
     if (Math.abs(tx - px) < 0.1 && Math.abs(ty - py) < 0.1 && Math.abs(angle) < 0.1) {
       running = false;
       return;
