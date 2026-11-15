@@ -4362,3 +4362,19 @@ body:has(.quiz-dialog[open]) { overflow: hidden; }
   .quiz-launch, .quiz-launch-go { transition: none; }
   .quiz-launch:hover { transform: none; }
 }
+
+/* About, oversized butterfly behind Why Syqei (November 2026) */
+.psyche-about {
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  width: clamp(420px, 62vw, 860px);
+  height: auto;
+  margin-top: -120px;
+  opacity: 0.2;
+  transform: translateX(-30%) rotate(-14deg);
+  pointer-events: none;
+}
+@media (max-width: 760px) {
+  .psyche-about { width: 130vw; transform: translateX(-55%) rotate(-14deg); opacity: 0.1; }
+}
