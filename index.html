@@ -316,14 +316,22 @@
         <p class="career-more-list">Robotics engineer, data scientist, UX designer, remote sensing scientist, drone engineer, 3D animator, ethical hacker, bioinformatician</p>
       </div>
       </div>
-      <aside class="quiz" data-quiz aria-labelledby="quiz-title">
-        <div class="quiz-head">
-          <div class="quiz-dial" aria-hidden="true"><svg viewBox="0 0 76 76"><circle class="quiz-dial-track" cx="38" cy="38" r="34"/><circle class="quiz-dial-fill" cx="38" cy="38" r="34" stroke-dasharray="213.63" stroke-dashoffset="213.63" data-quiz-dial/></svg><span data-quiz-dial-text>1/7</span></div>
-          <h3 id="quiz-title" class="quiz-title">Which kind of tech are you?</h3>
+      <div class="quiz-launch-wrap">
+        <button type="button" class="quiz-launch" data-quiz-open data-cta="quiz_open">
+          <span class="quiz-launch-title">Which kind of tech are you?</span>
+          <span class="quiz-launch-go">Take the quiz</span>
+        </button>
+      </div>
+      <dialog class="quiz-dialog" data-quiz-dialog aria-labelledby="quiz-title">
+        <div class="quiz" data-quiz>
+          <div class="quiz-head">
+            <div class="quiz-dial" aria-hidden="true"><svg viewBox="0 0 76 76"><circle class="quiz-dial-track" cx="38" cy="38" r="34"/><circle class="quiz-dial-fill" cx="38" cy="38" r="34" stroke-dasharray="213.63" stroke-dashoffset="213.63" data-quiz-dial/></svg><span data-quiz-dial-text>1/7</span></div>
+            <h2 id="quiz-title" class="quiz-title">Which kind of tech are you?</h2>
+            <button type="button" class="quiz-quit" data-quiz-quit>Quit</button>
+          </div>
+          <div class="quiz-stage" data-quiz-stage aria-live="polite"></div>
         </div>
-        <div class="quiz-stage" data-quiz-stage aria-live="polite"></div>
-        <noscript><p>Turn on JavaScript to take the quiz.</p></noscript>
-      </aside>
+      </dialog>
     </div>
   </div>
 </section>

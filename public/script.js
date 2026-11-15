@@ -378,7 +378,9 @@ window.addEventListener("pageswap", function (e) {
 // Careers quiz. Runs in the browser only. Nothing is stored or sent.
 (function () {
   var box = document.querySelector("[data-quiz]");
-  if (!box) return;
+  var dialog = document.querySelector("[data-quiz-dialog]");
+  var openBtn = document.querySelector("[data-quiz-open]");
+  if (!box || !dialog || !openBtn) return;
   var stage = box.querySelector("[data-quiz-stage]");
 
   var questions = [
@@ -512,6 +514,7 @@ window.addEventListener("pageswap", function (e) {
       var a = el("a", "quiz-jump", "See this career");
       a.href = "#" + j[2];
       a.addEventListener("click", function () {
+        dialog.close();
         var d = document.getElementById(j[2]);
         if (d) d.open = true;
       });
@@ -548,5 +551,24 @@ window.addEventListener("pageswap", function (e) {
     h.focus();
   }
 
-  showQuestion();
+  function reset() {
+    step = 0;
+    score = {};
+    showQuestion();
+  }
+  openBtn.addEventListener("click", function () {
+    reset();
+    if (dialog.showModal) dialog.showModal();
+    else dialog.setAttribute("open", "");
+    var first = stage.querySelector(".quiz-option");
+    if (first) first.focus();
+  });
+  box.querySelector("[data-quiz-quit]").addEventListener("click", function () {
+    dialog.close();
+  });
+  dialog.addEventListener("close", function () {
+    openBtn.focus({ preventScroll: true });
+  });
+
+  reset();
 })();
