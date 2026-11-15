@@ -3897,3 +3897,50 @@ main {
   border-radius: 0;
   background: none;
 }
+
+/* Students and parents (November 2026) */
+.hero-routes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin: 22px 0 0;
+}
+.hero-routes a {
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--lime);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+.hero-routes a:hover { color: var(--lime); }
+.show-band { border-top: 1px solid var(--line-dark); }
+.show-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: clamp(24px, 4vw, 64px);
+  align-items: center;
+}
+.show-grid h2 { margin-top: 0; }
+.show-note { margin: 18px 0 0; font-size: 0.92rem; color: var(--text-light-soft) !important; }
+.show-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.from-student {
+  margin: 0 0 22px;
+  padding: 12px 16px;
+  border-left: 3px solid var(--lime);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--white) !important;
+  font-weight: 600;
+  max-width: 40em;
+}
+@media (max-width: 900px) {
+  .show-grid { grid-template-columns: 1fr; }
+}
+.paper .gallery--make .spec,
+.paper .gallery--make .spec-text {
+  color: var(--text-dark-soft) !important;
+  font-family: var(--body);
+  font-size: 0.92rem;
+  opacity: 1;
+}
+.show-grid h2 { margin-bottom: 16px; }

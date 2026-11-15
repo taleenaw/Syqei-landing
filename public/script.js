@@ -361,3 +361,32 @@ window.addEventListener("pageswap", function (e) {
     root.classList.remove("notes-ready", "sharp-ready");
   }).observe(root, { attributes: true, attributeFilter: ["data-motion"] });
 })();
+
+// Show a parent / ask your teacher. Uses the phone's share sheet when there
+// is one, otherwise the link's own pre-written email. Collects nothing.
+(function () {
+  var links = document.querySelectorAll("[data-share]");
+  if (!links.length || !navigator.share) return;
+  links.forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      navigator
+        .share({
+          title: a.getAttribute("data-share-title"),
+          text: a.getAttribute("data-share-text"),
+          url: a.getAttribute("data-share-url"),
+        })
+        .catch(function () {});
+    });
+  });
+})();
+
+// Parents and teachers who arrive from a student's link get a short welcome.
+(function () {
+  try {
+    if (new URLSearchParams(location.search).get("ref") !== "student") return;
+  } catch (e) { return; }
+  document.querySelectorAll("[data-from-student]").forEach(function (el) {
+    el.hidden = false;
+  });
+})();
