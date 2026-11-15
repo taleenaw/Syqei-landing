@@ -506,39 +506,54 @@ window.addEventListener("pageswap", function (e) {
     });
   }
 
-  function jobItem(j) {
+  function jobTile(j) {
     var li = el("li");
-    li.appendChild(el("strong", "", j[0]));
-    li.appendChild(el("span", "", j[1]));
+    var tile;
     if (j[2]) {
-      var a = el("a", "quiz-jump", "See this career");
-      a.href = "#" + j[2];
-      a.addEventListener("click", function () {
+      tile = el("a", "quiz-tile quiz-tile--link");
+      tile.href = "#" + j[2];
+      tile.addEventListener("click", function () {
         dialog.close();
         var d = document.getElementById(j[2]);
         if (d) d.open = true;
       });
-      li.appendChild(a);
+    } else {
+      tile = el("div", "quiz-tile");
     }
+    tile.title = j[1];
+    tile.appendChild(el("span", "quiz-tile-name", j[0]));
+    if (j[2]) tile.appendChild(el("span", "quiz-tile-icon"));
+    li.appendChild(tile);
     return li;
   }
 
   function showResult() {
     var top = ranked();
     var r = results[top[0]];
-    var second = results[top[1]];
     setDial(questions.length, "Done");
     stage.innerHTML = "";
     var h = el("p", "quiz-result-title", r.title);
     h.tabIndex = -1;
     var line = el("p", "quiz-result-line", r.line);
-    var list = el("ul", "quiz-jobs");
-    r.jobs.forEach(function (j) { list.appendChild(jobItem(j)); });
-    var also = el("div", "quiz-also");
-    also.appendChild(el("p", "quiz-also-title", (score[top[1]] || 0) > 0 ? "Also worth a look, because you're part " + second.title.replace("You're a ", "").toLowerCase() : "Also worth a look"));
-    var alsoList = el("ul", "quiz-jobs quiz-jobs--small");
-    second.jobs.slice(0, 2).forEach(function (j) { alsoList.appendChild(jobItem(j)); });
-    also.appendChild(alsoList);
+
+    var mix = el("ul", "quiz-mix");
+    mix.setAttribute("aria-label", "Your mix");
+    top.forEach(function (key, i) {
+      var n = score[key] || 0;
+      var li = el("li", i === 0 ? "is-top" : "");
+      li.appendChild(el("span", "quiz-mix-name", key.charAt(0).toUpperCase() + key.slice(1)));
+      var bar = el("span", "quiz-mix-bar");
+      var fill = el("span");
+      fill.style.width = (n / questions.length) * 100 + "%";
+      bar.appendChild(fill);
+      li.appendChild(bar);
+      mix.appendChild(li);
+    });
+
+    var jobsTitle = el("p", "quiz-jobs-title", "Jobs you might love");
+    var list = el("ul", "quiz-tiles");
+    r.jobs.forEach(function (j) { list.appendChild(jobTile(j)); });
+
     var again = el("button", "quiz-again", "Take it again");
     again.type = "button";
     again.addEventListener("click", function () {
@@ -547,7 +562,7 @@ window.addEventListener("pageswap", function (e) {
       showQuestion();
       stage.querySelector(".quiz-q").focus();
     });
-    stage.append(h, line, list, also, again);
+    stage.append(h, line, mix, jobsTitle, list, again);
     h.focus();
   }
 
